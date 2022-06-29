@@ -1,0 +1,607 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 55;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		00D7EDE7286C3FDF00E602D2 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 00D7EDE6286C3FDF00E602D2 /* AppDelegate.swift */; };
+		00D7EDE9286C3FDF00E602D2 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 00D7EDE8286C3FDF00E602D2 /* SceneDelegate.swift */; };
+		00D7EDEB286C3FDF00E602D2 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 00D7EDEA286C3FDF00E602D2 /* ViewController.swift */; };
+		00D7EDEE286C3FDF00E602D2 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 00D7EDEC286C3FDF00E602D2 /* Main.storyboard */; };
+		00D7EDF0286C3FE300E602D2 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 00D7EDEF286C3FE300E602D2 /* Assets.xcassets */; };
+		00D7EDF3286C3FE300E602D2 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 00D7EDF1286C3FE300E602D2 /* LaunchScreen.storyboard */; };
+		00D7EDFE286C3FE300E602D2 /* Charger_AppointerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 00D7EDFD286C3FE300E602D2 /* Charger_AppointerTests.swift */; };
+		00D7EE08286C3FE300E602D2 /* Charger_AppointerUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 00D7EE07286C3FE300E602D2 /* Charger_AppointerUITests.swift */; };
+		00D7EE0A286C3FE300E602D2 /* Charger_AppointerUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 00D7EE09286C3FE300E602D2 /* Charger_AppointerUITestsLaunchTests.swift */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		00D7EDFA286C3FE300E602D2 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 00D7EDDB286C3FDF00E602D2 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 00D7EDE2286C3FDF00E602D2;
+			remoteInfo = "Charger Appointer";
+		};
+		00D7EE04286C3FE300E602D2 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 00D7EDDB286C3FDF00E602D2 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 00D7EDE2286C3FDF00E602D2;
+			remoteInfo = "Charger Appointer";
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		00D7EDE3286C3FDF00E602D2 /* Charger Appointer.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Charger Appointer.app"; sourceTree = BUILT_PRODUCTS_DIR; };
+		00D7EDE6286C3FDF00E602D2 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		00D7EDE8286C3FDF00E602D2 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
+		00D7EDEA286C3FDF00E602D2 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		00D7EDED286C3FDF00E602D2 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		00D7EDEF286C3FE300E602D2 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		00D7EDF2286C3FE300E602D2 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
+		00D7EDF4286C3FE300E602D2 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		00D7EDF9286C3FE300E602D2 /* Charger AppointerTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "Charger AppointerTests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
+		00D7EDFD286C3FE300E602D2 /* Charger_AppointerTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Charger_AppointerTests.swift; sourceTree = "<group>"; };
+		00D7EE03286C3FE300E602D2 /* Charger AppointerUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "Charger AppointerUITests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
+		00D7EE07286C3FE300E602D2 /* Charger_AppointerUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Charger_AppointerUITests.swift; sourceTree = "<group>"; };
+		00D7EE09286C3FE300E602D2 /* Charger_AppointerUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Charger_AppointerUITestsLaunchTests.swift; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		00D7EDE0286C3FDF00E602D2 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		00D7EDF6286C3FE300E602D2 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		00D7EE00286C3FE300E602D2 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		00D7EDDA286C3FDF00E602D2 = {
+			isa = PBXGroup;
+			children = (
+				00D7EDE5286C3FDF00E602D2 /* Charger Appointer */,
+				00D7EDFC286C3FE300E602D2 /* Charger AppointerTests */,
+				00D7EE06286C3FE300E602D2 /* Charger AppointerUITests */,
+				00D7EDE4286C3FDF00E602D2 /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		00D7EDE4286C3FDF00E602D2 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				00D7EDE3286C3FDF00E602D2 /* Charger Appointer.app */,
+				00D7EDF9286C3FE300E602D2 /* Charger AppointerTests.xctest */,
+				00D7EE03286C3FE300E602D2 /* Charger AppointerUITests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		00D7EDE5286C3FDF00E602D2 /* Charger Appointer */ = {
+			isa = PBXGroup;
+			children = (
+				00D7EDE6286C3FDF00E602D2 /* AppDelegate.swift */,
+				00D7EDE8286C3FDF00E602D2 /* SceneDelegate.swift */,
+				00D7EDEA286C3FDF00E602D2 /* ViewController.swift */,
+				00D7EDEC286C3FDF00E602D2 /* Main.storyboard */,
+				00D7EDEF286C3FE300E602D2 /* Assets.xcassets */,
+				00D7EDF1286C3FE300E602D2 /* LaunchScreen.storyboard */,
+				00D7EDF4286C3FE300E602D2 /* Info.plist */,
+			);
+			path = "Charger Appointer";
+			sourceTree = "<group>";
+		};
+		00D7EDFC286C3FE300E602D2 /* Charger AppointerTests */ = {
+			isa = PBXGroup;
+			children = (
+				00D7EDFD286C3FE300E602D2 /* Charger_AppointerTests.swift */,
+			);
+			path = "Charger AppointerTests";
+			sourceTree = "<group>";
+		};
+		00D7EE06286C3FE300E602D2 /* Charger AppointerUITests */ = {
+			isa = PBXGroup;
+			children = (
+				00D7EE07286C3FE300E602D2 /* Charger_AppointerUITests.swift */,
+				00D7EE09286C3FE300E602D2 /* Charger_AppointerUITestsLaunchTests.swift */,
+			);
+			path = "Charger AppointerUITests";
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		00D7EDE2286C3FDF00E602D2 /* Charger Appointer */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 00D7EE0D286C3FE300E602D2 /* Build configuration list for PBXNativeTarget "Charger Appointer" */;
+			buildPhases = (
+				00D7EDDF286C3FDF00E602D2 /* Sources */,
+				00D7EDE0286C3FDF00E602D2 /* Frameworks */,
+				00D7EDE1286C3FDF00E602D2 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = "Charger Appointer";
+			productName = "Charger Appointer";
+			productReference = 00D7EDE3286C3FDF00E602D2 /* Charger Appointer.app */;
+			productType = "com.apple.product-type.application";
+		};
+		00D7EDF8286C3FE300E602D2 /* Charger AppointerTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 00D7EE10286C3FE300E602D2 /* Build configuration list for PBXNativeTarget "Charger AppointerTests" */;
+			buildPhases = (
+				00D7EDF5286C3FE300E602D2 /* Sources */,
+				00D7EDF6286C3FE300E602D2 /* Frameworks */,
+				00D7EDF7286C3FE300E602D2 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				00D7EDFB286C3FE300E602D2 /* PBXTargetDependency */,
+			);
+			name = "Charger AppointerTests";
+			productName = "Charger AppointerTests";
+			productReference = 00D7EDF9286C3FE300E602D2 /* Charger AppointerTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+		00D7EE02286C3FE300E602D2 /* Charger AppointerUITests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 00D7EE13286C3FE300E602D2 /* Build configuration list for PBXNativeTarget "Charger AppointerUITests" */;
+			buildPhases = (
+				00D7EDFF286C3FE300E602D2 /* Sources */,
+				00D7EE00286C3FE300E602D2 /* Frameworks */,
+				00D7EE01286C3FE300E602D2 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				00D7EE05286C3FE300E602D2 /* PBXTargetDependency */,
+			);
+			name = "Charger AppointerUITests";
+			productName = "Charger AppointerUITests";
+			productReference = 00D7EE03286C3FE300E602D2 /* Charger AppointerUITests.xctest */;
+			productType = "com.apple.product-type.bundle.ui-testing";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		00D7EDDB286C3FDF00E602D2 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				BuildIndependentTargetsInParallel = 1;
+				LastSwiftUpdateCheck = 1340;
+				LastUpgradeCheck = 1340;
+				TargetAttributes = {
+					00D7EDE2286C3FDF00E602D2 = {
+						CreatedOnToolsVersion = 13.4.1;
+					};
+					00D7EDF8286C3FE300E602D2 = {
+						CreatedOnToolsVersion = 13.4.1;
+						TestTargetID = 00D7EDE2286C3FDF00E602D2;
+					};
+					00D7EE02286C3FE300E602D2 = {
+						CreatedOnToolsVersion = 13.4.1;
+						TestTargetID = 00D7EDE2286C3FDF00E602D2;
+					};
+				};
+			};
+			buildConfigurationList = 00D7EDDE286C3FDF00E602D2 /* Build configuration list for PBXProject "Charger Appointer" */;
+			compatibilityVersion = "Xcode 13.0";
+			developmentRegion = en;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = 00D7EDDA286C3FDF00E602D2;
+			productRefGroup = 00D7EDE4286C3FDF00E602D2 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				00D7EDE2286C3FDF00E602D2 /* Charger Appointer */,
+				00D7EDF8286C3FE300E602D2 /* Charger AppointerTests */,
+				00D7EE02286C3FE300E602D2 /* Charger AppointerUITests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		00D7EDE1286C3FDF00E602D2 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				00D7EDF3286C3FE300E602D2 /* LaunchScreen.storyboard in Resources */,
+				00D7EDF0286C3FE300E602D2 /* Assets.xcassets in Resources */,
+				00D7EDEE286C3FDF00E602D2 /* Main.storyboard in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		00D7EDF7286C3FE300E602D2 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		00D7EE01286C3FE300E602D2 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		00D7EDDF286C3FDF00E602D2 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				00D7EDEB286C3FDF00E602D2 /* ViewController.swift in Sources */,
+				00D7EDE7286C3FDF00E602D2 /* AppDelegate.swift in Sources */,
+				00D7EDE9286C3FDF00E602D2 /* SceneDelegate.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		00D7EDF5286C3FE300E602D2 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				00D7EDFE286C3FE300E602D2 /* Charger_AppointerTests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		00D7EDFF286C3FE300E602D2 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				00D7EE0A286C3FE300E602D2 /* Charger_AppointerUITestsLaunchTests.swift in Sources */,
+				00D7EE08286C3FE300E602D2 /* Charger_AppointerUITests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		00D7EDFB286C3FE300E602D2 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 00D7EDE2286C3FDF00E602D2 /* Charger Appointer */;
+			targetProxy = 00D7EDFA286C3FE300E602D2 /* PBXContainerItemProxy */;
+		};
+		00D7EE05286C3FE300E602D2 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 00D7EDE2286C3FDF00E602D2 /* Charger Appointer */;
+			targetProxy = 00D7EE04286C3FE300E602D2 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin PBXVariantGroup section */
+		00D7EDEC286C3FDF00E602D2 /* Main.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				00D7EDED286C3FDF00E602D2 /* Base */,
+			);
+			name = Main.storyboard;
+			sourceTree = "<group>";
+		};
+		00D7EDF1286C3FE300E602D2 /* LaunchScreen.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				00D7EDF2286C3FE300E602D2 /* Base */,
+			);
+			name = LaunchScreen.storyboard;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		00D7EE0B286C3FE300E602D2 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++17";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 15.5;
+				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
+				MTL_FAST_MATH = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+			};
+			name = Debug;
+		};
+		00D7EE0C286C3FE300E602D2 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++17";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 15.5;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				MTL_FAST_MATH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_COMPILATION_MODE = wholemodule;
+				SWIFT_OPTIMIZATION_LEVEL = "-O";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		00D7EE0E286C3FE300E602D2 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = R2MF39ASQT;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = "Charger Appointer/Info.plist";
+				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
+				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
+				INFOPLIST_KEY_UIMainStoryboardFile = Main;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = "Mert-Tecimen.Charger-Appointer";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		00D7EE0F286C3FE300E602D2 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = R2MF39ASQT;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = "Charger Appointer/Info.plist";
+				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
+				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
+				INFOPLIST_KEY_UIMainStoryboardFile = Main;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = "Mert-Tecimen.Charger-Appointer";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
+		00D7EE11286C3FE300E602D2 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = R2MF39ASQT;
+				GENERATE_INFOPLIST_FILE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 15.5;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = "Mert-Tecimen.Charger-AppointerTests";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Charger Appointer.app/Charger Appointer";
+			};
+			name = Debug;
+		};
+		00D7EE12286C3FE300E602D2 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = R2MF39ASQT;
+				GENERATE_INFOPLIST_FILE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 15.5;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = "Mert-Tecimen.Charger-AppointerTests";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Charger Appointer.app/Charger Appointer";
+			};
+			name = Release;
+		};
+		00D7EE14286C3FE300E602D2 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = R2MF39ASQT;
+				GENERATE_INFOPLIST_FILE = YES;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = "Mert-Tecimen.Charger-AppointerUITests";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_TARGET_NAME = "Charger Appointer";
+			};
+			name = Debug;
+		};
+		00D7EE15286C3FE300E602D2 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = R2MF39ASQT;
+				GENERATE_INFOPLIST_FILE = YES;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = "Mert-Tecimen.Charger-AppointerUITests";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_TARGET_NAME = "Charger Appointer";
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		00D7EDDE286C3FDF00E602D2 /* Build configuration list for PBXProject "Charger Appointer" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				00D7EE0B286C3FE300E602D2 /* Debug */,
+				00D7EE0C286C3FE300E602D2 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		00D7EE0D286C3FE300E602D2 /* Build configuration list for PBXNativeTarget "Charger Appointer" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				00D7EE0E286C3FE300E602D2 /* Debug */,
+				00D7EE0F286C3FE300E602D2 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		00D7EE10286C3FE300E602D2 /* Build configuration list for PBXNativeTarget "Charger AppointerTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				00D7EE11286C3FE300E602D2 /* Debug */,
+				00D7EE12286C3FE300E602D2 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		00D7EE13286C3FE300E602D2 /* Build configuration list for PBXNativeTarget "Charger AppointerUITests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				00D7EE14286C3FE300E602D2 /* Debug */,
+				00D7EE15286C3FE300E602D2 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 00D7EDDB286C3FDF00E602D2 /* Project object */;
+}
