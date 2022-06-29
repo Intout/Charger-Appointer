@@ -10,12 +10,22 @@
 		00D7EDE7286C3FDF00E602D2 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 00D7EDE6286C3FDF00E602D2 /* AppDelegate.swift */; };
 		00D7EDE9286C3FDF00E602D2 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 00D7EDE8286C3FDF00E602D2 /* SceneDelegate.swift */; };
 		00D7EDEB286C3FDF00E602D2 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 00D7EDEA286C3FDF00E602D2 /* ViewController.swift */; };
-		00D7EDEE286C3FDF00E602D2 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 00D7EDEC286C3FDF00E602D2 /* Main.storyboard */; };
 		00D7EDF0286C3FE300E602D2 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 00D7EDEF286C3FE300E602D2 /* Assets.xcassets */; };
 		00D7EDF3286C3FE300E602D2 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 00D7EDF1286C3FE300E602D2 /* LaunchScreen.storyboard */; };
 		00D7EDFE286C3FE300E602D2 /* Charger_AppointerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 00D7EDFD286C3FE300E602D2 /* Charger_AppointerTests.swift */; };
 		00D7EE08286C3FE300E602D2 /* Charger_AppointerUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 00D7EE07286C3FE300E602D2 /* Charger_AppointerUITests.swift */; };
 		00D7EE0A286C3FE300E602D2 /* Charger_AppointerUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 00D7EE09286C3FE300E602D2 /* Charger_AppointerUITestsLaunchTests.swift */; };
+		00D7EE1B286C45E800E602D2 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 00D7EE1D286C45E800E602D2 /* Localizable.strings */; };
+		00D7EE20286C480E00E602D2 /* AuthenticationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 00D7EE1F286C480E00E602D2 /* AuthenticationViewController.swift */; };
+		00D7EE2C286C724C00E602D2 /* Ubuntu-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 00D7EE24286C724B00E602D2 /* Ubuntu-Regular.ttf */; };
+		00D7EE2D286C724C00E602D2 /* Ubuntu-Bold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 00D7EE25286C724B00E602D2 /* Ubuntu-Bold.ttf */; };
+		00D7EE2E286C724C00E602D2 /* Ubuntu-Light.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 00D7EE26286C724C00E602D2 /* Ubuntu-Light.ttf */; };
+		00D7EE2F286C724C00E602D2 /* Ubuntu-BoldItalic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 00D7EE27286C724C00E602D2 /* Ubuntu-BoldItalic.ttf */; };
+		00D7EE30286C724C00E602D2 /* Ubuntu-LightItalic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 00D7EE28286C724C00E602D2 /* Ubuntu-LightItalic.ttf */; };
+		00D7EE31286C724C00E602D2 /* Ubuntu-MediumItalic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 00D7EE29286C724C00E602D2 /* Ubuntu-MediumItalic.ttf */; };
+		00D7EE32286C724C00E602D2 /* Ubuntu-Medium.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 00D7EE2A286C724C00E602D2 /* Ubuntu-Medium.ttf */; };
+		00D7EE33286C724C00E602D2 /* Ubuntu-Italic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 00D7EE2B286C724C00E602D2 /* Ubuntu-Italic.ttf */; };
+		00D7EE36286C72FC00E602D2 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 00D7EE35286C72FC00E602D2 /* Constants.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -40,7 +50,6 @@
 		00D7EDE6286C3FDF00E602D2 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		00D7EDE8286C3FDF00E602D2 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
 		00D7EDEA286C3FDF00E602D2 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
-		00D7EDED286C3FDF00E602D2 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		00D7EDEF286C3FE300E602D2 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		00D7EDF2286C3FE300E602D2 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		00D7EDF4286C3FE300E602D2 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -49,6 +58,19 @@
 		00D7EE03286C3FE300E602D2 /* Charger AppointerUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "Charger AppointerUITests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		00D7EE07286C3FE300E602D2 /* Charger_AppointerUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Charger_AppointerUITests.swift; sourceTree = "<group>"; };
 		00D7EE09286C3FE300E602D2 /* Charger_AppointerUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Charger_AppointerUITestsLaunchTests.swift; sourceTree = "<group>"; };
+		00D7EE1C286C45E800E602D2 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Localizable.strings; sourceTree = "<group>"; };
+		00D7EE1F286C480E00E602D2 /* AuthenticationViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthenticationViewController.swift; sourceTree = "<group>"; };
+		00D7EE21286C52D100E602D2 /* tr */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = tr; path = tr.lproj/LaunchScreen.strings; sourceTree = "<group>"; };
+		00D7EE22286C52DE00E602D2 /* tr */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = tr; path = tr.lproj/Localizable.strings; sourceTree = "<group>"; };
+		00D7EE24286C724B00E602D2 /* Ubuntu-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Ubuntu-Regular.ttf"; sourceTree = "<group>"; };
+		00D7EE25286C724B00E602D2 /* Ubuntu-Bold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Ubuntu-Bold.ttf"; sourceTree = "<group>"; };
+		00D7EE26286C724C00E602D2 /* Ubuntu-Light.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Ubuntu-Light.ttf"; sourceTree = "<group>"; };
+		00D7EE27286C724C00E602D2 /* Ubuntu-BoldItalic.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Ubuntu-BoldItalic.ttf"; sourceTree = "<group>"; };
+		00D7EE28286C724C00E602D2 /* Ubuntu-LightItalic.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Ubuntu-LightItalic.ttf"; sourceTree = "<group>"; };
+		00D7EE29286C724C00E602D2 /* Ubuntu-MediumItalic.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Ubuntu-MediumItalic.ttf"; sourceTree = "<group>"; };
+		00D7EE2A286C724C00E602D2 /* Ubuntu-Medium.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Ubuntu-Medium.ttf"; sourceTree = "<group>"; };
+		00D7EE2B286C724C00E602D2 /* Ubuntu-Italic.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Ubuntu-Italic.ttf"; sourceTree = "<group>"; };
+		00D7EE35286C72FC00E602D2 /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -99,10 +121,13 @@
 		00D7EDE5286C3FDF00E602D2 /* Charger Appointer */ = {
 			isa = PBXGroup;
 			children = (
+				00D7EE35286C72FC00E602D2 /* Constants.swift */,
+				00D7EE23286C723200E602D2 /* Fonts */,
+				00D7EE1D286C45E800E602D2 /* Localizable.strings */,
 				00D7EDE6286C3FDF00E602D2 /* AppDelegate.swift */,
 				00D7EDE8286C3FDF00E602D2 /* SceneDelegate.swift */,
 				00D7EDEA286C3FDF00E602D2 /* ViewController.swift */,
-				00D7EDEC286C3FDF00E602D2 /* Main.storyboard */,
+				00D7EE16286C40AC00E602D2 /* Authentication View */,
 				00D7EDEF286C3FE300E602D2 /* Assets.xcassets */,
 				00D7EDF1286C3FE300E602D2 /* LaunchScreen.storyboard */,
 				00D7EDF4286C3FE300E602D2 /* Info.plist */,
@@ -125,6 +150,29 @@
 				00D7EE09286C3FE300E602D2 /* Charger_AppointerUITestsLaunchTests.swift */,
 			);
 			path = "Charger AppointerUITests";
+			sourceTree = "<group>";
+		};
+		00D7EE16286C40AC00E602D2 /* Authentication View */ = {
+			isa = PBXGroup;
+			children = (
+				00D7EE1F286C480E00E602D2 /* AuthenticationViewController.swift */,
+			);
+			path = "Authentication View";
+			sourceTree = "<group>";
+		};
+		00D7EE23286C723200E602D2 /* Fonts */ = {
+			isa = PBXGroup;
+			children = (
+				00D7EE25286C724B00E602D2 /* Ubuntu-Bold.ttf */,
+				00D7EE27286C724C00E602D2 /* Ubuntu-BoldItalic.ttf */,
+				00D7EE2B286C724C00E602D2 /* Ubuntu-Italic.ttf */,
+				00D7EE26286C724C00E602D2 /* Ubuntu-Light.ttf */,
+				00D7EE28286C724C00E602D2 /* Ubuntu-LightItalic.ttf */,
+				00D7EE2A286C724C00E602D2 /* Ubuntu-Medium.ttf */,
+				00D7EE29286C724C00E602D2 /* Ubuntu-MediumItalic.ttf */,
+				00D7EE24286C724B00E602D2 /* Ubuntu-Regular.ttf */,
+			);
+			path = Fonts;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -213,6 +261,7 @@
 			knownRegions = (
 				en,
 				Base,
+				tr,
 			);
 			mainGroup = 00D7EDDA286C3FDF00E602D2;
 			productRefGroup = 00D7EDE4286C3FDF00E602D2 /* Products */;
@@ -231,9 +280,17 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				00D7EE33286C724C00E602D2 /* Ubuntu-Italic.ttf in Resources */,
+				00D7EE30286C724C00E602D2 /* Ubuntu-LightItalic.ttf in Resources */,
+				00D7EE2D286C724C00E602D2 /* Ubuntu-Bold.ttf in Resources */,
+				00D7EE2F286C724C00E602D2 /* Ubuntu-BoldItalic.ttf in Resources */,
+				00D7EE2C286C724C00E602D2 /* Ubuntu-Regular.ttf in Resources */,
 				00D7EDF3286C3FE300E602D2 /* LaunchScreen.storyboard in Resources */,
+				00D7EE1B286C45E800E602D2 /* Localizable.strings in Resources */,
+				00D7EE32286C724C00E602D2 /* Ubuntu-Medium.ttf in Resources */,
+				00D7EE2E286C724C00E602D2 /* Ubuntu-Light.ttf in Resources */,
 				00D7EDF0286C3FE300E602D2 /* Assets.xcassets in Resources */,
-				00D7EDEE286C3FDF00E602D2 /* Main.storyboard in Resources */,
+				00D7EE31286C724C00E602D2 /* Ubuntu-MediumItalic.ttf in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -258,6 +315,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				00D7EE36286C72FC00E602D2 /* Constants.swift in Sources */,
+				00D7EE20286C480E00E602D2 /* AuthenticationViewController.swift in Sources */,
 				00D7EDEB286C3FDF00E602D2 /* ViewController.swift in Sources */,
 				00D7EDE7286C3FDF00E602D2 /* AppDelegate.swift in Sources */,
 				00D7EDE9286C3FDF00E602D2 /* SceneDelegate.swift in Sources */,
@@ -297,20 +356,22 @@
 /* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
-		00D7EDEC286C3FDF00E602D2 /* Main.storyboard */ = {
-			isa = PBXVariantGroup;
-			children = (
-				00D7EDED286C3FDF00E602D2 /* Base */,
-			);
-			name = Main.storyboard;
-			sourceTree = "<group>";
-		};
 		00D7EDF1286C3FE300E602D2 /* LaunchScreen.storyboard */ = {
 			isa = PBXVariantGroup;
 			children = (
 				00D7EDF2286C3FE300E602D2 /* Base */,
+				00D7EE21286C52D100E602D2 /* tr */,
 			);
 			name = LaunchScreen.storyboard;
+			sourceTree = "<group>";
+		};
+		00D7EE1D286C45E800E602D2 /* Localizable.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				00D7EE1C286C45E800E602D2 /* en */,
+				00D7EE22286C52DE00E602D2 /* tr */,
+			);
+			name = Localizable.strings;
 			sourceTree = "<group>";
 		};
 /* End PBXVariantGroup section */
@@ -320,6 +381,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_LOCALIZABILITY_NONLOCALIZED = YES;
 				CLANG_ANALYZER_NONNULL = YES;
 				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++17";
@@ -380,6 +442,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_LOCALIZABILITY_NONLOCALIZED = YES;
 				CLANG_ANALYZER_NONNULL = YES;
 				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++17";
@@ -442,7 +505,7 @@
 				INFOPLIST_FILE = "Charger Appointer/Info.plist";
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
-				INFOPLIST_KEY_UIMainStoryboardFile = Main;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -470,7 +533,7 @@
 				INFOPLIST_FILE = "Charger Appointer/Info.plist";
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
-				INFOPLIST_KEY_UIMainStoryboardFile = Main;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				LD_RUNPATH_SEARCH_PATHS = (

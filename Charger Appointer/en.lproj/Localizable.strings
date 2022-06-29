@@ -1,0 +1,11 @@
+/* 
+  Localizable.strings
+  Charger Appointer
+
+  Created by Mert Tecimen on 29.06.2022.
+  
+*/
+"login" = "Login";
+"welcomeTitle" = "Welcome to Charger";
+"welcomeDialog" = "Login to use Charger";
+"eMailTextfieldTitle" = "Your e-mail address";
