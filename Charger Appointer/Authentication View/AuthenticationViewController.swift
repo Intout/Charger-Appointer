@@ -153,10 +153,10 @@ class AuthenticationViewController: UIViewController {
     
     private func toggleWarningLabel(with message: String?){
         if message == nil {
-            warningLabel.heightAnchor.constraint(equalToConstant: 0).isActive = true
+            warningLabel.isHidden = true
             warningLabel.text = ""
         } else {
-            warningLabel.heightAnchor.constraint(equalToConstant: 18).isActive = true
+            warningLabel.isHidden = false
             warningLabel.text = message
         }
     }
@@ -166,9 +166,13 @@ class AuthenticationViewController: UIViewController {
             try viewModel.postCredentials(with: emailTextField.text ?? "")
             toggleWarningLabel(with: nil)
         } catch AuthenticationError.invalidEmail {
+            print("inValid")
             toggleWarningLabel(with: NSLocalizedString("EMAIL_NOT_IN_CORRECT_FORM", comment: "Invalid email!"))
+        } catch AuthenticationError.badResponse {
+            print("Bad Response")
+            toggleWarningLabel(with: NSLocalizedString("NOT_FOUND", comment: "Request error!"))
         } catch {
-            
+            print("Unknown error!")
         }
     }
 }

@@ -26,8 +26,11 @@ class AuthenticationViewModel: ObservableObject{
         } else {
             dataModel.authanticate(with: email){ error, data in
                 if error != nil{
+                    print(error)
                     return
                 }
+                print(data)
+                return
             }
         }
     }
