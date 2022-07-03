@@ -7,6 +7,10 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		005C0F48287021A100E38A5C /* Colors.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 005C0F47287021A100E38A5C /* Colors.xcassets */; };
+		005C0F4B2870236900E38A5C /* UIColor+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 005C0F4A2870236900E38A5C /* UIColor+Extensions.swift */; };
+		005C0F4D2870285200E38A5C /* UIView+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 005C0F4C2870285200E38A5C /* UIView+Extensions.swift */; };
+		005C0F4F2870287900E38A5C /* NSMutableAttributedString+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 005C0F4E2870287900E38A5C /* NSMutableAttributedString+Extensions.swift */; };
 		00D7EDE7286C3FDF00E602D2 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 00D7EDE6286C3FDF00E602D2 /* AppDelegate.swift */; };
 		00D7EDE9286C3FDF00E602D2 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 00D7EDE8286C3FDF00E602D2 /* SceneDelegate.swift */; };
 		00D7EDEB286C3FDF00E602D2 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 00D7EDEA286C3FDF00E602D2 /* ViewController.swift */; };
@@ -26,6 +30,7 @@
 		00D7EE32286C724C00E602D2 /* Ubuntu-Medium.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 00D7EE2A286C724C00E602D2 /* Ubuntu-Medium.ttf */; };
 		00D7EE33286C724C00E602D2 /* Ubuntu-Italic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 00D7EE2B286C724C00E602D2 /* Ubuntu-Italic.ttf */; };
 		00D7EE36286C72FC00E602D2 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 00D7EE35286C72FC00E602D2 /* Constants.swift */; };
+		00D7EE39286C785300E602D2 /* AuthenticationViewDataModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 00D7EE38286C785300E602D2 /* AuthenticationViewDataModel.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -46,6 +51,10 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		005C0F47287021A100E38A5C /* Colors.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Colors.xcassets; sourceTree = "<group>"; };
+		005C0F4A2870236900E38A5C /* UIColor+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIColor+Extensions.swift"; sourceTree = "<group>"; };
+		005C0F4C2870285200E38A5C /* UIView+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView+Extensions.swift"; sourceTree = "<group>"; };
+		005C0F4E2870287900E38A5C /* NSMutableAttributedString+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "NSMutableAttributedString+Extensions.swift"; sourceTree = "<group>"; };
 		00D7EDE3286C3FDF00E602D2 /* Charger Appointer.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Charger Appointer.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		00D7EDE6286C3FDF00E602D2 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		00D7EDE8286C3FDF00E602D2 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -71,6 +80,7 @@
 		00D7EE2A286C724C00E602D2 /* Ubuntu-Medium.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Ubuntu-Medium.ttf"; sourceTree = "<group>"; };
 		00D7EE2B286C724C00E602D2 /* Ubuntu-Italic.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Ubuntu-Italic.ttf"; sourceTree = "<group>"; };
 		00D7EE35286C72FC00E602D2 /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
+		00D7EE38286C785300E602D2 /* AuthenticationViewDataModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthenticationViewDataModel.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -98,6 +108,25 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		005C0F462870218700E38A5C /* Assets */ = {
+			isa = PBXGroup;
+			children = (
+				00D7EDEF286C3FE300E602D2 /* Assets.xcassets */,
+				005C0F47287021A100E38A5C /* Colors.xcassets */,
+			);
+			path = Assets;
+			sourceTree = "<group>";
+		};
+		005C0F492870235600E38A5C /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				005C0F4A2870236900E38A5C /* UIColor+Extensions.swift */,
+				005C0F4C2870285200E38A5C /* UIView+Extensions.swift */,
+				005C0F4E2870287900E38A5C /* NSMutableAttributedString+Extensions.swift */,
+			);
+			path = Extensions;
+			sourceTree = "<group>";
+		};
 		00D7EDDA286C3FDF00E602D2 = {
 			isa = PBXGroup;
 			children = (
@@ -121,6 +150,7 @@
 		00D7EDE5286C3FDF00E602D2 /* Charger Appointer */ = {
 			isa = PBXGroup;
 			children = (
+				005C0F492870235600E38A5C /* Extensions */,
 				00D7EE35286C72FC00E602D2 /* Constants.swift */,
 				00D7EE23286C723200E602D2 /* Fonts */,
 				00D7EE1D286C45E800E602D2 /* Localizable.strings */,
@@ -128,7 +158,7 @@
 				00D7EDE8286C3FDF00E602D2 /* SceneDelegate.swift */,
 				00D7EDEA286C3FDF00E602D2 /* ViewController.swift */,
 				00D7EE16286C40AC00E602D2 /* Authentication View */,
-				00D7EDEF286C3FE300E602D2 /* Assets.xcassets */,
+				005C0F462870218700E38A5C /* Assets */,
 				00D7EDF1286C3FE300E602D2 /* LaunchScreen.storyboard */,
 				00D7EDF4286C3FE300E602D2 /* Info.plist */,
 			);
@@ -156,6 +186,7 @@
 			isa = PBXGroup;
 			children = (
 				00D7EE1F286C480E00E602D2 /* AuthenticationViewController.swift */,
+				00D7EE37286C783900E602D2 /* Entities */,
 			);
 			path = "Authentication View";
 			sourceTree = "<group>";
@@ -173,6 +204,14 @@
 				00D7EE24286C724B00E602D2 /* Ubuntu-Regular.ttf */,
 			);
 			path = Fonts;
+			sourceTree = "<group>";
+		};
+		00D7EE37286C783900E602D2 /* Entities */ = {
+			isa = PBXGroup;
+			children = (
+				00D7EE38286C785300E602D2 /* AuthenticationViewDataModel.swift */,
+			);
+			path = Entities;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -289,6 +328,7 @@
 				00D7EE1B286C45E800E602D2 /* Localizable.strings in Resources */,
 				00D7EE32286C724C00E602D2 /* Ubuntu-Medium.ttf in Resources */,
 				00D7EE2E286C724C00E602D2 /* Ubuntu-Light.ttf in Resources */,
+				005C0F48287021A100E38A5C /* Colors.xcassets in Resources */,
 				00D7EDF0286C3FE300E602D2 /* Assets.xcassets in Resources */,
 				00D7EE31286C724C00E602D2 /* Ubuntu-MediumItalic.ttf in Resources */,
 			);
@@ -315,10 +355,14 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				005C0F4F2870287900E38A5C /* NSMutableAttributedString+Extensions.swift in Sources */,
 				00D7EE36286C72FC00E602D2 /* Constants.swift in Sources */,
 				00D7EE20286C480E00E602D2 /* AuthenticationViewController.swift in Sources */,
+				00D7EE39286C785300E602D2 /* AuthenticationViewDataModel.swift in Sources */,
 				00D7EDEB286C3FDF00E602D2 /* ViewController.swift in Sources */,
+				005C0F4B2870236900E38A5C /* UIColor+Extensions.swift in Sources */,
 				00D7EDE7286C3FDF00E602D2 /* AppDelegate.swift in Sources */,
+				005C0F4D2870285200E38A5C /* UIView+Extensions.swift in Sources */,
 				00D7EDE9286C3FDF00E602D2 /* SceneDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
