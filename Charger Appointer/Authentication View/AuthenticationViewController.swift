@@ -55,10 +55,20 @@ class AuthenticationViewController: UIViewController {
         textField.addBottomBorder(with: UIColor.lightGrey, andWidth: 1, offset: 10)
         textField.keyboardType = .emailAddress
         textField.keyboardAppearance = .default
+        textField.autocapitalizationType = .none
         
         
         return textField
     }()
+    
+    fileprivate let warningLabel: UILabel = {
+        let label = UILabel()
+        label.translatesAutoresizingMaskIntoConstraints = false
+        label.textColor = UIColor.state
+        label.font = UIFont.init(name: ApplicationFonts.light.rawValue, size: 12)
+        return label
+    }()
+    
     fileprivate let loginButton: UIButton = {
         let button = UIButton()
         button.translatesAutoresizingMaskIntoConstraints = false
@@ -67,11 +77,15 @@ class AuthenticationViewController: UIViewController {
         button.titleLabel?.font = UIFont.init(name: ApplicationFonts.bold.rawValue, size: 14)
         button.isUserInteractionEnabled = true
         button.backgroundColor = .white
+        
         return button
     }()
     
+    private var viewModel = AuthenticationViewModel()
+    
     override func viewDidLoad() {
         super.viewDidLoad()
+        loginButton.addTarget(self, action: #selector(buttonPressed), for: .touchUpInside)
         setupUI()
     }
     
@@ -81,6 +95,7 @@ class AuthenticationViewController: UIViewController {
         containerView.addSubview(welcomeDialogLabel)
         containerView.addSubview(emailTextField)
         containerView.addSubview(loginButton)
+        containerView.addSubview(warningLabel)
         
         setupConstraints()
         self.navigationController?.navigationBar.titleTextAttributes = [.foregroundColor: UIColor.white]
@@ -93,9 +108,6 @@ class AuthenticationViewController: UIViewController {
         self.navigationItem.largeTitleDisplayMode = .always
         self.navigationItem.titleView?.tintColor = .white
         
-    }
-    override func viewDidAppear(_ animated: Bool) {
-        super.viewDidAppear(animated)
     }
     
     override func viewDidLayoutSubviews() {
@@ -127,15 +139,37 @@ class AuthenticationViewController: UIViewController {
             emailTextField.leadingAnchor.constraint(equalTo: containerView.leadingAnchor, constant: 10),
             emailTextField.trailingAnchor.constraint(equalTo: containerView.trailingAnchor, constant: -10),
             
+            warningLabel.topAnchor.constraint(equalTo: emailTextField.bottomAnchor, constant: 15),
+            warningLabel.leadingAnchor.constraint(equalTo: emailTextField.leadingAnchor),
+            warningLabel.trailingAnchor.constraint(equalTo: emailTextField.trailingAnchor),
+            
             loginButton.leadingAnchor.constraint(equalTo: containerView.leadingAnchor, constant: 70),
             loginButton.trailingAnchor.constraint(equalTo: containerView.trailingAnchor, constant: -70),
             loginButton.bottomAnchor.constraint(equalTo: containerView.bottomAnchor, constant: -75),
             loginButton.heightAnchor.constraint(equalToConstant: 45)
         ])
         
-        
-        
-        
+    }
+    
+    private func toggleWarningLabel(with message: String?){
+        if message == nil {
+            warningLabel.heightAnchor.constraint(equalToConstant: 0).isActive = true
+            warningLabel.text = ""
+        } else {
+            warningLabel.heightAnchor.constraint(equalToConstant: 18).isActive = true
+            warningLabel.text = message
+        }
+    }
+    
+    @objc private func buttonPressed(){
+        do{
+            try viewModel.postCredentials(with: emailTextField.text ?? "")
+            toggleWarningLabel(with: nil)
+        } catch AuthenticationError.invalidEmail {
+            toggleWarningLabel(with: NSLocalizedString("EMAIL_NOT_IN_CORRECT_FORM", comment: "Invalid email!"))
+        } catch {
+            
+        }
     }
 }
 

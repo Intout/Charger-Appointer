@@ -31,6 +31,9 @@
 		00D7EE33286C724C00E602D2 /* Ubuntu-Italic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 00D7EE2B286C724C00E602D2 /* Ubuntu-Italic.ttf */; };
 		00D7EE36286C72FC00E602D2 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 00D7EE35286C72FC00E602D2 /* Constants.swift */; };
 		00D7EE39286C785300E602D2 /* AuthenticationViewDataModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 00D7EE38286C785300E602D2 /* AuthenticationViewDataModel.swift */; };
+		00E35A352871929700F8EE48 /* Data.swift in Sources */ = {isa = PBXBuildFile; fileRef = 00E35A342871929700F8EE48 /* Data.swift */; };
+		00E35A372871952300F8EE48 /* AuthenticationViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 00E35A362871952300F8EE48 /* AuthenticationViewModel.swift */; };
+		00E35A392871B49500F8EE48 /* Regex.swift in Sources */ = {isa = PBXBuildFile; fileRef = 00E35A382871B49500F8EE48 /* Regex.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -81,6 +84,9 @@
 		00D7EE2B286C724C00E602D2 /* Ubuntu-Italic.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Ubuntu-Italic.ttf"; sourceTree = "<group>"; };
 		00D7EE35286C72FC00E602D2 /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 		00D7EE38286C785300E602D2 /* AuthenticationViewDataModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthenticationViewDataModel.swift; sourceTree = "<group>"; };
+		00E35A342871929700F8EE48 /* Data.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Data.swift; sourceTree = "<group>"; };
+		00E35A362871952300F8EE48 /* AuthenticationViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthenticationViewModel.swift; sourceTree = "<group>"; };
+		00E35A382871B49500F8EE48 /* Regex.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Regex.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -161,6 +167,7 @@
 				005C0F462870218700E38A5C /* Assets */,
 				00D7EDF1286C3FE300E602D2 /* LaunchScreen.storyboard */,
 				00D7EDF4286C3FE300E602D2 /* Info.plist */,
+				00E35A382871B49500F8EE48 /* Regex.swift */,
 			);
 			path = "Charger Appointer";
 			sourceTree = "<group>";
@@ -186,6 +193,7 @@
 			isa = PBXGroup;
 			children = (
 				00D7EE1F286C480E00E602D2 /* AuthenticationViewController.swift */,
+				00E35A362871952300F8EE48 /* AuthenticationViewModel.swift */,
 				00D7EE37286C783900E602D2 /* Entities */,
 			);
 			path = "Authentication View";
@@ -210,6 +218,7 @@
 			isa = PBXGroup;
 			children = (
 				00D7EE38286C785300E602D2 /* AuthenticationViewDataModel.swift */,
+				00E35A342871929700F8EE48 /* Data.swift */,
 			);
 			path = Entities;
 			sourceTree = "<group>";
@@ -356,8 +365,11 @@
 			buildActionMask = 2147483647;
 			files = (
 				005C0F4F2870287900E38A5C /* NSMutableAttributedString+Extensions.swift in Sources */,
+				00E35A352871929700F8EE48 /* Data.swift in Sources */,
 				00D7EE36286C72FC00E602D2 /* Constants.swift in Sources */,
 				00D7EE20286C480E00E602D2 /* AuthenticationViewController.swift in Sources */,
+				00E35A372871952300F8EE48 /* AuthenticationViewModel.swift in Sources */,
+				00E35A392871B49500F8EE48 /* Regex.swift in Sources */,
 				00D7EE39286C785300E602D2 /* AuthenticationViewDataModel.swift in Sources */,
 				00D7EDEB286C3FDF00E602D2 /* ViewController.swift in Sources */,
 				005C0F4B2870236900E38A5C /* UIColor+Extensions.swift in Sources */,
