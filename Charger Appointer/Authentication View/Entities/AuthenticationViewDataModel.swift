@@ -33,9 +33,6 @@ class AuthenticationViewDataModel{
         URLSession.shared.dataTask(with: request){ data, response, error in
             guard let data = data, error == nil, (response as? HTTPURLResponse)?.statusCode == 200 else{
                 completionHandler(error, nil)
-                print("Post failed")
-                print(response)
-                print(error)
                 return
             }
             

@@ -81,7 +81,7 @@ class AuthenticationViewController: UIViewController {
         return button
     }()
     
-    private var viewModel = AuthenticationViewModel()
+    weak var viewModel: AuthenticationViewModel?
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -163,7 +163,7 @@ class AuthenticationViewController: UIViewController {
     
     @objc private func buttonPressed(){
         do{
-            try viewModel.postCredentials(with: emailTextField.text ?? "")
+            try viewModel?.postCredentials(with: emailTextField.text ?? "")
             toggleWarningLabel(with: nil)
         } catch AuthenticationError.invalidEmail {
             print("inValid")

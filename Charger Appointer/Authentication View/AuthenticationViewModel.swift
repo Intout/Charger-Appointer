@@ -18,7 +18,7 @@ protocol AuthenticationDelegate: AnyObject{
 
 class AuthenticationViewModel: ObservableObject{
     private let dataModel = AuthenticationViewDataModel()
-    
+    weak var appCoordinator: AppCoordinator?
     func postCredentials(with email: String) throws{
         
         if !validate(email: email){
