@@ -10,22 +10,17 @@ import UIKit
 class AuthenticationViewController: UIViewController {
     fileprivate let containerView: UIView = {
         let view = UIView()
-        //view.backgroundColor = .systemGray
         view.translatesAutoresizingMaskIntoConstraints = false
-        let gradient = CAGradientLayer()
-        
         view.backgroundColor = UIColor(white: 1, alpha: 0)
-        gradient.frame = view.bounds
-        gradient.colors = [UIColor.dark, UIColor.charcoalGrey]
-        view.layer.addSublayer(gradient)
-                
         return view
     }()
     fileprivate let welcomeTitleLabel: UILabel = {
         let label = UILabel()
-        label.translatesAutoresizingMaskIntoConstraints = false
+        
         let attributedText = NSMutableAttributedString(string: NSLocalizedString("welcomeTitle", comment: "Title of Welcome Message."))
         attributedText.highlight(color: .white, forText: "Charger", in: 24)
+        
+        label.translatesAutoresizingMaskIntoConstraints = false
         label.font = UIFont.init(name: ApplicationFonts.regular.rawValue, size: 24)
         label.textColor = .white
         label.attributedText = attributedText
@@ -44,8 +39,9 @@ class AuthenticationViewController: UIViewController {
     }()
     fileprivate let emailTextField: UITextField = {
         let textField = UITextField()
-        textField.translatesAutoresizingMaskIntoConstraints = false
         let attributedPlaceHolderText = NSMutableAttributedString(string: NSLocalizedString("eMailTextfieldTitle", comment: "Place holder title for button").uppercased())
+        
+        textField.translatesAutoresizingMaskIntoConstraints = false
         attributedPlaceHolderText.addAttribute(NSMutableAttributedString.Key.foregroundColor, value: UIColor.lightGrey, range: NSRange(location: 0, length: attributedPlaceHolderText.length))
         attributedPlaceHolderText.addAttribute(NSMutableAttributedString.Key.font, value: UIFont.init(name: ApplicationFonts.light.rawValue, size: 12)!, range: NSRange(location: 0, length: attributedPlaceHolderText.length))
         
@@ -81,7 +77,7 @@ class AuthenticationViewController: UIViewController {
         return button
     }()
     
-    weak var viewModel: AuthenticationViewModel?
+    var viewModel: AuthenticationViewModel!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -151,7 +147,20 @@ class AuthenticationViewController: UIViewController {
         
     }
     
-    private func toggleWarningLabel(with message: String?){
+
+}
+
+
+// MARK: - UI Events
+private extension AuthenticationViewController{
+    @objc func buttonPressed(){
+        DispatchQueue.main.async {
+            self.viewModel?.loginButtonEvent(with: self.emailTextField.text){ message in
+                self.toggleWarningLabel(with: message)
+            }
+        }
+    }
+    func toggleWarningLabel(with message: String?){
         if message == nil {
             warningLabel.isHidden = true
             warningLabel.text = ""
@@ -160,20 +169,4 @@ class AuthenticationViewController: UIViewController {
             warningLabel.text = message
         }
     }
-    
-    @objc private func buttonPressed(){
-        do{
-            try viewModel?.postCredentials(with: emailTextField.text ?? "")
-            toggleWarningLabel(with: nil)
-        } catch AuthenticationError.invalidEmail {
-            print("inValid")
-            toggleWarningLabel(with: NSLocalizedString("EMAIL_NOT_IN_CORRECT_FORM", comment: "Invalid email!"))
-        } catch AuthenticationError.badResponse {
-            print("Bad Response")
-            toggleWarningLabel(with: NSLocalizedString("NOT_FOUND", comment: "Request error!"))
-        } catch {
-            print("Unknown error!")
-        }
-    }
 }
-

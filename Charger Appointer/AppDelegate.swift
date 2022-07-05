@@ -21,8 +21,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         
         let navigationController = UINavigationController.init()
         self.appCoordinator = AppCoordinator(navigationController: navigationController)
-        appCoordinator?.start()
         window?.rootViewController = navigationController
+        appCoordinator?.start()
         window?.makeKeyAndVisible()
         
         return true

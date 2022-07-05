@@ -43,3 +43,26 @@ extension AuthenticationViewModel{
         return Regex().isValidEmail(email)
     }
 }
+
+extension AuthenticationViewModel{
+    func loginButtonEvent(with email: String?, completionHandler: @escaping (String?) -> ()){
+        do{
+            try postCredentials(with: email ?? "")
+            completionHandler(nil)
+            appCoordinator?.goToMainPage()
+            return
+        } catch AuthenticationError.invalidEmail {
+            print("inValid")
+            completionHandler(NSLocalizedString("EMAIL_NOT_IN_CORRECT_FORM", comment: "Invalid email!"))
+            return
+        } catch AuthenticationError.badResponse {
+            print("Bad Response")
+            completionHandler(NSLocalizedString("NOT_FOUND", comment: "Request error!"))
+            return
+        } catch {
+            print("Unknown error!")
+            completionHandler("An error occured!")
+            return
+        }
+    }
+}

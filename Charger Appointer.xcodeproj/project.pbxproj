@@ -11,6 +11,8 @@
 		005C0F4B2870236900E38A5C /* UIColor+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 005C0F4A2870236900E38A5C /* UIColor+Extensions.swift */; };
 		005C0F4D2870285200E38A5C /* UIView+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 005C0F4C2870285200E38A5C /* UIView+Extensions.swift */; };
 		005C0F4F2870287900E38A5C /* NSMutableAttributedString+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 005C0F4E2870287900E38A5C /* NSMutableAttributedString+Extensions.swift */; };
+		0062C57C2874095D00FB16B9 /* MainViewCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0062C57B2874095D00FB16B9 /* MainViewCoordinator.swift */; };
+		0062C57E28742B0300FB16B9 /* MainViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0062C57D28742B0300FB16B9 /* MainViewModel.swift */; };
 		00CD4A102872C64D00D50DB4 /* AppCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 00CD4A0F2872C64D00D50DB4 /* AppCoordinator.swift */; };
 		00D7EDE7286C3FDF00E602D2 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 00D7EDE6286C3FDF00E602D2 /* AppDelegate.swift */; };
 		00D7EDEB286C3FDF00E602D2 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 00D7EDEA286C3FDF00E602D2 /* ViewController.swift */; };
@@ -58,6 +60,8 @@
 		005C0F4A2870236900E38A5C /* UIColor+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIColor+Extensions.swift"; sourceTree = "<group>"; };
 		005C0F4C2870285200E38A5C /* UIView+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView+Extensions.swift"; sourceTree = "<group>"; };
 		005C0F4E2870287900E38A5C /* NSMutableAttributedString+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "NSMutableAttributedString+Extensions.swift"; sourceTree = "<group>"; };
+		0062C57B2874095D00FB16B9 /* MainViewCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainViewCoordinator.swift; sourceTree = "<group>"; };
+		0062C57D28742B0300FB16B9 /* MainViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainViewModel.swift; sourceTree = "<group>"; };
 		00CD4A0F2872C64D00D50DB4 /* AppCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppCoordinator.swift; sourceTree = "<group>"; };
 		00D7EDE3286C3FDF00E602D2 /* Charger Appointer.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Charger Appointer.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		00D7EDE6286C3FDF00E602D2 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -133,6 +137,16 @@
 			path = Extensions;
 			sourceTree = "<group>";
 		};
+		0062C57A2874093B00FB16B9 /* Main View */ = {
+			isa = PBXGroup;
+			children = (
+				00D7EDEA286C3FDF00E602D2 /* ViewController.swift */,
+				0062C57B2874095D00FB16B9 /* MainViewCoordinator.swift */,
+				0062C57D28742B0300FB16B9 /* MainViewModel.swift */,
+			);
+			path = "Main View";
+			sourceTree = "<group>";
+		};
 		00D7EDDA286C3FDF00E602D2 = {
 			isa = PBXGroup;
 			children = (
@@ -162,7 +176,7 @@
 				00D7EE1D286C45E800E602D2 /* Localizable.strings */,
 				00D7EDE6286C3FDF00E602D2 /* AppDelegate.swift */,
 				00CD4A0F2872C64D00D50DB4 /* AppCoordinator.swift */,
-				00D7EDEA286C3FDF00E602D2 /* ViewController.swift */,
+				0062C57A2874093B00FB16B9 /* Main View */,
 				00D7EE16286C40AC00E602D2 /* Authentication View */,
 				005C0F462870218700E38A5C /* Assets */,
 				00D7EDF1286C3FE300E602D2 /* LaunchScreen.storyboard */,
@@ -368,8 +382,10 @@
 				00E35A352871929700F8EE48 /* Data.swift in Sources */,
 				00CD4A102872C64D00D50DB4 /* AppCoordinator.swift in Sources */,
 				00D7EE36286C72FC00E602D2 /* Constants.swift in Sources */,
+				0062C57C2874095D00FB16B9 /* MainViewCoordinator.swift in Sources */,
 				00D7EE20286C480E00E602D2 /* AuthenticationViewController.swift in Sources */,
 				00E35A372871952300F8EE48 /* AuthenticationViewModel.swift in Sources */,
+				0062C57E28742B0300FB16B9 /* MainViewModel.swift in Sources */,
 				00E35A392871B49500F8EE48 /* Regex.swift in Sources */,
 				00D7EE39286C785300E602D2 /* AuthenticationViewDataModel.swift in Sources */,
 				00D7EDEB286C3FDF00E602D2 /* ViewController.swift in Sources */,
