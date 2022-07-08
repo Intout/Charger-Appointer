@@ -6,6 +6,7 @@
   
 */
 "login" = "Login";
+"logout" = "Logout";
 "welcomeTitle" = "Welcome to Charger";
 "welcomeDialog" = "Login to use Charger";
 "eMailTextfieldTitle" = "Your e-mail address";
@@ -24,3 +25,10 @@
 
 
 "mainViewTitle" = "Appointments";
+
+"accountViewTitle" = "Account";
+
+// Account Details
+
+"emailTitle" = "E-Mail";
+"idTitle" = "Device ID";

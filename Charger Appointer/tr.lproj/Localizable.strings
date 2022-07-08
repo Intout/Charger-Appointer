@@ -6,6 +6,7 @@
   
 */
 "login" = "Giriş Yapın";
+"logout" = "Çıkış Yapın";
 "welcomeTitle" = "Charger'a hoş geldiniz";
 "welcomeDialog" = "Charger'ı kullanmak için giriş yapmanız gerekiyor";
 "eMailTextfieldTitle" = "E-posta adresiniz";
@@ -23,3 +24,10 @@
 "APPOINTMENT_USER_MISMATCH"= "Aranan randevu verisi verilen kullanıcıya ait değil.";
 
 "mainViewTitle" = "Randevular";
+
+"accountViewTitle" = "Profil";
+
+// Account Details
+
+"emailTitle" = "E-posta";
+"idTitle" = "Cihaz ID";

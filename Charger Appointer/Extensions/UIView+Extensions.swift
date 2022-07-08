@@ -62,3 +62,16 @@ extension UIView{
         self.layer.insertSublayer(gradient, at: 0)
     }
 }
+
+extension UIView{
+    func dropShadow(radius shadowRaidus: CGFloat, opacity shadowOpacity: Float, offset shadowOffset: CGSize){
+        self.layer.shadowColor = UIColor.init{ (trait) in
+            return trait.userInterfaceStyle == .dark ? .white : .black
+        }.cgColor
+        self.layer.shadowOffset = shadowOffset
+        self.layer.shadowOpacity = shadowOpacity
+        self.layer.shadowRadius = shadowRaidus
+        self.layer.masksToBounds = false
+    }
+}
+

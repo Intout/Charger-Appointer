@@ -8,7 +8,7 @@
 import Foundation
 import UIKit
 
-protocol Coordinator{
+protocol Coordinator: AnyObject{
     var parentCoordinator: Coordinator? {get set}
     var childCoordinators: [Coordinator] {get set}
     var navigationController: UINavigationController? {get set}
@@ -16,8 +16,19 @@ protocol Coordinator{
     func start()
 }
 
+extension Coordinator{
+    func didChildFinished(from child: Coordinator){
+        if let index = childCoordinators.firstIndex(where: { coordinator -> Bool in
+            return coordinator === child
+        }){
+            childCoordinators.remove(at: index)
+        }
+        
+    }
+}
+
 class AppCoordinator: Coordinator{
-    var parentCoordinator: Coordinator?
+    weak var parentCoordinator: Coordinator?
     
     var childCoordinators: [Coordinator] = []
     
@@ -40,20 +51,18 @@ class AppCoordinator: Coordinator{
         navigationController?.pushViewController(authenticationViewController, animated: true)
     }
     
-    func goToMainPage(){
+    func goToMainPage(credentials: AuthenticationResponse){
         let mainViewController = ViewController()
         let mainNavigationController = UINavigationController(rootViewController: mainViewController)
         mainNavigationController.modalPresentationStyle = .currentContext
+       
         let mainViewCoordinator = MainViewCoordinator(navgationController: mainNavigationController)
+        
         mainViewCoordinator.viewController = mainViewController
         mainViewCoordinator.parentCoordinator = self
+        mainViewCoordinator.start(credentials: credentials)
+        
         self.childCoordinators.append(mainViewCoordinator)
-        mainViewCoordinator.start()
         navigationController?.present(mainNavigationController, animated: true, completion: nil)
     }
-    
-    func didLogout(){
-        
-    }
-    
 }

@@ -154,11 +154,9 @@ class AuthenticationViewController: UIViewController {
 // MARK: - UI Events
 private extension AuthenticationViewController{
     @objc func buttonPressed(){
-        DispatchQueue.main.async {
             self.viewModel?.loginButtonEvent(with: self.emailTextField.text){ message in
                 self.toggleWarningLabel(with: message)
             }
-        }
     }
     func toggleWarningLabel(with message: String?){
         if message == nil {

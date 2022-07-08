@@ -7,10 +7,15 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		00167181287587DC0003606F /* MainViewDataModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 00167180287587DC0003606F /* MainViewDataModel.swift */; };
+		00167183287591240003606F /* AccountDetailsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 00167182287591240003606F /* AccountDetailsViewController.swift */; };
+		00167185287591480003606F /* AccountDetailsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 00167184287591480003606F /* AccountDetailsViewModel.swift */; };
+		001671872875AD590003606F /* AccountDetailsDataModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 001671862875AD590003606F /* AccountDetailsDataModel.swift */; };
 		005C0F48287021A100E38A5C /* Colors.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 005C0F47287021A100E38A5C /* Colors.xcassets */; };
 		005C0F4B2870236900E38A5C /* UIColor+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 005C0F4A2870236900E38A5C /* UIColor+Extensions.swift */; };
 		005C0F4D2870285200E38A5C /* UIView+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 005C0F4C2870285200E38A5C /* UIView+Extensions.swift */; };
 		005C0F4F2870287900E38A5C /* NSMutableAttributedString+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 005C0F4E2870287900E38A5C /* NSMutableAttributedString+Extensions.swift */; };
+		005F94A72878107100565957 /* DetailsCard.swift in Sources */ = {isa = PBXBuildFile; fileRef = 005F94A62878107100565957 /* DetailsCard.swift */; };
 		0062C57C2874095D00FB16B9 /* MainViewCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0062C57B2874095D00FB16B9 /* MainViewCoordinator.swift */; };
 		0062C57E28742B0300FB16B9 /* MainViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0062C57D28742B0300FB16B9 /* MainViewModel.swift */; };
 		00CD4A102872C64D00D50DB4 /* AppCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 00CD4A0F2872C64D00D50DB4 /* AppCoordinator.swift */; };
@@ -56,10 +61,15 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		00167180287587DC0003606F /* MainViewDataModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainViewDataModel.swift; sourceTree = "<group>"; };
+		00167182287591240003606F /* AccountDetailsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccountDetailsViewController.swift; sourceTree = "<group>"; };
+		00167184287591480003606F /* AccountDetailsViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccountDetailsViewModel.swift; sourceTree = "<group>"; };
+		001671862875AD590003606F /* AccountDetailsDataModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccountDetailsDataModel.swift; sourceTree = "<group>"; };
 		005C0F47287021A100E38A5C /* Colors.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Colors.xcassets; sourceTree = "<group>"; };
 		005C0F4A2870236900E38A5C /* UIColor+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIColor+Extensions.swift"; sourceTree = "<group>"; };
 		005C0F4C2870285200E38A5C /* UIView+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView+Extensions.swift"; sourceTree = "<group>"; };
 		005C0F4E2870287900E38A5C /* NSMutableAttributedString+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "NSMutableAttributedString+Extensions.swift"; sourceTree = "<group>"; };
+		005F94A62878107100565957 /* DetailsCard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailsCard.swift; sourceTree = "<group>"; };
 		0062C57B2874095D00FB16B9 /* MainViewCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainViewCoordinator.swift; sourceTree = "<group>"; };
 		0062C57D28742B0300FB16B9 /* MainViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainViewModel.swift; sourceTree = "<group>"; };
 		00CD4A0F2872C64D00D50DB4 /* AppCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppCoordinator.swift; sourceTree = "<group>"; };
@@ -118,6 +128,33 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		0016717D287583A70003606F /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				005F94A82878264100565957 /* Appointments View */,
+				005F94A92878264900565957 /* Accounts Details View */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
+		0016717E287583C70003606F /* View Models */ = {
+			isa = PBXGroup;
+			children = (
+				0062C57D28742B0300FB16B9 /* MainViewModel.swift */,
+				00167184287591480003606F /* AccountDetailsViewModel.swift */,
+			);
+			path = "View Models";
+			sourceTree = "<group>";
+		};
+		0016717F287583E80003606F /* Entities */ = {
+			isa = PBXGroup;
+			children = (
+				00167180287587DC0003606F /* MainViewDataModel.swift */,
+				001671862875AD590003606F /* AccountDetailsDataModel.swift */,
+			);
+			path = Entities;
+			sourceTree = "<group>";
+		};
 		005C0F462870218700E38A5C /* Assets */ = {
 			isa = PBXGroup;
 			children = (
@@ -137,12 +174,30 @@
 			path = Extensions;
 			sourceTree = "<group>";
 		};
-		0062C57A2874093B00FB16B9 /* Main View */ = {
+		005F94A82878264100565957 /* Appointments View */ = {
 			isa = PBXGroup;
 			children = (
 				00D7EDEA286C3FDF00E602D2 /* ViewController.swift */,
+			);
+			path = "Appointments View";
+			sourceTree = "<group>";
+		};
+		005F94A92878264900565957 /* Accounts Details View */ = {
+			isa = PBXGroup;
+			children = (
+				00167182287591240003606F /* AccountDetailsViewController.swift */,
+				005F94A62878107100565957 /* DetailsCard.swift */,
+			);
+			path = "Accounts Details View";
+			sourceTree = "<group>";
+		};
+		0062C57A2874093B00FB16B9 /* Main View */ = {
+			isa = PBXGroup;
+			children = (
 				0062C57B2874095D00FB16B9 /* MainViewCoordinator.swift */,
-				0062C57D28742B0300FB16B9 /* MainViewModel.swift */,
+				0016717D287583A70003606F /* Views */,
+				0016717E287583C70003606F /* View Models */,
+				0016717F287583E80003606F /* Entities */,
 			);
 			path = "Main View";
 			sourceTree = "<group>";
@@ -382,13 +437,18 @@
 				00E35A352871929700F8EE48 /* Data.swift in Sources */,
 				00CD4A102872C64D00D50DB4 /* AppCoordinator.swift in Sources */,
 				00D7EE36286C72FC00E602D2 /* Constants.swift in Sources */,
+				005F94A72878107100565957 /* DetailsCard.swift in Sources */,
 				0062C57C2874095D00FB16B9 /* MainViewCoordinator.swift in Sources */,
 				00D7EE20286C480E00E602D2 /* AuthenticationViewController.swift in Sources */,
 				00E35A372871952300F8EE48 /* AuthenticationViewModel.swift in Sources */,
+				00167185287591480003606F /* AccountDetailsViewModel.swift in Sources */,
+				001671872875AD590003606F /* AccountDetailsDataModel.swift in Sources */,
 				0062C57E28742B0300FB16B9 /* MainViewModel.swift in Sources */,
 				00E35A392871B49500F8EE48 /* Regex.swift in Sources */,
 				00D7EE39286C785300E602D2 /* AuthenticationViewDataModel.swift in Sources */,
 				00D7EDEB286C3FDF00E602D2 /* ViewController.swift in Sources */,
+				00167183287591240003606F /* AccountDetailsViewController.swift in Sources */,
+				00167181287587DC0003606F /* MainViewDataModel.swift in Sources */,
 				005C0F4B2870236900E38A5C /* UIColor+Extensions.swift in Sources */,
 				00D7EDE7286C3FDF00E602D2 /* AppDelegate.swift in Sources */,
 				005C0F4D2870285200E38A5C /* UIView+Extensions.swift in Sources */,

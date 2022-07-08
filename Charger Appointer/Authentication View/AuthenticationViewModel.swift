@@ -19,7 +19,12 @@ protocol AuthenticationDelegate: AnyObject{
 class AuthenticationViewModel: ObservableObject{
     private let dataModel = AuthenticationViewDataModel()
     weak var appCoordinator: AppCoordinator?
-    func postCredentials(with email: String) throws{
+    
+    
+    func postCredentials(with email: String) throws -> AuthenticationResponse?{
+        
+        var response: AuthenticationResponse?
+        let semaphore = DispatchSemaphore(value: 0)
         
         if !validate(email: email){
             throw AuthenticationError.invalidEmail
@@ -27,12 +32,17 @@ class AuthenticationViewModel: ObservableObject{
             dataModel.authanticate(with: email){ error, data in
                 if error != nil{
                     print(error)
+                    semaphore.signal()
                     return
                 }
                 print(data)
+                response = data
+                semaphore.signal()
                 return
             }
         }
+        semaphore.wait()
+        return response
     }
     
     
@@ -47,9 +57,10 @@ extension AuthenticationViewModel{
 extension AuthenticationViewModel{
     func loginButtonEvent(with email: String?, completionHandler: @escaping (String?) -> ()){
         do{
-            try postCredentials(with: email ?? "")
+            if let response = try postCredentials(with: email ?? ""){
+            appCoordinator?.goToMainPage(credentials: response)
+            }
             completionHandler(nil)
-            appCoordinator?.goToMainPage()
             return
         } catch AuthenticationError.invalidEmail {
             print("inValid")
