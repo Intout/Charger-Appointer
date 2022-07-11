@@ -19,8 +19,10 @@
 		005F94AB287861E500565957 /* LocationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 005F94AA287861E500565957 /* LocationController.swift */; };
 		0062C57C2874095D00FB16B9 /* MainViewCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0062C57B2874095D00FB16B9 /* MainViewCoordinator.swift */; };
 		0062C57E28742B0300FB16B9 /* MainViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0062C57D28742B0300FB16B9 /* MainViewModel.swift */; };
-		006B5F95287AC0D8006EA284 /* AppointmentsTableViewHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 006B5F94287AC0D8006EA284 /* AppointmentsTableViewHelper.swift */; };
-		00A3DEAA287C1E0100E35F27 /* Data.swift in Sources */ = {isa = PBXBuildFile; fileRef = 00A3DEA9287C1E0100E35F27 /* Data.swift */; };
+		00A3DEAA287C1E0100E35F27 /* AppointmentData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 00A3DEA9287C1E0100E35F27 /* AppointmentData.swift */; };
+		00A3DEAD287C344100E35F27 /* StationTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 00A3DEAC287C344100E35F27 /* StationTableViewCell.swift */; };
+		00A3DEAF287C384500E35F27 /* AppointmentsStationTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 00A3DEAE287C384500E35F27 /* AppointmentsStationTableViewCell.swift */; };
+		00A3DEB2287C38A100E35F27 /* AppointmentsTableViewHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 00A3DEB1287C38A100E35F27 /* AppointmentsTableViewHelper.swift */; };
 		00CD4A102872C64D00D50DB4 /* AppCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 00CD4A0F2872C64D00D50DB4 /* AppCoordinator.swift */; };
 		00D7EDE7286C3FDF00E602D2 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 00D7EDE6286C3FDF00E602D2 /* AppDelegate.swift */; };
 		00D7EDEB286C3FDF00E602D2 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 00D7EDEA286C3FDF00E602D2 /* ViewController.swift */; };
@@ -47,14 +49,14 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
-		00D7EDFA286C3FE300E602D2 /* PBXContainerItemProxy */ = {
+		00FC8918287C4370002C35AB /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = 00D7EDDB286C3FDF00E602D2 /* Project object */;
 			proxyType = 1;
 			remoteGlobalIDString = 00D7EDE2286C3FDF00E602D2;
 			remoteInfo = "Charger Appointer";
 		};
-		00D7EE04286C3FE300E602D2 /* PBXContainerItemProxy */ = {
+		00FC891A287C4375002C35AB /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = 00D7EDDB286C3FDF00E602D2 /* Project object */;
 			proxyType = 1;
@@ -76,8 +78,10 @@
 		005F94AA287861E500565957 /* LocationController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationController.swift; sourceTree = "<group>"; };
 		0062C57B2874095D00FB16B9 /* MainViewCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainViewCoordinator.swift; sourceTree = "<group>"; };
 		0062C57D28742B0300FB16B9 /* MainViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainViewModel.swift; sourceTree = "<group>"; };
-		006B5F94287AC0D8006EA284 /* AppointmentsTableViewHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppointmentsTableViewHelper.swift; sourceTree = "<group>"; };
-		00A3DEA9287C1E0100E35F27 /* Data.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Data.swift; sourceTree = "<group>"; };
+		00A3DEA9287C1E0100E35F27 /* AppointmentData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppointmentData.swift; sourceTree = "<group>"; };
+		00A3DEAC287C344100E35F27 /* StationTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StationTableViewCell.swift; sourceTree = "<group>"; };
+		00A3DEAE287C384500E35F27 /* AppointmentsStationTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppointmentsStationTableViewCell.swift; sourceTree = "<group>"; };
+		00A3DEB1287C38A100E35F27 /* AppointmentsTableViewHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppointmentsTableViewHelper.swift; sourceTree = "<group>"; };
 		00CD4A0F2872C64D00D50DB4 /* AppCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppCoordinator.swift; sourceTree = "<group>"; };
 		00D7EDE3286C3FDF00E602D2 /* Charger Appointer.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Charger Appointer.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		00D7EDE6286C3FDF00E602D2 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -156,7 +160,7 @@
 			isa = PBXGroup;
 			children = (
 				00167180287587DC0003606F /* MainViewDataModel.swift */,
-				00A3DEA9287C1E0100E35F27 /* Data.swift */,
+				00A3DEA9287C1E0100E35F27 /* AppointmentData.swift */,
 				001671862875AD590003606F /* AccountDetailsDataModel.swift */,
 			);
 			path = Entities;
@@ -185,7 +189,8 @@
 			isa = PBXGroup;
 			children = (
 				00D7EDEA286C3FDF00E602D2 /* ViewController.swift */,
-				006B5F94287AC0D8006EA284 /* AppointmentsTableViewHelper.swift */,
+				00A3DEB0287C388B00E35F27 /* Helpers */,
+				00A3DEAB287C340500E35F27 /* UI Components */,
 			);
 			path = "Appointments View";
 			sourceTree = "<group>";
@@ -208,6 +213,23 @@
 				0016717F287583E80003606F /* Entities */,
 			);
 			path = "Main View";
+			sourceTree = "<group>";
+		};
+		00A3DEAB287C340500E35F27 /* UI Components */ = {
+			isa = PBXGroup;
+			children = (
+				00A3DEAC287C344100E35F27 /* StationTableViewCell.swift */,
+				00A3DEAE287C384500E35F27 /* AppointmentsStationTableViewCell.swift */,
+			);
+			path = "UI Components";
+			sourceTree = "<group>";
+		};
+		00A3DEB0287C388B00E35F27 /* Helpers */ = {
+			isa = PBXGroup;
+			children = (
+				00A3DEB1287C38A100E35F27 /* AppointmentsTableViewHelper.swift */,
+			);
+			path = Helpers;
 			sourceTree = "<group>";
 		};
 		00D7EDDA286C3FDF00E602D2 = {
@@ -332,7 +354,7 @@
 			buildRules = (
 			);
 			dependencies = (
-				00D7EDFB286C3FE300E602D2 /* PBXTargetDependency */,
+				00FC8919287C4370002C35AB /* PBXTargetDependency */,
 			);
 			name = "Charger AppointerTests";
 			productName = "Charger AppointerTests";
@@ -350,7 +372,7 @@
 			buildRules = (
 			);
 			dependencies = (
-				00D7EE05286C3FE300E602D2 /* PBXTargetDependency */,
+				00FC891B287C4375002C35AB /* PBXTargetDependency */,
 			);
 			name = "Charger AppointerUITests";
 			productName = "Charger AppointerUITests";
@@ -453,17 +475,19 @@
 				00167185287591480003606F /* AccountDetailsViewModel.swift in Sources */,
 				001671872875AD590003606F /* AccountDetailsDataModel.swift in Sources */,
 				0062C57E28742B0300FB16B9 /* MainViewModel.swift in Sources */,
-				006B5F95287AC0D8006EA284 /* AppointmentsTableViewHelper.swift in Sources */,
 				00E35A392871B49500F8EE48 /* Regex.swift in Sources */,
 				005F94AB287861E500565957 /* LocationController.swift in Sources */,
 				00D7EE39286C785300E602D2 /* AuthenticationViewDataModel.swift in Sources */,
-				00A3DEAA287C1E0100E35F27 /* Data.swift in Sources */,
+				00A3DEAA287C1E0100E35F27 /* AppointmentData.swift in Sources */,
+				00A3DEAF287C384500E35F27 /* AppointmentsStationTableViewCell.swift in Sources */,
 				00D7EDEB286C3FDF00E602D2 /* ViewController.swift in Sources */,
 				00167183287591240003606F /* AccountDetailsViewController.swift in Sources */,
 				00167181287587DC0003606F /* MainViewDataModel.swift in Sources */,
 				005C0F4B2870236900E38A5C /* UIColor+Extensions.swift in Sources */,
+				00A3DEB2287C38A100E35F27 /* AppointmentsTableViewHelper.swift in Sources */,
 				00D7EDE7286C3FDF00E602D2 /* AppDelegate.swift in Sources */,
 				005C0F4D2870285200E38A5C /* UIView+Extensions.swift in Sources */,
+				00A3DEAD287C344100E35F27 /* StationTableViewCell.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -487,15 +511,15 @@
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXTargetDependency section */
-		00D7EDFB286C3FE300E602D2 /* PBXTargetDependency */ = {
+		00FC8919287C4370002C35AB /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
 			target = 00D7EDE2286C3FDF00E602D2 /* Charger Appointer */;
-			targetProxy = 00D7EDFA286C3FE300E602D2 /* PBXContainerItemProxy */;
+			targetProxy = 00FC8918287C4370002C35AB /* PBXContainerItemProxy */;
 		};
-		00D7EE05286C3FE300E602D2 /* PBXTargetDependency */ = {
+		00FC891B287C4375002C35AB /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
 			target = 00D7EDE2286C3FDF00E602D2 /* Charger Appointer */;
-			targetProxy = 00D7EE04286C3FE300E602D2 /* PBXContainerItemProxy */;
+			targetProxy = 00FC891A287C4375002C35AB /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
 
@@ -697,7 +721,6 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
-				BUNDLE_LOADER = "$(TEST_HOST)";
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = R2MF39ASQT;
@@ -717,7 +740,6 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
-				BUNDLE_LOADER = "$(TEST_HOST)";
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = R2MF39ASQT;
@@ -744,6 +766,7 @@
 				MARKETING_VERSION = 1.0;
 				PRODUCT_BUNDLE_IDENTIFIER = "Mert-Tecimen.Charger-AppointerUITests";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "";
 				SWIFT_EMIT_LOC_STRINGS = NO;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -762,6 +785,7 @@
 				MARKETING_VERSION = 1.0;
 				PRODUCT_BUNDLE_IDENTIFIER = "Mert-Tecimen.Charger-AppointerUITests";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "";
 				SWIFT_EMIT_LOC_STRINGS = NO;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";

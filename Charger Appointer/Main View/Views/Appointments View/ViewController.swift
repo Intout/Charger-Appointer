@@ -24,11 +24,21 @@ class ViewController: UIViewController {
         return button
     }()
     
+    fileprivate lazy var tableView: UITableView = {
+        let tableView = UITableView()
+        tableView.translatesAutoresizingMaskIntoConstraints = false
+        return tableView
+    }()
     
+    private  var tableViewHelper: AppointmentTableViewHelper?
     
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
+        
+        
+        tableViewHelper = AppointmentTableViewHelper(with: tableView, in: viewModel)
+        
         setupUI()
         print("loaded")
     }
@@ -44,9 +54,12 @@ class ViewController: UIViewController {
         self.navigationItem.title = NSLocalizedString("mainViewTitle", comment: "Title of view!")
         self.navigationController?.navigationBar.titleTextAttributes = [.foregroundColor: UIColor.white]
         view.backgroundColor = .charcoalGrey
-        
+        tableView.backgroundColor = .clear
         view.addSubview(containerView)
+        containerView.addSubview(tableView)
         setupConstraints()
+        tableView.rowHeight = UITableView.automaticDimension
+        tableView.estimatedRowHeight = 300
         
     }
     
@@ -57,6 +70,14 @@ class ViewController: UIViewController {
             containerView.leadingAnchor.constraint(equalTo: view.leadingAnchor),
             containerView.trailingAnchor.constraint(equalTo: view.trailingAnchor),
             containerView.bottomAnchor.constraint(equalTo: view.bottomAnchor),
+        ])
+        
+        NSLayoutConstraint.activate([
+            tableView.topAnchor.constraint(equalTo: containerView.topAnchor),
+            tableView.bottomAnchor.constraint(equalTo: containerView.bottomAnchor),
+            tableView.leadingAnchor.constraint(equalTo: containerView.leadingAnchor),
+            tableView.trailingAnchor.constraint(equalTo: containerView.trailingAnchor),
+            
         ])
     }
     

@@ -23,15 +23,18 @@ struct AppointmentViewData{
     let state: AppointmentCategory
 }
 
-protocol MainViewModelDelegate{
-    func dataDidFetched()
+protocol MainViewModelDelegate: AnyObject{
+    func dataDidFetched(_ data: [AppointmentViewData]?)
+    func dataFetchFailed(with error: Error)
 }
 
 class MainViewModel{
     weak var coordinator: MainViewCoordinator?
+    weak var delegate: MainViewModelDelegate?
     var dataModel = MainViewDataModel()
+    
     func viewDidLoad(){
-        
+        fetchData()
     }
     
     func fetchData(){
@@ -60,8 +63,16 @@ class MainViewModel{
                                               state: self.calcAppointmentState(with: datum.date)))
                     }
                 }
+                delegate?.dataDidFetched(viewData)
+                return
             } else {
-                
+                if let error = error{
+                    delegate?.dataFetchFailed(with: error)
+                    return
+                } else {
+                    delegate?.dataDidFetched(nil)
+                    return
+                }
             }
         }
     }
