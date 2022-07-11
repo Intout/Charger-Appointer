@@ -31,3 +31,9 @@
 
 "emailTitle" = "E-posta";
 "idTitle" = "Cihaz ID";
+
+// Appointment View
+
+"socketNumber" = "Soket numarası";
+"future" = "Gelecek Randevular";
+"passed" = "Geçmiş Randevular";

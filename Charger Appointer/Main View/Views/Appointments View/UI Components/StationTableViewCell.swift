@@ -12,16 +12,8 @@ class StationTableViewCell: UITableViewCell {
     fileprivate lazy var containerView: UIView = {
         let view = UIView()
         view.translatesAutoresizingMaskIntoConstraints = false
-        view.backgroundColor = UIColor.charcoalGrey
+        view.backgroundColor = UIColor.charcoalGrey.withAlphaComponent(0.5)
         view.layer.cornerRadius = 5.0
-        return view
-    }()
-    
-    fileprivate lazy var infoContainerView: UIView = {
-        let view = UIView()
-        view.translatesAutoresizingMaskIntoConstraints = false
-        view.backgroundColor = UIColor.charcoalGrey
-        view.dropShadow(radius: 1, opacity: 0.25, offset: CGSize(width: 0, height: 5))
         
         return view
     }()
@@ -54,27 +46,22 @@ class StationTableViewCell: UITableViewCell {
         return button
     }()
     
-    fileprivate lazy var verticalStack: UIStackView = {
+    private(set) lazy var verticalStack: UIStackView = {
         let stackView = UIStackView()
         stackView.translatesAutoresizingMaskIntoConstraints = false
         stackView.axis = .vertical
         stackView.distribution = .equalCentering
-        stackView.alignment = .leading
-       // stackView.spacing = 30
+        stackView.alignment = .fill
+        stackView.spacing = 10
        // stackView.layoutMargins = UIEdgeInsets(top: 30, left: 20, bottom: 30, right: 20)
         stackView.isLayoutMarginsRelativeArrangement = true
         return stackView
     }()
     
-    fileprivate lazy var titleHorizontalStack: UIStackView = {
-        let stackView = UIStackView()
-        stackView.translatesAutoresizingMaskIntoConstraints = false
-        stackView.axis = NSLayoutConstraint.Axis.horizontal
-        stackView.distribution = .equalCentering
-        stackView.alignment = .fill
-      //  stackView.spacing = 8.0
-        
-        return stackView
+    fileprivate lazy var titleContainerView: UIView = {
+        let view = UIView()
+        view.backgroundColor = .clear
+        return view
     }()
     
     override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
@@ -82,16 +69,26 @@ class StationTableViewCell: UITableViewCell {
         
         self.addSubview(containerView)
         containerView.addSubview(verticalStack)
+        titleContainerView.addSubview(chargerImage)
+        titleContainerView.addSubview(titleLabel)
         
-        verticalStack.addArrangedSubview(titleHorizontalStack)
-        titleHorizontalStack.addArrangedSubview(chargerImage)
-        titleHorizontalStack.addArrangedSubview(titleLabel)
-        
+        verticalStack.addArrangedSubview(titleContainerView)
         
         setupConstraints()
     }
     
     private func setupConstraints(){
+        
+        NSLayoutConstraint.activate([
+            chargerImage.leadingAnchor.constraint(equalTo: titleContainerView.leadingAnchor),
+            chargerImage.topAnchor.constraint(equalTo: titleContainerView.topAnchor),
+            chargerImage.bottomAnchor.constraint(equalTo: titleContainerView.bottomAnchor),
+            
+            titleLabel.leadingAnchor.constraint(equalTo: chargerImage.trailingAnchor, constant: 10),
+            titleLabel.topAnchor.constraint(equalTo: titleContainerView.topAnchor),
+            titleLabel.bottomAnchor.constraint(equalTo: titleContainerView.bottomAnchor),
+        ])
+        
         NSLayoutConstraint.activate([
             containerView.topAnchor.constraint(equalTo: self.topAnchor, constant: 0),
             containerView.bottomAnchor.constraint(equalTo: self.bottomAnchor, constant: -10),

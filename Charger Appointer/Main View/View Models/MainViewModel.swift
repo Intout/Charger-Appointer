@@ -56,7 +56,7 @@ class MainViewModel{
                                               powerUnit: appointedSocket.powerUnit,
                                               power: appointedSocket.power,
                                               time: datum.time,
-                                              date: datum.date,
+                                              date: formatDateAndReturnString(datum.date),
                                               socketCount: datum.station.socketCount,
                                               distanceInKM: datum.station.distanceInKM,
                                               province: datum.station.geoLocation.province,
@@ -84,10 +84,24 @@ class MainViewModel{
     func getCredentials() -> AuthenticationResponse{
         dataModel.getCredentials()
     }
+    
+    private func formatDateAndReturnString(_ date: String) -> String{
+        let dateFormatter = DateFormatter()
+        dateFormatter.dateFormat = "yyyy-MM-dd"
+        let appointmentDate = dateFormatter.date(from: date)!
+        
+        let outputDateFormatter = DateFormatter()
+        outputDateFormatter.dateFormat = "d MMM yyyy"
+        
+        return outputDateFormatter.string(from: appointmentDate)
+        
+    }
+    
     private func calcAppointmentState(with date: String) -> AppointmentCategory{
         let dateFormatter = DateFormatter()
         dateFormatter.dateFormat = "yyyy-MM-dd"
         let appointmentDate = dateFormatter.date(from: date)
+        
         
         if appointmentDate! < Date(){
             return .passed

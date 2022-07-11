@@ -32,3 +32,10 @@
 
 "emailTitle" = "E-Mail";
 "idTitle" = "Device ID";
+
+
+// Appointment View
+
+"socketNumber" = "Socket number";
+"future" = "Future Appointments";
+"passed" = "Passed Appointments";

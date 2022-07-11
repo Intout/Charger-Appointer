@@ -14,7 +14,7 @@ enum ApplicationFonts: String{
     case bold = "Ubuntu-Bold"
 }
 
-enum AppointmentCategory: String{
+enum AppointmentCategory: String, CaseIterable{
     case future = "future"
     case passed = "passed"
 }

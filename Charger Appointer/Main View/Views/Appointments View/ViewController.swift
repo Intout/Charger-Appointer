@@ -38,7 +38,9 @@ class ViewController: UIViewController {
         
         
         tableViewHelper = AppointmentTableViewHelper(with: tableView, in: viewModel)
+        viewModel.delegate = self
         
+        viewModel.viewDidLoad()
         setupUI()
         print("loaded")
     }
@@ -61,6 +63,10 @@ class ViewController: UIViewController {
         tableView.rowHeight = UITableView.automaticDimension
         tableView.estimatedRowHeight = 300
         
+        let dummyViewHeight = CGFloat(40)
+        self.tableView.tableHeaderView = UIView(frame: CGRect(x: 0, y: 0, width: self.tableView.bounds.size.width, height: dummyViewHeight))
+        self.tableView.contentInset = UIEdgeInsets(top: -dummyViewHeight, left: 0, bottom: 0, right: 0)
+        
     }
     
     private func setupConstraints(){
@@ -82,6 +88,15 @@ class ViewController: UIViewController {
     }
     
 
+}
+
+extension ViewController: MainViewModelDelegate{
+    func dataDidFetched(_ data: [AppointmentViewData]?) {
+        tableViewHelper?.setData(data)
+    }
+    func dataFetchFailed(with error: Error) {
+        print(error)
+    }
 }
 
 private extension ViewController{
