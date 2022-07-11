@@ -16,8 +16,11 @@
 		005C0F4D2870285200E38A5C /* UIView+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 005C0F4C2870285200E38A5C /* UIView+Extensions.swift */; };
 		005C0F4F2870287900E38A5C /* NSMutableAttributedString+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 005C0F4E2870287900E38A5C /* NSMutableAttributedString+Extensions.swift */; };
 		005F94A72878107100565957 /* DetailsCard.swift in Sources */ = {isa = PBXBuildFile; fileRef = 005F94A62878107100565957 /* DetailsCard.swift */; };
+		005F94AB287861E500565957 /* LocationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 005F94AA287861E500565957 /* LocationController.swift */; };
 		0062C57C2874095D00FB16B9 /* MainViewCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0062C57B2874095D00FB16B9 /* MainViewCoordinator.swift */; };
 		0062C57E28742B0300FB16B9 /* MainViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0062C57D28742B0300FB16B9 /* MainViewModel.swift */; };
+		006B5F95287AC0D8006EA284 /* AppointmentsTableViewHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 006B5F94287AC0D8006EA284 /* AppointmentsTableViewHelper.swift */; };
+		00A3DEAA287C1E0100E35F27 /* Data.swift in Sources */ = {isa = PBXBuildFile; fileRef = 00A3DEA9287C1E0100E35F27 /* Data.swift */; };
 		00CD4A102872C64D00D50DB4 /* AppCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 00CD4A0F2872C64D00D50DB4 /* AppCoordinator.swift */; };
 		00D7EDE7286C3FDF00E602D2 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 00D7EDE6286C3FDF00E602D2 /* AppDelegate.swift */; };
 		00D7EDEB286C3FDF00E602D2 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 00D7EDEA286C3FDF00E602D2 /* ViewController.swift */; };
@@ -70,8 +73,11 @@
 		005C0F4C2870285200E38A5C /* UIView+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView+Extensions.swift"; sourceTree = "<group>"; };
 		005C0F4E2870287900E38A5C /* NSMutableAttributedString+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "NSMutableAttributedString+Extensions.swift"; sourceTree = "<group>"; };
 		005F94A62878107100565957 /* DetailsCard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailsCard.swift; sourceTree = "<group>"; };
+		005F94AA287861E500565957 /* LocationController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationController.swift; sourceTree = "<group>"; };
 		0062C57B2874095D00FB16B9 /* MainViewCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainViewCoordinator.swift; sourceTree = "<group>"; };
 		0062C57D28742B0300FB16B9 /* MainViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainViewModel.swift; sourceTree = "<group>"; };
+		006B5F94287AC0D8006EA284 /* AppointmentsTableViewHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppointmentsTableViewHelper.swift; sourceTree = "<group>"; };
+		00A3DEA9287C1E0100E35F27 /* Data.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Data.swift; sourceTree = "<group>"; };
 		00CD4A0F2872C64D00D50DB4 /* AppCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppCoordinator.swift; sourceTree = "<group>"; };
 		00D7EDE3286C3FDF00E602D2 /* Charger Appointer.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Charger Appointer.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		00D7EDE6286C3FDF00E602D2 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -150,6 +156,7 @@
 			isa = PBXGroup;
 			children = (
 				00167180287587DC0003606F /* MainViewDataModel.swift */,
+				00A3DEA9287C1E0100E35F27 /* Data.swift */,
 				001671862875AD590003606F /* AccountDetailsDataModel.swift */,
 			);
 			path = Entities;
@@ -178,6 +185,7 @@
 			isa = PBXGroup;
 			children = (
 				00D7EDEA286C3FDF00E602D2 /* ViewController.swift */,
+				006B5F94287AC0D8006EA284 /* AppointmentsTableViewHelper.swift */,
 			);
 			path = "Appointments View";
 			sourceTree = "<group>";
@@ -231,6 +239,7 @@
 				00D7EE1D286C45E800E602D2 /* Localizable.strings */,
 				00D7EDE6286C3FDF00E602D2 /* AppDelegate.swift */,
 				00CD4A0F2872C64D00D50DB4 /* AppCoordinator.swift */,
+				005F94AA287861E500565957 /* LocationController.swift */,
 				0062C57A2874093B00FB16B9 /* Main View */,
 				00D7EE16286C40AC00E602D2 /* Authentication View */,
 				005C0F462870218700E38A5C /* Assets */,
@@ -444,8 +453,11 @@
 				00167185287591480003606F /* AccountDetailsViewModel.swift in Sources */,
 				001671872875AD590003606F /* AccountDetailsDataModel.swift in Sources */,
 				0062C57E28742B0300FB16B9 /* MainViewModel.swift in Sources */,
+				006B5F95287AC0D8006EA284 /* AppointmentsTableViewHelper.swift in Sources */,
 				00E35A392871B49500F8EE48 /* Regex.swift in Sources */,
+				005F94AB287861E500565957 /* LocationController.swift in Sources */,
 				00D7EE39286C785300E602D2 /* AuthenticationViewDataModel.swift in Sources */,
+				00A3DEAA287C1E0100E35F27 /* Data.swift in Sources */,
 				00D7EDEB286C3FDF00E602D2 /* ViewController.swift in Sources */,
 				00167183287591240003606F /* AccountDetailsViewController.swift in Sources */,
 				00167181287587DC0003606F /* MainViewDataModel.swift in Sources */,

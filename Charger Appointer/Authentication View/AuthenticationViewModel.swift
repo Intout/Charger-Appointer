@@ -20,7 +20,6 @@ class AuthenticationViewModel: ObservableObject{
     private let dataModel = AuthenticationViewDataModel()
     weak var appCoordinator: AppCoordinator?
     
-    
     func postCredentials(with email: String) throws -> AuthenticationResponse?{
         
         var response: AuthenticationResponse?
@@ -58,7 +57,7 @@ extension AuthenticationViewModel{
     func loginButtonEvent(with email: String?, completionHandler: @escaping (String?) -> ()){
         do{
             if let response = try postCredentials(with: email ?? ""){
-            appCoordinator?.goToMainPage(credentials: response)
+                appCoordinator?.goToMainPage(credentials: response, location: dataModel.getCoordinates())
             }
             completionHandler(nil)
             return

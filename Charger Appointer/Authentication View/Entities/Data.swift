@@ -12,3 +12,8 @@ struct AuthenticationResponse: Decodable{
     let token: String
     let userID: Int
 }
+
+struct Coordinate{
+    let longitude: Double
+    let latitude: Double
+}

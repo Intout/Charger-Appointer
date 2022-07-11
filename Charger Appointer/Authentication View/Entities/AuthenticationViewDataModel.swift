@@ -9,9 +9,16 @@ import Foundation
 import UIKit
 
 
+
 class AuthenticationViewDataModel{
     
-    let deviceID = UIDevice.current.identifierForVendor!.uuidString
+    private let deviceID = UIDevice.current.identifierForVendor!.uuidString
+    private var locationCoordinates: Coordinate?
+    private var locationController = LocationController()
+    
+    init(){
+        locationController.locationDidChanged = setLocation(location:)
+    }
     
     func authanticate(with email: String, completionHandler: @escaping (Error?, AuthenticationResponse?)->(Void)){
         print(deviceID)
@@ -50,5 +57,16 @@ class AuthenticationViewDataModel{
             return
             
         }.resume()
+    }
+    
+    func getCoordinates() -> Coordinate?{
+        return self.locationCoordinates
+    }
+}
+
+private extension AuthenticationViewDataModel{
+    func setLocation(location: Coordinate?) -> Void{
+         self.locationCoordinates = location
+        print(self.locationCoordinates as Any)
     }
 }

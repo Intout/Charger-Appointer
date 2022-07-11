@@ -13,3 +13,13 @@ enum ApplicationFonts: String{
     case light = "Ubuntu-Light"
     case bold = "Ubuntu-Bold"
 }
+
+enum AppointmentCategory: String{
+    case future = "future"
+    case passed = "passed"
+}
+
+enum AppointmentScreenState{
+    case none
+    case list
+}

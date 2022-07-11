@@ -25,7 +25,7 @@ class MainViewCoordinator: Coordinator{
         
     }
     
-    func goToAppointmentsView(with credentials: AuthenticationResponse){
+    func goToAppointmentsView(with credentials: AuthenticationResponse, location: Coordinate?){
         let mainViewModel = MainViewModel()
         viewController?.viewModel = mainViewModel
         mainViewModel.setCredentials(credentials)
@@ -45,14 +45,13 @@ class MainViewCoordinator: Coordinator{
 }
 
 extension Coordinator where Self: MainViewCoordinator{
-    func start(credentials: AuthenticationResponse) {
-        goToAppointmentsView(with: credentials)
+    func start(credentials: AuthenticationResponse, location: Coordinate?) {
+        goToAppointmentsView(with: credentials, location: location)
     }
 }
 
 extension MainViewCoordinator{
     func didLogout(){
-        
         parentCoordinator?.didChildFinished(from: self)
         navigationController?.dismiss(animated: true)
     }

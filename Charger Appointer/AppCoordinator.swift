@@ -51,17 +51,14 @@ class AppCoordinator: Coordinator{
         navigationController?.pushViewController(authenticationViewController, animated: true)
     }
     
-    func goToMainPage(credentials: AuthenticationResponse){
+    func goToMainPage(credentials: AuthenticationResponse, location: Coordinate?){
         let mainViewController = ViewController()
         let mainNavigationController = UINavigationController(rootViewController: mainViewController)
         mainNavigationController.modalPresentationStyle = .currentContext
-       
         let mainViewCoordinator = MainViewCoordinator(navgationController: mainNavigationController)
-        
         mainViewCoordinator.viewController = mainViewController
         mainViewCoordinator.parentCoordinator = self
-        mainViewCoordinator.start(credentials: credentials)
-        
+        mainViewCoordinator.start(credentials: credentials, location: location)
         self.childCoordinators.append(mainViewCoordinator)
         navigationController?.present(mainNavigationController, animated: true, completion: nil)
     }
