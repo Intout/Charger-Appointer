@@ -12,11 +12,37 @@ class SearchBarView: UIView {
     fileprivate lazy var searchBar: UISearchBar = {
         let searchBar = UISearchBar()
         searchBar.translatesAutoresizingMaskIntoConstraints = false
+        searchBar.backgroundColor = .clear
+        searchBar.searchBarStyle = .default
+        searchBar.showsScopeBar = false
+        if let textField = searchBar.value(forKey: "searchField") as? UITextField{
+            textField.backgroundColor = .dark
+            textField.layer.masksToBounds = true
+            textField.layer.cornerRadius = 20
+            textField.leftView?.tintColor = .lightGrey
+            textField.rightView?.tintColor = .lightGrey
+            textField.layer.borderColor = UIColor.lightGrey.cgColor
+            textField.layer.borderWidth = 1
+            
+            let attributedPlaceHolderText = NSMutableAttributedString(string: NSLocalizedString("citiesSearchBarPlaceHolder", comment: "Place holder title for button"))
+            attributedPlaceHolderText.addAttribute(NSMutableAttributedString.Key.foregroundColor, value: UIColor.lightGrey, range: NSRange(location: 0, length: attributedPlaceHolderText.length))
+            attributedPlaceHolderText.addAttribute(NSMutableAttributedString.Key.font, value: UIFont.init(name: ApplicationFonts.light.rawValue, size: 12)!, range: NSRange(location: 0, length: attributedPlaceHolderText.length))
+            
+            textField.font = UIFont.init(name: ApplicationFonts.light.rawValue, size: 16)
+            textField.textColor = .white
+            textField.attributedPlaceholder = attributedPlaceHolderText
+            textField.addBottomBorder(with: UIColor.lightGrey, andWidth: 1, offset: 10)
+            textField.keyboardAppearance = .default
+            
+        }
+        searchBar.setBackgroundImage(UIImage(), for: .any, barMetrics: .default)
         return searchBar
+        
     }()
 
     override init(frame: CGRect) {
         super.init(frame: frame)
+        self.backgroundColor = .clear
         self.addSubview(searchBar)
         setupConstraints()
     }
@@ -27,10 +53,10 @@ class SearchBarView: UIView {
     
     private func setupConstraints() {
         NSLayoutConstraint.activate([
-            searchBar.topAnchor.constraint(equalTo: self.topAnchor, constant: 10),
-            searchBar.bottomAnchor.constraint(equalTo: self.bottomAnchor, constant: -10),
-            searchBar.leadingAnchor.constraint(equalTo: self.leadingAnchor, constant: 10),
-            searchBar.trailingAnchor.constraint(equalTo: self.trailingAnchor, constant: -10)
+            searchBar.topAnchor.constraint(equalTo: self.topAnchor, constant: 0),
+            searchBar.bottomAnchor.constraint(equalTo: self.bottomAnchor, constant: 0),
+            searchBar.leadingAnchor.constraint(equalTo: self.leadingAnchor, constant: 0),
+            searchBar.trailingAnchor.constraint(equalTo: self.trailingAnchor, constant: 0)
         ])
     }
     

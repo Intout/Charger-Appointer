@@ -45,3 +45,4 @@
 
 // Cities View
 "citiesViewTitle" = "Select a City";
+"citiesSearchBarPlaceHolder" = "Search City";

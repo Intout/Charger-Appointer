@@ -23,3 +23,9 @@ enum AppointmentScreenState{
     case none
     case list
 }
+
+enum SearchBarState{
+    case idle
+    case found
+    case notFound
+}
