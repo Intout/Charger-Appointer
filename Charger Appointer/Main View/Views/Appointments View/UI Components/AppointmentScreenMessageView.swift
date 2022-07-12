@@ -28,9 +28,11 @@ class AppointmentScreenMessageView: UIView {
     fileprivate lazy var titleLabel: UILabel = {
         let label = UILabel()
         label.translatesAutoresizingMaskIntoConstraints = false
+        label.numberOfLines = 0
         label.text = NSLocalizedString("noAppointmentTitle", comment: "Title message") + "."
         label.font = UIFont.init(name: ApplicationFonts.regular.rawValue, size: 24)
         label.textColor = .white
+        label.textAlignment = .center
         return label
     }()
     
@@ -56,8 +58,8 @@ class AppointmentScreenMessageView: UIView {
         NSLayoutConstraint.activate([
             containerStack.topAnchor.constraint(equalTo: self.topAnchor),
             containerStack.bottomAnchor.constraint(equalTo: self.bottomAnchor),
-            containerStack.leadingAnchor.constraint(equalTo: self.leadingAnchor),
-            containerStack.trailingAnchor.constraint(equalTo: self.trailingAnchor),
+            containerStack.leadingAnchor.constraint(equalTo: self.leadingAnchor, constant: 15),
+            containerStack.trailingAnchor.constraint(equalTo: self.trailingAnchor, constant: -15),
         ])
         
     }

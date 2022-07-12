@@ -35,6 +35,7 @@ class CitiesViewController: UIViewController {
 
         tableViewHelper = CitiesViewTableViewHelper(tableView: tableView, viewModel: viewModel)
         viewModel.delegate = self
+        searchBarView.searchBar.delegate = self
         viewModel.viewDidLoad()
         setupUI()
     }
@@ -89,5 +90,11 @@ extension CitiesViewController: CitiesViewModelDelegate{
     
     func didDataFetchFailed(_ error: Error?) {
         print(error)
+    }
+}
+
+extension CitiesViewController: UISearchBarDelegate{
+    func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
+        tableViewHelper?.setData(viewModel.filterData(searchText))
     }
 }

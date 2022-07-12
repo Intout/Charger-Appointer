@@ -279,7 +279,7 @@
 				005F94AA287861E500565957 /* LocationController.swift */,
 				00D7EE16286C40AC00E602D2 /* Authentication View */,
 				0062C57A2874093B00FB16B9 /* Main View */,
-				00EC8293287D8D9400462575 /* AppointerView */,
+				00EC8293287D8D9400462575 /* Appointer View */,
 				005C0F462870218700E38A5C /* Assets */,
 				00D7EDF1286C3FE300E602D2 /* LaunchScreen.storyboard */,
 				00D7EDF4286C3FE300E602D2 /* Info.plist */,
@@ -339,7 +339,7 @@
 			path = Entities;
 			sourceTree = "<group>";
 		};
-		00EC8293287D8D9400462575 /* AppointerView */ = {
+		00EC8293287D8D9400462575 /* Appointer View */ = {
 			isa = PBXGroup;
 			children = (
 				00EC8295287D8DC700462575 /* AppointerCoordinator.swift */,
@@ -347,7 +347,7 @@
 				00EC82A6287DA8FB00462575 /* View Models */,
 				00EC82A4287DA8D500462575 /* Entities */,
 			);
-			path = AppointerView;
+			path = "Appointer View";
 			sourceTree = "<group>";
 		};
 		00EC82A3287DA8BC00462575 /* Views */ = {

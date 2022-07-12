@@ -9,7 +9,7 @@ import UIKit
 
 class SearchBarView: UIView {
     
-    fileprivate lazy var searchBar: UISearchBar = {
+    private(set) lazy var searchBar: UISearchBar = {
         let searchBar = UISearchBar()
         searchBar.translatesAutoresizingMaskIntoConstraints = false
         searchBar.backgroundColor = .clear
@@ -58,6 +58,17 @@ class SearchBarView: UIView {
             searchBar.leadingAnchor.constraint(equalTo: self.leadingAnchor, constant: 0),
             searchBar.trailingAnchor.constraint(equalTo: self.trailingAnchor, constant: 0)
         ])
+    }
+    
+    func updateState(to state: SearchBarState){
+        switch state {
+        case .idle:
+            searchBar.searchTextField.layer.borderColor = UIColor.lightGrey.cgColor
+        case .found:
+            searchBar.searchTextField.layer.borderColor = UIColor.primary.cgColor
+        case .notFound:
+            searchBar.searchTextField.layer.borderColor = UIColor.state.cgColor
+        }
     }
     
 }

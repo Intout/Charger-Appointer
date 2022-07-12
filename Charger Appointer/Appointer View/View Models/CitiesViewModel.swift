@@ -53,3 +53,15 @@ extension CitiesViewModel{
         return dataModel.getLocation()
     }
 }
+
+extension CitiesViewModel{
+    func filterData(_ searchText: String) -> [String]{
+        if searchText.count > 0{
+            return dataModel.getData()?.filter{
+                $0.lowercased().contains(searchText.lowercased())
+            } ?? []
+        } else {
+            return dataModel.getData() ?? []
+        }
+    }
+}

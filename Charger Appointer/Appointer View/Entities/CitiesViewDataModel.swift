@@ -16,6 +16,7 @@ class CitiesViewDataModel{
     
     private var credentials: AuthenticationResponse!
     private var location: Coordinate!
+    private var data: [String]?
     
     func setCredentials(_ credentials: AuthenticationResponse){
         self.credentials = credentials
@@ -55,6 +56,7 @@ class CitiesViewDataModel{
             let responseJSON = try? JSONDecoder().decode([String].self, from: data)
             if let responseJSON = responseJSON{
                 completionHandler(nil, responseJSON)
+                self.data = responseJSON
                 return
             } else {
                 completionHandler(CiteisViewDataModelError.badResponse, nil)
@@ -66,4 +68,10 @@ class CitiesViewDataModel{
     
     
     
+}
+
+extension CitiesViewDataModel{
+    func getData() -> [String]?{
+        return self.data
+    }
 }
