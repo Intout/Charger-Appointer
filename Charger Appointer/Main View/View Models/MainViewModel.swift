@@ -25,6 +25,7 @@ struct AppointmentViewData{
 
 protocol MainViewModelDelegate: AnyObject{
     func dataDidFetched(_ data: [AppointmentViewData]?)
+    func dataIsNill()
     func dataFetchFailed(with error: Error)
 }
 
@@ -40,6 +41,12 @@ class MainViewModel{
     func fetchData(){
         dataModel.fetchAppointmentData(){ [unowned self] error, data in
             if let data = data {
+                
+                if data.isEmpty{
+                    delegate?.dataIsNill()
+                    return
+                }
+                
                 var viewData: [AppointmentViewData] = []
                 for datum in data {
                     let socketID = datum.socketID
@@ -70,7 +77,7 @@ class MainViewModel{
                     delegate?.dataFetchFailed(with: error)
                     return
                 } else {
-                    delegate?.dataDidFetched(nil)
+                    delegate?.dataIsNill()
                     return
                 }
             }

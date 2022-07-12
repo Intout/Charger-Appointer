@@ -37,3 +37,6 @@
 "socketNumber" = "Soket numarası";
 "future" = "Gelecek Randevular";
 "passed" = "Geçmiş Randevular";
+"makeAppointment" = "Randevu Oluştur";
+"noAppointmentTitle" = "Henüz bir randevu oluşturmadınız";
+"noAppointmentMessage" = "Oluşturulan randevular burada listelenir";

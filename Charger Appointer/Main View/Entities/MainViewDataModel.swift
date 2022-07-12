@@ -60,6 +60,8 @@ class MainViewDataModel{
             let responseJSON = try? JSONDecoder().decode(AppointmentResponse.self, from: data)
             if let responseJSON = responseJSON{
                 completionHandler(nil, responseJSON)
+                print("Fetch Response:")
+                print(responseJSON)
                 return
             } else {
                 completionHandler(MainDataModelError.badResponse, nil)
