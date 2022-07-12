@@ -127,7 +127,7 @@ extension MainViewModel{
     }
     
     func appointmentButtonEvent(){
-        coordinator?.goToCiteisView(with: dataModel.getCredentials(), location: dataModel.getLocation())
+        coordinator?.goToCiteisView(with: getCredentials(), location: getLocation())
     }
     
 }
@@ -135,5 +135,9 @@ extension MainViewModel{
 extension MainViewModel{
     func setLocation(_ location: Coordinate?){
         dataModel.setLocation(location: location)
+    }
+    
+    func getLocation() -> Coordinate?{
+        return dataModel.getLocation()
     }
 }

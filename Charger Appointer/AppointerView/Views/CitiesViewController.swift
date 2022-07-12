@@ -23,10 +23,19 @@ class CitiesViewController: UIViewController {
     }()
     
     var viewModel: CitiesViewModel!
+    private let tableView: UITableView = {
+        let tableView = UITableView()
+        tableView.translatesAutoresizingMaskIntoConstraints = false
+        return tableView
+    }()
+    private var tableViewHelper: CitiesViewTableViewHelper?
 
     override func viewDidLoad() {
         super.viewDidLoad()
 
+        tableViewHelper = CitiesViewTableViewHelper(tableView: tableView, viewModel: viewModel)
+        viewModel.delegate = self
+        viewModel.viewDidLoad()
         setupUI()
     }
     
@@ -42,6 +51,7 @@ class CitiesViewController: UIViewController {
         
         view.addSubview(containerView)
         containerView.addSubview(searchBarView)
+        containerView.addSubview(tableView)
         
         setupConstraints()
     }
@@ -62,8 +72,22 @@ class CitiesViewController: UIViewController {
             searchBarView.trailingAnchor.constraint(equalTo: containerView.trailingAnchor, constant: -10)
         ])
         
-        
+        NSLayoutConstraint.activate([
+            tableView.topAnchor.constraint(equalTo: searchBarView.bottomAnchor, constant: 0),
+            tableView.leadingAnchor.constraint(equalTo: containerView.leadingAnchor, constant: 10),
+            tableView.trailingAnchor.constraint(equalTo: containerView.trailingAnchor, constant: -10),
+            tableView.bottomAnchor.constraint(equalTo: containerView.bottomAnchor, constant: -10)
+        ])
     }
+}
 
-
+extension CitiesViewController: CitiesViewModelDelegate{
+    func didDataFetched(_ data: [String]?) {
+        
+        tableViewHelper?.setData(data)
+    }
+    
+    func didDataFetchFailed(_ error: Error?) {
+        print(error)
+    }
 }

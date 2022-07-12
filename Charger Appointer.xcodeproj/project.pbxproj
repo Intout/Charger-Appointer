@@ -51,6 +51,8 @@
 		00EC8298287D8E9000462575 /* CitiesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 00EC8297287D8E9000462575 /* CitiesViewController.swift */; };
 		00EC829E287D94A000462575 /* SearchBarView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 00EC829D287D94A000462575 /* SearchBarView.swift */; };
 		00EC82A0287D96E500462575 /* CitiesViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 00EC829F287D96E500462575 /* CitiesViewModel.swift */; };
+		00EC82A2287DA10B00462575 /* CitiesViewDataModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 00EC82A1287DA10B00462575 /* CitiesViewDataModel.swift */; };
+		00EC82A9287DA93F00462575 /* CitiesViewTableViewHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 00EC82A8287DA93F00462575 /* CitiesViewTableViewHelper.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -121,6 +123,8 @@
 		00EC8297287D8E9000462575 /* CitiesViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CitiesViewController.swift; sourceTree = "<group>"; };
 		00EC829D287D94A000462575 /* SearchBarView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchBarView.swift; sourceTree = "<group>"; };
 		00EC829F287D96E500462575 /* CitiesViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CitiesViewModel.swift; sourceTree = "<group>"; };
+		00EC82A1287DA10B00462575 /* CitiesViewDataModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CitiesViewDataModel.swift; sourceTree = "<group>"; };
+		00EC82A8287DA93F00462575 /* CitiesViewTableViewHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CitiesViewTableViewHelper.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -339,11 +343,53 @@
 			isa = PBXGroup;
 			children = (
 				00EC8295287D8DC700462575 /* AppointerCoordinator.swift */,
-				00EC8297287D8E9000462575 /* CitiesViewController.swift */,
-				00EC829F287D96E500462575 /* CitiesViewModel.swift */,
-				00EC829D287D94A000462575 /* SearchBarView.swift */,
+				00EC82A3287DA8BC00462575 /* Views */,
+				00EC82A6287DA8FB00462575 /* View Models */,
+				00EC82A4287DA8D500462575 /* Entities */,
 			);
 			path = AppointerView;
+			sourceTree = "<group>";
+		};
+		00EC82A3287DA8BC00462575 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				00EC8297287D8E9000462575 /* CitiesViewController.swift */,
+				00EC82A7287DA92400462575 /* Helpers */,
+				00EC82A5287DA8DE00462575 /* UI Components */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
+		00EC82A4287DA8D500462575 /* Entities */ = {
+			isa = PBXGroup;
+			children = (
+				00EC82A1287DA10B00462575 /* CitiesViewDataModel.swift */,
+			);
+			path = Entities;
+			sourceTree = "<group>";
+		};
+		00EC82A5287DA8DE00462575 /* UI Components */ = {
+			isa = PBXGroup;
+			children = (
+				00EC829D287D94A000462575 /* SearchBarView.swift */,
+			);
+			path = "UI Components";
+			sourceTree = "<group>";
+		};
+		00EC82A6287DA8FB00462575 /* View Models */ = {
+			isa = PBXGroup;
+			children = (
+				00EC829F287D96E500462575 /* CitiesViewModel.swift */,
+			);
+			path = "View Models";
+			sourceTree = "<group>";
+		};
+		00EC82A7287DA92400462575 /* Helpers */ = {
+			isa = PBXGroup;
+			children = (
+				00EC82A8287DA93F00462575 /* CitiesViewTableViewHelper.swift */,
+			);
+			path = Helpers;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -498,8 +544,10 @@
 				00E35A372871952300F8EE48 /* AuthenticationViewModel.swift in Sources */,
 				00167185287591480003606F /* AccountDetailsViewModel.swift in Sources */,
 				001671872875AD590003606F /* AccountDetailsDataModel.swift in Sources */,
+				00EC82A9287DA93F00462575 /* CitiesViewTableViewHelper.swift in Sources */,
 				0062C57E28742B0300FB16B9 /* MainViewModel.swift in Sources */,
 				00E35A392871B49500F8EE48 /* Regex.swift in Sources */,
+				00EC82A2287DA10B00462575 /* CitiesViewDataModel.swift in Sources */,
 				005F94AB287861E500565957 /* LocationController.swift in Sources */,
 				00EC8296287D8DC700462575 /* AppointerCoordinator.swift in Sources */,
 				00D7EE39286C785300E602D2 /* AuthenticationViewDataModel.swift in Sources */,

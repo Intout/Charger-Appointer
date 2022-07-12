@@ -1,22 +1,21 @@
 //
-//  MainViewDataModel.swift
+//  CitiesViewDataModel.swift
 //  Charger Appointer
 //
-//  Created by Mert Tecimen on 6.07.2022.
+//  Created by Mert Tecimen on 12.07.2022.
 //
 
 import Foundation
-import CoreLocation
 
-
-enum MainDataModelError: Error{
+enum CiteisViewDataModelError: Error{
     case badURL
     case badResponse
 }
 
-class MainViewDataModel{
+class CitiesViewDataModel{
+    
     private var credentials: AuthenticationResponse!
-    private var location: Coordinate?
+    private var location: Coordinate!
     
     func setCredentials(_ credentials: AuthenticationResponse){
         self.credentials = credentials
@@ -31,16 +30,12 @@ class MainViewDataModel{
         return location
     }
     
-    func fetchAppointmentData(completionHandler: @escaping (Error?, [AppointmentResponseElement]?)->(Void)){
-        
-        var urlString: String
-        
-        if let currentLocation = location{
-            urlString = "http://ec2-18-197-100-203.eu-central-1.compute.amazonaws.com:8080/appointments/\(credentials.userID)?userL atitude=\(currentLocation.latitude)&userLongitude=\(currentLocation.longitude)"
-        } else {
-            urlString = "http://ec2-18-197-100-203.eu-central-1.compute.amazonaws.com:8080/appointments/\(credentials.userID)"
-        }
-        guard let url = URL(string: urlString) else {
+    func setLocation(location: Coordinate?) -> Void{
+        self.location = location
+    }
+    
+    func fetchData(completionHandler: @escaping (Error?, [String]?) -> (Void)){
+        guard let url = URL(string: "http://ec2-18-197-100-203.eu-central-1.compute.amazonaws.com:8080/provinces?userID=\(credentials.userID)") else {
             completionHandler(URLError(.badURL), nil)
             return
         }
@@ -57,14 +52,12 @@ class MainViewDataModel{
                 return
             }
             
-            let responseJSON = try? JSONDecoder().decode(AppointmentResponse.self, from: data)
+            let responseJSON = try? JSONDecoder().decode([String].self, from: data)
             if let responseJSON = responseJSON{
                 completionHandler(nil, responseJSON)
-                print("Fetch Response:")
-                print(responseJSON)
                 return
             } else {
-                completionHandler(MainDataModelError.badResponse, nil)
+                completionHandler(CiteisViewDataModelError.badResponse, nil)
                 return
             }
         }.resume()
@@ -73,10 +66,4 @@ class MainViewDataModel{
     
     
     
-}
-
-extension MainViewDataModel{
-    func setLocation(location: Coordinate?) -> Void{
-        self.location = location
-    }
 }

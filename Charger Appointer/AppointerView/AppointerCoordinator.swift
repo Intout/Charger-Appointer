@@ -27,6 +27,8 @@ class AppointerCoordinator: Coordinator{
     func goToCitiesView(with credentials: AuthenticationResponse, location: Coordinate?){
         let citiesViewController = CitiesViewController()
         citiesViewController.viewModel = CitiesViewModel()
+        citiesViewController.viewModel.setCredentials(credentials)
+        citiesViewController.viewModel.setLocation(location)
         navigationController?.pushViewController(citiesViewController, animated: true)
     }
     
