@@ -47,6 +47,10 @@
 		00E35A372871952300F8EE48 /* AuthenticationViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 00E35A362871952300F8EE48 /* AuthenticationViewModel.swift */; };
 		00E35A392871B49500F8EE48 /* Regex.swift in Sources */ = {isa = PBXBuildFile; fileRef = 00E35A382871B49500F8EE48 /* Regex.swift */; };
 		00EC8292287D732900462575 /* AppointmentScreenMessageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 00EC8291287D732900462575 /* AppointmentScreenMessageView.swift */; };
+		00EC8296287D8DC700462575 /* AppointerCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 00EC8295287D8DC700462575 /* AppointerCoordinator.swift */; };
+		00EC8298287D8E9000462575 /* CitiesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 00EC8297287D8E9000462575 /* CitiesViewController.swift */; };
+		00EC829E287D94A000462575 /* SearchBarView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 00EC829D287D94A000462575 /* SearchBarView.swift */; };
+		00EC82A0287D96E500462575 /* CitiesViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 00EC829F287D96E500462575 /* CitiesViewModel.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -113,6 +117,10 @@
 		00E35A362871952300F8EE48 /* AuthenticationViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthenticationViewModel.swift; sourceTree = "<group>"; };
 		00E35A382871B49500F8EE48 /* Regex.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Regex.swift; sourceTree = "<group>"; };
 		00EC8291287D732900462575 /* AppointmentScreenMessageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppointmentScreenMessageView.swift; sourceTree = "<group>"; };
+		00EC8295287D8DC700462575 /* AppointerCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppointerCoordinator.swift; sourceTree = "<group>"; };
+		00EC8297287D8E9000462575 /* CitiesViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CitiesViewController.swift; sourceTree = "<group>"; };
+		00EC829D287D94A000462575 /* SearchBarView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchBarView.swift; sourceTree = "<group>"; };
+		00EC829F287D96E500462575 /* CitiesViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CitiesViewModel.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -265,8 +273,9 @@
 				00D7EDE6286C3FDF00E602D2 /* AppDelegate.swift */,
 				00CD4A0F2872C64D00D50DB4 /* AppCoordinator.swift */,
 				005F94AA287861E500565957 /* LocationController.swift */,
-				0062C57A2874093B00FB16B9 /* Main View */,
 				00D7EE16286C40AC00E602D2 /* Authentication View */,
+				0062C57A2874093B00FB16B9 /* Main View */,
+				00EC8293287D8D9400462575 /* AppointerView */,
 				005C0F462870218700E38A5C /* Assets */,
 				00D7EDF1286C3FE300E602D2 /* LaunchScreen.storyboard */,
 				00D7EDF4286C3FE300E602D2 /* Info.plist */,
@@ -324,6 +333,17 @@
 				00E35A342871929700F8EE48 /* Data.swift */,
 			);
 			path = Entities;
+			sourceTree = "<group>";
+		};
+		00EC8293287D8D9400462575 /* AppointerView */ = {
+			isa = PBXGroup;
+			children = (
+				00EC8295287D8DC700462575 /* AppointerCoordinator.swift */,
+				00EC8297287D8E9000462575 /* CitiesViewController.swift */,
+				00EC829F287D96E500462575 /* CitiesViewModel.swift */,
+				00EC829D287D94A000462575 /* SearchBarView.swift */,
+			);
+			path = AppointerView;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -470,6 +490,7 @@
 				005C0F4F2870287900E38A5C /* NSMutableAttributedString+Extensions.swift in Sources */,
 				00E35A352871929700F8EE48 /* Data.swift in Sources */,
 				00CD4A102872C64D00D50DB4 /* AppCoordinator.swift in Sources */,
+				00EC8298287D8E9000462575 /* CitiesViewController.swift in Sources */,
 				00D7EE36286C72FC00E602D2 /* Constants.swift in Sources */,
 				005F94A72878107100565957 /* DetailsCard.swift in Sources */,
 				0062C57C2874095D00FB16B9 /* MainViewCoordinator.swift in Sources */,
@@ -480,15 +501,18 @@
 				0062C57E28742B0300FB16B9 /* MainViewModel.swift in Sources */,
 				00E35A392871B49500F8EE48 /* Regex.swift in Sources */,
 				005F94AB287861E500565957 /* LocationController.swift in Sources */,
+				00EC8296287D8DC700462575 /* AppointerCoordinator.swift in Sources */,
 				00D7EE39286C785300E602D2 /* AuthenticationViewDataModel.swift in Sources */,
 				00A3DEAA287C1E0100E35F27 /* AppointmentData.swift in Sources */,
 				00A3DEAF287C384500E35F27 /* AppointmentsStationTableViewCell.swift in Sources */,
 				00D7EDEB286C3FDF00E602D2 /* ViewController.swift in Sources */,
 				00167183287591240003606F /* AccountDetailsViewController.swift in Sources */,
+				00EC82A0287D96E500462575 /* CitiesViewModel.swift in Sources */,
 				00167181287587DC0003606F /* MainViewDataModel.swift in Sources */,
 				005C0F4B2870236900E38A5C /* UIColor+Extensions.swift in Sources */,
 				00A3DEB2287C38A100E35F27 /* AppointmentsTableViewHelper.swift in Sources */,
 				00D7EDE7286C3FDF00E602D2 /* AppDelegate.swift in Sources */,
+				00EC829E287D94A000462575 /* SearchBarView.swift in Sources */,
 				00EC8292287D732900462575 /* AppointmentScreenMessageView.swift in Sources */,
 				005C0F4D2870285200E38A5C /* UIView+Extensions.swift in Sources */,
 				00A3DEAD287C344100E35F27 /* StationTableViewCell.swift in Sources */,

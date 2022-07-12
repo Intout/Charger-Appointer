@@ -125,6 +125,11 @@ extension MainViewModel{
     func accountButtonEvent(){
         coordinator?.goToAccountDetailsView(with: getCredentials())
     }
+    
+    func appointmentButtonEvent(){
+        coordinator?.goToCiteisView(with: dataModel.getCredentials(), location: dataModel.getLocation())
+    }
+    
 }
 
 extension MainViewModel{

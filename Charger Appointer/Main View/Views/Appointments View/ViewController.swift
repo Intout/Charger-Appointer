@@ -21,7 +21,6 @@ class ViewController: UIViewController {
     fileprivate lazy var accountButton: UIBarButtonItem = {
         let button = UIBarButtonItem(image: UIImage(systemName: "person"), style: .plain, target: self, action: #selector(buttonPressed))
         button.tintColor = UIColor.white
-        
         return button
     }()
     
@@ -39,6 +38,7 @@ class ViewController: UIViewController {
         button.titleLabel?.font = UIFont.init(name: ApplicationFonts.bold.rawValue, size: 14)
         button.isUserInteractionEnabled = true
         button.backgroundColor = .white
+        button.addTarget(self, action: #selector(appointmentButtonPressed), for: .touchUpInside)
         button.layer.cornerRadius = 45/2
         return button
     }()
@@ -156,5 +156,8 @@ extension ViewController: MainViewModelDelegate{
 private extension ViewController{
     @objc func buttonPressed(){
         viewModel.accountButtonEvent()
+    }
+    @objc func appointmentButtonPressed(){
+        viewModel.appointmentButtonEvent()
     }
 }

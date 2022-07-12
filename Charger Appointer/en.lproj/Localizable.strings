@@ -42,3 +42,6 @@
 "makeAppointment" = "Make an Appointment";
 "noAppointmentTitle" = "You haven't made an appointment yet";
 "noAppointmentMessage" = "Your appointments will be listed here";
+
+// Cities View
+"citiesViewTitle" = "Select a City";

@@ -40,3 +40,7 @@
 "makeAppointment" = "Randevu Oluştur";
 "noAppointmentTitle" = "Henüz bir randevu oluşturmadınız";
 "noAppointmentMessage" = "Oluşturulan randevular burada listelenir";
+
+// Cities View
+
+"citiesViewTitle" = "Şehir Seçin";
