@@ -29,7 +29,17 @@ class AppointerCoordinator: Coordinator{
         citiesViewController.viewModel = CitiesViewModel()
         citiesViewController.viewModel.setCredentials(credentials)
         citiesViewController.viewModel.setLocation(location)
+        citiesViewController.viewModel.coordinator = self
         navigationController?.pushViewController(citiesViewController, animated: true)
+    }
+    
+    func goToStationsView(with credentials: AuthenticationResponse, location: Coordinate?, for cityName: String){
+        let  stationsCoordinator = StationCoordinator(navigationController: self.navigationController)
+        stationsCoordinator.parentCoordinator = self
+        self.childCoordinators.append(stationsCoordinator)
+        self.childCoordinators.count
+        stationsCoordinator.start(credentials: credentials, location: location, for: cityName)
+        
     }
     
 }

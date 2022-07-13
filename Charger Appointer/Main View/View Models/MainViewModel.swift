@@ -127,7 +127,7 @@ extension MainViewModel{
     }
     
     func appointmentButtonEvent(){
-        coordinator?.goToCiteisView(with: getCredentials(), location: getLocation())
+        coordinator?.goToCitiesView(with: getCredentials(), location: getLocation())
     }
     
 }

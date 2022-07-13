@@ -65,3 +65,9 @@ extension CitiesViewModel{
         }
     }
 }
+
+extension CitiesViewModel{
+    func didSelectRow(with cityName: String){
+        coordinator?.goToStationsView(with: getCredentials(), location: getLocation(), for: cityName)
+    }
+}

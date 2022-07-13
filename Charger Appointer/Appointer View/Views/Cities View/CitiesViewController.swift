@@ -33,7 +33,7 @@ class CitiesViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        tableViewHelper = CitiesViewTableViewHelper(tableView: tableView, viewModel: viewModel)
+        tableViewHelper = CitiesViewTableViewHelper(tableView: tableView, viewModel: viewModel, didSelectRow: self.didSelectRow(_:))
         viewModel.delegate = self
         searchBarView.searchBar.delegate = self
         viewModel.viewDidLoad()
@@ -107,5 +107,12 @@ extension CitiesViewController: UISearchBarDelegate{
     }
     func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
         searchBarView.searchBar.resignFirstResponder()
+    }
+}
+
+extension CitiesViewController{
+    func didSelectRow(_ cityName: String){
+        print(cityName)
+        viewModel.didSelectRow(with: cityName)
     }
 }

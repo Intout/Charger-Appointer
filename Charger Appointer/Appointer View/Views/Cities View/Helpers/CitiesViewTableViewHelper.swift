@@ -13,8 +13,10 @@ class CitiesViewTableViewHelper: NSObject{
     weak var viewModel: CitiesViewModel?
     private var data: [String] = []
     private var searchText: String = ""
+    var didSelectRow: (String) -> ()
     
-    init(tableView: UITableView? = nil, viewModel: CitiesViewModel? = nil) {
+    init(tableView: UITableView? = nil, viewModel: CitiesViewModel? = nil, didSelectRow: @escaping (String) -> ()) {
+        self.didSelectRow = didSelectRow
         super.init()
         self.tableView = tableView
         self.viewModel = viewModel
@@ -45,7 +47,9 @@ class CitiesViewTableViewHelper: NSObject{
 }
 
 extension CitiesViewTableViewHelper: UITableViewDelegate{
-    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        didSelectRow(data[indexPath.item])
+    }
 }
 
 extension CitiesViewTableViewHelper: UITableViewDataSource{
@@ -54,7 +58,6 @@ extension CitiesViewTableViewHelper: UITableViewDataSource{
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        print(indexPath.item)
         let cell = UITableViewCell()
         var content = cell.defaultContentConfiguration()
         let attuributedText = NSMutableAttributedString(string: data[indexPath.item])

@@ -42,7 +42,7 @@ class MainViewCoordinator: Coordinator{
         self.navigationController?.pushViewController(accountViewController, animated: true)
     }
     
-    func goToCiteisView(with credentials: AuthenticationResponse, location: Coordinate?){
+    func goToCitiesView(with credentials: AuthenticationResponse, location: Coordinate?){
         let appointerCoordinator = AppointerCoordinator(navigationController: navigationController)
         appointerCoordinator.parentCoordinator = self
         self.childCoordinators.append(appointerCoordinator)

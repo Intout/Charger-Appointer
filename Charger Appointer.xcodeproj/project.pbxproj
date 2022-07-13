@@ -11,6 +11,10 @@
 		00167183287591240003606F /* AccountDetailsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 00167182287591240003606F /* AccountDetailsViewController.swift */; };
 		00167185287591480003606F /* AccountDetailsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 00167184287591480003606F /* AccountDetailsViewModel.swift */; };
 		001671872875AD590003606F /* AccountDetailsDataModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 001671862875AD590003606F /* AccountDetailsDataModel.swift */; };
+		002954B9287EF21F004C7AA6 /* StationsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 002954B8287EF21F004C7AA6 /* StationsViewModel.swift */; };
+		002954BB287EF26A004C7AA6 /* StationsViewDataModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 002954BA287EF26A004C7AA6 /* StationsViewDataModel.swift */; };
+		002954BD287EF559004C7AA6 /* StationsCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 002954BC287EF559004C7AA6 /* StationsCoordinator.swift */; };
+		002954BF287EF5D5004C7AA6 /* StationsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 002954BE287EF5D5004C7AA6 /* StationsViewController.swift */; };
 		005C0F48287021A100E38A5C /* Colors.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 005C0F47287021A100E38A5C /* Colors.xcassets */; };
 		005C0F4B2870236900E38A5C /* UIColor+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 005C0F4A2870236900E38A5C /* UIColor+Extensions.swift */; };
 		005C0F4D2870285200E38A5C /* UIView+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 005C0F4C2870285200E38A5C /* UIView+Extensions.swift */; };
@@ -77,6 +81,10 @@
 		00167182287591240003606F /* AccountDetailsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccountDetailsViewController.swift; sourceTree = "<group>"; };
 		00167184287591480003606F /* AccountDetailsViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccountDetailsViewModel.swift; sourceTree = "<group>"; };
 		001671862875AD590003606F /* AccountDetailsDataModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccountDetailsDataModel.swift; sourceTree = "<group>"; };
+		002954B8287EF21F004C7AA6 /* StationsViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StationsViewModel.swift; sourceTree = "<group>"; };
+		002954BA287EF26A004C7AA6 /* StationsViewDataModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StationsViewDataModel.swift; sourceTree = "<group>"; };
+		002954BC287EF559004C7AA6 /* StationsCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StationsCoordinator.swift; sourceTree = "<group>"; };
+		002954BE287EF5D5004C7AA6 /* StationsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StationsViewController.swift; sourceTree = "<group>"; };
 		005C0F47287021A100E38A5C /* Colors.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Colors.xcassets; sourceTree = "<group>"; };
 		005C0F4A2870236900E38A5C /* UIColor+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIColor+Extensions.swift"; sourceTree = "<group>"; };
 		005C0F4C2870285200E38A5C /* UIView+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView+Extensions.swift"; sourceTree = "<group>"; };
@@ -178,6 +186,27 @@
 				001671862875AD590003606F /* AccountDetailsDataModel.swift */,
 			);
 			path = Entities;
+			sourceTree = "<group>";
+		};
+		002954B6287ECBE7004C7AA6 /* Cities View */ = {
+			isa = PBXGroup;
+			children = (
+				00EC8297287D8E9000462575 /* CitiesViewController.swift */,
+				00EC82A7287DA92400462575 /* Helpers */,
+				00EC82A5287DA8DE00462575 /* UI Components */,
+			);
+			path = "Cities View";
+			sourceTree = "<group>";
+		};
+		002954B7287ECC1A004C7AA6 /* Stations View */ = {
+			isa = PBXGroup;
+			children = (
+				002954B8287EF21F004C7AA6 /* StationsViewModel.swift */,
+				002954BC287EF559004C7AA6 /* StationsCoordinator.swift */,
+				002954BE287EF5D5004C7AA6 /* StationsViewController.swift */,
+				002954BA287EF26A004C7AA6 /* StationsViewDataModel.swift */,
+			);
+			path = "Stations View";
 			sourceTree = "<group>";
 		};
 		005C0F462870218700E38A5C /* Assets */ = {
@@ -353,9 +382,8 @@
 		00EC82A3287DA8BC00462575 /* Views */ = {
 			isa = PBXGroup;
 			children = (
-				00EC8297287D8E9000462575 /* CitiesViewController.swift */,
-				00EC82A7287DA92400462575 /* Helpers */,
-				00EC82A5287DA8DE00462575 /* UI Components */,
+				002954B7287ECC1A004C7AA6 /* Stations View */,
+				002954B6287ECBE7004C7AA6 /* Cities View */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -544,7 +572,9 @@
 				00E35A372871952300F8EE48 /* AuthenticationViewModel.swift in Sources */,
 				00167185287591480003606F /* AccountDetailsViewModel.swift in Sources */,
 				001671872875AD590003606F /* AccountDetailsDataModel.swift in Sources */,
+				002954BB287EF26A004C7AA6 /* StationsViewDataModel.swift in Sources */,
 				00EC82A9287DA93F00462575 /* CitiesViewTableViewHelper.swift in Sources */,
+				002954BD287EF559004C7AA6 /* StationsCoordinator.swift in Sources */,
 				0062C57E28742B0300FB16B9 /* MainViewModel.swift in Sources */,
 				00E35A392871B49500F8EE48 /* Regex.swift in Sources */,
 				00EC82A2287DA10B00462575 /* CitiesViewDataModel.swift in Sources */,
@@ -552,7 +582,9 @@
 				00EC8296287D8DC700462575 /* AppointerCoordinator.swift in Sources */,
 				00D7EE39286C785300E602D2 /* AuthenticationViewDataModel.swift in Sources */,
 				00A3DEAA287C1E0100E35F27 /* AppointmentData.swift in Sources */,
+				002954B9287EF21F004C7AA6 /* StationsViewModel.swift in Sources */,
 				00A3DEAF287C384500E35F27 /* AppointmentsStationTableViewCell.swift in Sources */,
+				002954BF287EF5D5004C7AA6 /* StationsViewController.swift in Sources */,
 				00D7EDEB286C3FDF00E602D2 /* ViewController.swift in Sources */,
 				00167183287591240003606F /* AccountDetailsViewController.swift in Sources */,
 				00EC82A0287D96E500462575 /* CitiesViewModel.swift in Sources */,
