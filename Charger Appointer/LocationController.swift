@@ -48,7 +48,7 @@ class LocationController: NSObject, CLLocationManagerDelegate {
         let status = manager.authorizationStatus
         if status == .authorizedWhenInUse || status == .authorizedAlways{
             if let location = locations.first{
-                locationDidChanged?(Coordinate(longitude: location.coordinate.longitude, latitude: location.coordinate.latitude))
+                locationDidChanged?(Coordinate(longitude: Double(round(1000000 * location.coordinate.longitude) / 1000000), latitude: Double(round(1000000 * location.coordinate.latitude) / 1000000)))
             }
         }
     }

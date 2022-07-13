@@ -29,6 +29,7 @@ class MainViewCoordinator: Coordinator{
         let mainViewModel = MainViewModel()
         viewController?.viewModel = mainViewModel
         mainViewModel.setCredentials(credentials)
+        mainViewModel.setLocation(location)
         mainViewModel.coordinator = self
     }
     

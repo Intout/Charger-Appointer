@@ -96,6 +96,6 @@ extension StationsViewController: StationsViewModelDelegate{
         tableViewHelper?.setData(data)
     }
     func didDataFetchFailed(_ error: Error?) {
-        
+        print("Data fetch failed on Station view")
     }
 }

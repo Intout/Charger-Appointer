@@ -60,6 +60,7 @@ class AuthenticationViewDataModel{
     }
     
     func getCoordinates() -> Coordinate?{
+        print("Get Location: \(self.locationCoordinates)")
         return self.locationCoordinates
     }
 }

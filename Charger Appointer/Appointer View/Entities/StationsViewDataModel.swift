@@ -44,11 +44,14 @@ class StationsViewDataModel{
         var urlString: String
         
         if let currentLocation = location{
-            urlString = "http://ec2-18-197-100-203.eu-central-1.compute.amazonaws.com:8080/stations?userID=\(credentials.userID)?userL atitude=\(currentLocation.latitude)&userLongitude=\(currentLocation.longitude)"
+            
+            urlString = "http://ec2-18-197-100-203.eu-central-1.compute.amazonaws.com:8080/stations?userID=\(credentials.userID)&userLatitude=\(currentLocation.latitude)&userLongitude=\(currentLocation.longitude)"
+            print("Location Exists!")
         } else {
             urlString = "http://ec2-18-197-100-203.eu-central-1.compute.amazonaws.com:8080/stations?userID=\(credentials.userID)"
         }
         guard let url = URL(string: urlString) else {
+            print("Bad URL")
             completionHandler(URLError(.badURL), nil)
             return
         }

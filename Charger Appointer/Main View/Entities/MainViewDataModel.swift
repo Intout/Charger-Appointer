@@ -34,14 +34,16 @@ class MainViewDataModel{
     func fetchAppointmentData(completionHandler: @escaping (Error?, [AppointmentResponseElement]?)->(Void)){
         
         var urlString: String
-        
+        print("userL atitude=\(location?.latitude)&userLongitude=\(location?.longitude)")
         if let currentLocation = location{
-            urlString = "http://ec2-18-197-100-203.eu-central-1.compute.amazonaws.com:8080/appointments/\(credentials.userID)?userL atitude=\(currentLocation.latitude)&userLongitude=\(currentLocation.longitude)"
+            print("lom")
+            urlString = "http://ec2-18-197-100-203.eu-central-1.compute.amazonaws.com:8080/appointments/\(credentials.userID)?userLatitude=\(currentLocation.latitude)&userLongitude=\(currentLocation.longitude)"
         } else {
             urlString = "http://ec2-18-197-100-203.eu-central-1.compute.amazonaws.com:8080/appointments/\(credentials.userID)"
         }
         guard let url = URL(string: urlString) else {
             completionHandler(URLError(.badURL), nil)
+            print("Bad URL")
             return
         }
         
@@ -65,6 +67,8 @@ class MainViewDataModel{
                 return
             } else {
                 completionHandler(MainDataModelError.badResponse, nil)
+                print("Le Response")
+                print(response)
                 return
             }
         }.resume()

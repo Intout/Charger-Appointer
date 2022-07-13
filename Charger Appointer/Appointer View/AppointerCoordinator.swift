@@ -38,6 +38,7 @@ class AppointerCoordinator: Coordinator{
         stationsCoordinator.parentCoordinator = self
         self.childCoordinators.append(stationsCoordinator)
         self.childCoordinators.count
+        print("location exists in cities view \(location)")
         stationsCoordinator.start(credentials: credentials, location: location, for: cityName)
         
     }
