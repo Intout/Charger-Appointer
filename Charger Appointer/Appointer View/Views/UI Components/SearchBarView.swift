@@ -14,7 +14,6 @@ class SearchBarView: UIView {
         searchBar.translatesAutoresizingMaskIntoConstraints = false
         searchBar.backgroundColor = .clear
         searchBar.searchBarStyle = .default
-        searchBar.showsScopeBar = false
         if let textField = searchBar.value(forKey: "searchField") as? UITextField{
             textField.backgroundColor = .dark
             textField.layer.masksToBounds = true
@@ -36,6 +35,7 @@ class SearchBarView: UIView {
             
         }
         searchBar.setBackgroundImage(UIImage(), for: .any, barMetrics: .default)
+        searchBar.endEditing(true)
         return searchBar
         
     }()

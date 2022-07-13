@@ -82,6 +82,7 @@ class AuthenticationViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         loginButton.addTarget(self, action: #selector(buttonPressed), for: .touchUpInside)
+        emailTextField.delegate = self
         setupUI()
     }
     
@@ -166,5 +167,12 @@ private extension AuthenticationViewController{
             warningLabel.isHidden = false
             warningLabel.text = message
         }
+    }
+}
+
+extension AuthenticationViewController: UITextFieldDelegate{
+    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+        textField.resignFirstResponder()
+        return true
     }
 }

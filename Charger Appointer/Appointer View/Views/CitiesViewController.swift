@@ -95,6 +95,18 @@ extension CitiesViewController: CitiesViewModelDelegate{
 
 extension CitiesViewController: UISearchBarDelegate{
     func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
+        let data = viewModel.filterData(searchText)
+        if searchText.count == 0 {
+            self.searchBarView.updateState(to: .idle)
+        } else if data.count > 0{
+            self.searchBarView.updateState(to: .found)
+        } else {
+            self.searchBarView.updateState(to: .notFound)
+        }
         tableViewHelper?.setData(viewModel.filterData(searchText))
     }
+    func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
+        searchBarView.searchBar.resignFirstResponder()
+    }
+    
 }
