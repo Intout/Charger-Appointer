@@ -42,6 +42,11 @@
 "noAppointmentMessage" = "Oluşturulan randevular burada listelenir";
 
 // Cities View
-
 "citiesViewTitle" = "Şehir Seçin";
 "citiesSearchBarPlaceHolder" = "Şehir Ara";
+
+// Stations View
+"stationsViewTitle" = "İstasyon Seçin";
+"serviceHours" = "Hizmet saatleri";
+"hour" = "Saat";
+"availableSocketCount" = "Uygun soket sayısı";

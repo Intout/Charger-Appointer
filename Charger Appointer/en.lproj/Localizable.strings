@@ -46,3 +46,9 @@
 // Cities View
 "citiesViewTitle" = "Select a City";
 "citiesSearchBarPlaceHolder" = "Search City";
+
+// Stations View
+"stationsViewTitle" = "Select a Station";
+"serviceHours" = "Service hours";
+"hour" = "Hour";
+"availableSocketCount" = "Number of available sockets";
