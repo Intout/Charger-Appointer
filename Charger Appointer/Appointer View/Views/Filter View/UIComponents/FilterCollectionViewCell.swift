@@ -16,7 +16,8 @@ class FilterCollectionViewCell: UICollectionViewCell {
     
     private(set) lazy var label: UILabel = {
         let label = UILabel()
-        label.font = .init(name: ApplicationFonts.regular.rawValue, size: 16)
+        label.translatesAutoresizingMaskIntoConstraints = false
+        label.font = .init(name: ApplicationFonts.regular.rawValue, size: 14)
         label.textColor = .white
         return label
     }()
@@ -27,6 +28,7 @@ class FilterCollectionViewCell: UICollectionViewCell {
         self.backgroundColor = .clear
         self.layer.borderWidth = 1
         self.layer.borderColor = UIColor.white.cgColor
+        setupConstraints()
     }
     
     required init?(coder: NSCoder) {
@@ -35,10 +37,10 @@ class FilterCollectionViewCell: UICollectionViewCell {
     
     private func setupConstraints(){
         NSLayoutConstraint.activate([
-            label.topAnchor.constraint(equalTo: self.topAnchor, constant: 5),
-            label.bottomAnchor.constraint(equalTo: self.bottomAnchor, constant: -5),
-            label.leadingAnchor.constraint(equalTo: self.leadingAnchor, constant: 5),
-            label.trailingAnchor.constraint(equalTo: self.trailingAnchor, constant: -5)
+            label.topAnchor.constraint(equalTo: self.topAnchor, constant: 10),
+            label.bottomAnchor.constraint(equalTo: self.bottomAnchor, constant: -10),
+            label.leadingAnchor.constraint(equalTo: self.leadingAnchor, constant: 15),
+            label.trailingAnchor.constraint(equalTo: self.trailingAnchor, constant: -15)
         ])
     }
     

@@ -19,7 +19,7 @@ class StationsViewDataModel{
         return filterData
     }
     
-    func setFilterData(_ data: FilterData){
+    func setFilterData(_ data: FilterData?){
         self.filterData = data
     }
     

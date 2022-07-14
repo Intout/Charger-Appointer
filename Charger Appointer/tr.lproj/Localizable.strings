@@ -58,3 +58,4 @@
 "socketType" = "Soket Tipi";
 "distance" = "Uzaklık (km)";
 "services" = "Hizmetler";
+"filterButtonTitle" = "Filtrele";

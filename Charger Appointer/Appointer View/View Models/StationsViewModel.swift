@@ -129,6 +129,13 @@ private extension StationsViewModel{
 
 extension StationsViewModel{
     func filterButtonEvent(){
-        coordinator?.goToFilterView(with: dataModel.getFilterData())
+        coordinator?.goToFilterView(with: dataModel.getFilterData(), isLocationExists: dataModel.getLocation() != nil, vm: self)
+    }
+}
+
+extension StationsViewModel: StationViewNavigationDelegate{
+    func didNavigate(data: FilterData?) {
+        dataModel.setFilterData(data)
+        fetchData()
     }
 }

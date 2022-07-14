@@ -60,3 +60,4 @@
 "socketType" = "Socket Tpye";
 "distance" = "Distance (km)";
 "services" = "Services";
+"filterButtonTitle" = "Apply Filter";
