@@ -32,6 +32,8 @@
 		00A4617628800AE80028507B /* FilterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 00A4617528800AE80028507B /* FilterViewController.swift */; };
 		00A4617828800AF50028507B /* FilterViewDataModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 00A4617728800AF50028507B /* FilterViewDataModel.swift */; };
 		00A4617A28800B040028507B /* FilterViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 00A4617928800B040028507B /* FilterViewModel.swift */; };
+		00A4617E2880446F0028507B /* FilterCategoryStackView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 00A4617D2880446F0028507B /* FilterCategoryStackView.swift */; };
+		00A461812880499A0028507B /* FilterCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 00A461802880499A0028507B /* FilterCollectionViewCell.swift */; };
 		00CD4A102872C64D00D50DB4 /* AppCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 00CD4A0F2872C64D00D50DB4 /* AppCoordinator.swift */; };
 		00D7EDE7286C3FDF00E602D2 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 00D7EDE6286C3FDF00E602D2 /* AppDelegate.swift */; };
 		00D7EDEB286C3FDF00E602D2 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 00D7EDEA286C3FDF00E602D2 /* ViewController.swift */; };
@@ -107,6 +109,8 @@
 		00A4617528800AE80028507B /* FilterViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FilterViewController.swift; sourceTree = "<group>"; };
 		00A4617728800AF50028507B /* FilterViewDataModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FilterViewDataModel.swift; sourceTree = "<group>"; };
 		00A4617928800B040028507B /* FilterViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FilterViewModel.swift; sourceTree = "<group>"; };
+		00A4617D2880446F0028507B /* FilterCategoryStackView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FilterCategoryStackView.swift; sourceTree = "<group>"; };
+		00A461802880499A0028507B /* FilterCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FilterCollectionViewCell.swift; sourceTree = "<group>"; };
 		00CD4A0F2872C64D00D50DB4 /* AppCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppCoordinator.swift; sourceTree = "<group>"; };
 		00D7EDE3286C3FDF00E602D2 /* Charger Appointer.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Charger Appointer.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		00D7EDE6286C3FDF00E602D2 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -307,6 +311,7 @@
 				00A4617528800AE80028507B /* FilterViewController.swift */,
 				00A4617728800AF50028507B /* FilterViewDataModel.swift */,
 				00A4617928800B040028507B /* FilterViewModel.swift */,
+				00A4617C288044340028507B /* Helpers */,
 				00A4617B288043E50028507B /* UIComponents */,
 			);
 			path = "Filter View";
@@ -315,8 +320,17 @@
 		00A4617B288043E50028507B /* UIComponents */ = {
 			isa = PBXGroup;
 			children = (
+				00A4617D2880446F0028507B /* FilterCategoryStackView.swift */,
+				00A461802880499A0028507B /* FilterCollectionViewCell.swift */,
 			);
 			path = UIComponents;
+			sourceTree = "<group>";
+		};
+		00A4617C288044340028507B /* Helpers */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Helpers;
 			sourceTree = "<group>";
 		};
 		00D7EDDA286C3FDF00E602D2 = {
@@ -625,6 +639,7 @@
 				00EC82A9287DA93F00462575 /* CitiesViewTableViewHelper.swift in Sources */,
 				002954BD287EF559004C7AA6 /* StationsCoordinator.swift in Sources */,
 				0062C57E28742B0300FB16B9 /* MainViewModel.swift in Sources */,
+				00A4617E2880446F0028507B /* FilterCategoryStackView.swift in Sources */,
 				00E35A392871B49500F8EE48 /* Regex.swift in Sources */,
 				00EC82A2287DA10B00462575 /* CitiesViewDataModel.swift in Sources */,
 				002954C2287F2668004C7AA6 /* StationsViewTableViewHelper.swift in Sources */,
@@ -641,6 +656,7 @@
 				00EC82A0287D96E500462575 /* CitiesViewModel.swift in Sources */,
 				00167181287587DC0003606F /* MainViewDataModel.swift in Sources */,
 				005C0F4B2870236900E38A5C /* UIColor+Extensions.swift in Sources */,
+				00A461812880499A0028507B /* FilterCollectionViewCell.swift in Sources */,
 				00A3DEB2287C38A100E35F27 /* AppointmentsTableViewHelper.swift in Sources */,
 				00A4617628800AE80028507B /* FilterViewController.swift in Sources */,
 				00D7EDE7286C3FDF00E602D2 /* AppDelegate.swift in Sources */,
