@@ -11,8 +11,8 @@ struct AppointmentViewData{
     let appointmentID: Int
     let socketID: Int
     let stationName: String
-    let socketType: String
-    let chargerType: String
+    let socketType: SocketType
+    let chargerType: ChargeType
     let powerUnit: String
     let power: Int
     let time: String

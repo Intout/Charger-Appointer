@@ -29,3 +29,27 @@ enum SearchBarState{
     case found
     case notFound
 }
+
+enum Service: String, Codable {
+    case büfe = "Büfe"
+    case otopark = "Otopark"
+    case wiFi = "Wi-Fi"
+}
+
+// MARK: - Socket
+
+enum ChargeType: String, Codable {
+    case ac = "AC"
+    case dc = "DC"
+}
+
+enum PowerUnit: String, Codable {
+    case kVa = "kVa"
+    case kW = "kW"
+}
+
+enum SocketType: String, Codable {
+    case chAdeMO = "CHAdeMO"
+    case csc = "CSC"
+    case type2 = "Type-2"
+}

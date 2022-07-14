@@ -13,6 +13,15 @@ class StationsViewDataModel{
     private var location: Coordinate!
     private var data: StationResponse?
     private var cityName: String?
+    private var filterData: FilterData?
+    
+    func getFilterData() -> FilterData?{
+        return filterData
+    }
+    
+    func setFilterData(_ data: FilterData){
+        self.filterData = data
+    }
     
     func setCredentials(_ credentials: AuthenticationResponse){
         self.credentials = credentials

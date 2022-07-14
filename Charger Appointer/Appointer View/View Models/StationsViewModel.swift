@@ -18,33 +18,6 @@ struct StationResponseElement: Codable {
     let stationName: String
 }
 
-enum Service: String, Codable {
-    case büfe = "Büfe"
-    case otopark = "Otopark"
-    case wiFi = "Wi-Fi"
-}
-
-
-
-
-// MARK: - Socket
-
-enum ChargeType: String, Codable {
-    case ac = "AC"
-    case dc = "DC"
-}
-
-enum PowerUnit: String, Codable {
-    case kVa = "kVa"
-    case kW = "kW"
-}
-
-enum SocketType: String, Codable {
-    case chAdeMO = "CHAdeMO"
-    case csc = "CSC"
-    case type2 = "Type-2"
-}
-
 typealias StationResponse = [StationResponseElement]
 
 protocol StationsViewModelDelegate: AnyObject{
@@ -60,15 +33,17 @@ class StationsViewModel{
     func viewDidLoad(){
         fetchData()
     }
+
+    
     
     func fetchData(){
         dataModel.fetchData(){ [unowned self] error, data in
             
             if let data = data {
                 self.delegate?.didDataFetched(
-                    data.filter{
+                    filterData(from: data.filter{
                         $0.geoLocation.province.lowercased() == getCityName()?.lowercased()
-                    }
+                    })
                 )
             } else {
                 self.delegate?.didDataFetchFailed(error)
@@ -106,3 +81,54 @@ extension StationsViewModel{
     }
 }
 
+private extension StationsViewModel{
+    
+    func filterData(from data: StationResponse?) -> StationResponse?{
+        let stations: StationResponse? = data
+        let filterData = dataModel.getFilterData()
+        
+        
+        // If filter doesn't exits, return original data.
+        guard let filterData = filterData else {
+            print("Filter doesn't exists")
+            return stations
+        }
+        
+       return stations?.filter{
+           return doExist(for: $0.sockets, in: filterData.chargerType) && doExist(for: $0.sockets, in: filterData.socketType) && $0.distanceInKM ?? 0.0 < filterData.distance && doServicesExist(for: $0.services, in: filterData.service)
+        }
+        
+        
+    }
+    
+    func doServicesExist(for services: [Service], in filter: [Service]) -> Bool{
+        return filter.allSatisfy(services.contains)
+    }
+    
+    func doExist<T>(for sockets: [Socket], in filter: [T]) -> Bool{
+        
+        var types: [T] = []
+
+        
+        if T.self == ChargeType.self{
+            for socket in sockets {
+                types.append(socket.chargeType as! T)
+            }
+            return (filter as! [ChargeType]).allSatisfy((types as! [ChargeType]).contains)
+        } else if T.self == SocketType.self{
+            for socket in sockets {
+                types.append(socket.socketType as! T)
+            }
+            return (filter as! [SocketType]).allSatisfy((types as! [SocketType]).contains)
+        }
+    
+     return false
+    }
+    
+}
+
+extension StationsViewModel{
+    func filterButtonEvent(){
+        coordinator?.goToFilterView(with: dataModel.getFilterData())
+    }
+}

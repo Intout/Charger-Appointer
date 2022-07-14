@@ -84,7 +84,6 @@ class CitiesViewController: UIViewController {
 
 extension CitiesViewController: CitiesViewModelDelegate{
     func didDataFetched(_ data: [String]?) {
-        
         tableViewHelper?.setData(data)
     }
     

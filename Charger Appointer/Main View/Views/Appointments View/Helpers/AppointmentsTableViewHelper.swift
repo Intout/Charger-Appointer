@@ -104,7 +104,7 @@ extension AppointmentTableViewHelper: UITableViewDataSource{
         
         cell.socketNumberLabel.attributedText = title
         
-        cell.chargerTypeLabel.text = cellData.chargerType
+        cell.chargerTypeLabel.text = cellData.chargerType.rawValue
         
         return cell
     }

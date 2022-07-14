@@ -21,6 +21,7 @@ class ViewController: UIViewController {
     fileprivate lazy var accountButton: UIBarButtonItem = {
         let button = UIBarButtonItem(image: UIImage(systemName: "person"), style: .plain, target: self, action: #selector(buttonPressed))
         button.tintColor = UIColor.white
+        
         return button
     }()
     

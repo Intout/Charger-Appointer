@@ -53,3 +53,10 @@
 "hour" = "Hour";
 "availableSocketCount" = "Number of available sockets";
 "resultsFor" = "Results for";
+
+// Filter View
+"filterViewTitle" = "Filter";
+"chargerType" = "Charger Type";
+"socketType" = "Socket Tpye";
+"distance" = "Distance (km)";
+"services" = "Services";

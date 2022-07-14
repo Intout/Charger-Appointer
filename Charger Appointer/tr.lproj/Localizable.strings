@@ -51,3 +51,10 @@
 "hour" = "Saat";
 "availableSocketCount" = "Uygun soket sayısı";
 "resultsFor" = "için sonuçlar";
+
+// Filter View
+"filterViewTitle" = "Filitreleme";
+"chargerType" = "Cihaz Tipi";
+"socketType" = "Soket Tipi";
+"distance" = "Uzaklık (km)";
+"services" = "Hizmetler";

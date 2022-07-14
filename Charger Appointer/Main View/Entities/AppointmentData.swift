@@ -37,7 +37,8 @@ struct GeoLocation: Codable {
 // MARK: - Socket
 struct Socket: Codable {
     let socketID: Int
-    let socketType, chargeType: String
+    let socketType: SocketType
+    let chargeType: ChargeType
     let power: Int
     let powerUnit: String
     let socketNumber: Int

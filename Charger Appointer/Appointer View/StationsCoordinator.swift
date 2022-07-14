@@ -33,8 +33,12 @@ class StationCoordinator: Coordinator{
         navigationController?.pushViewController(stationsViewController, animated: true)
     }
     
-    func goToFilterView(){
-        
+    func goToFilterView(with filterData: FilterData?){
+        let filterViewController = FilterViewController()
+        filterViewController.viewModel = FilterViewModel()
+        filterViewController.viewModel?.coordinator = self
+        filterViewController.viewModel?.setFilterData(filterData)
+        navigationController?.pushViewController(filterViewController, animated: true)
     }
     
 }

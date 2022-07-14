@@ -35,13 +35,18 @@ class StationsViewController: UIViewController {
         return tableView
     }()
     
+    fileprivate lazy var filterButton: UIBarButtonItem = {
+        let button = UIBarButtonItem(image: UIImage(systemName: "line.3.horizontal.decrease.circle"), style: .plain, target: self, action: #selector(filterButtonPressed))
+        button.tintColor = UIColor.white
+        return button
+    }()
+    
     var viewModel: StationsViewModel!
     private var tableViewHelper: StationViewTableViewHelper?
     
     override func viewDidLoad() {
         super.viewDidLoad()
         viewModel.delegate = self
-        viewModel.viewDidLoad()
         tableViewHelper = StationViewTableViewHelper(tableView: tableView, viewModel: viewModel)
         viewModel.viewDidLoad()
         setupUI()
@@ -54,6 +59,7 @@ class StationsViewController: UIViewController {
     }
     
     private func setupUI(){
+        self.navigationItem.rightBarButtonItem = filterButton
         self.navigationItem.title = NSLocalizedString("stationsViewTitle", comment: "Title of view!")
         self.navigationController?.navigationBar.titleTextAttributes = [.foregroundColor: UIColor.white, .font: UIFont(name: ApplicationFonts.regular.rawValue, size: 16)!]
         view.backgroundColor = .charcoalGrey
@@ -122,6 +128,7 @@ class StationsViewController: UIViewController {
 
 extension StationsViewController: StationsViewModelDelegate{
     func didDataFetched(_ data: StationResponse?){
+        print("Number of cities: \(data?.count)")
         DispatchQueue.main.async { [unowned self] in
             self.updateMessageLabel(with: viewModel.getCityName() ?? "")
         }
@@ -130,5 +137,11 @@ extension StationsViewController: StationsViewModelDelegate{
     }
     func didDataFetchFailed(_ error: Error?) {
         print("Data fetch failed on Station view")
+    }
+}
+
+private extension StationsViewController{
+    @objc func filterButtonPressed(){
+        viewModel.filterButtonEvent()
     }
 }
