@@ -22,6 +22,13 @@ class StationsViewController: UIViewController {
         return view
     }()
     
+    fileprivate lazy var messageLabel: UILabel = {
+        let label = UILabel()
+        label.translatesAutoresizingMaskIntoConstraints = false
+        label.textColor = .white
+        return label
+    }()
+    
     fileprivate lazy var tableView: UITableView = {
         let tableView = UITableView()
         tableView.translatesAutoresizingMaskIntoConstraints = false
@@ -52,7 +59,10 @@ class StationsViewController: UIViewController {
         view.backgroundColor = .charcoalGrey
         view.addSubview(containerView)
         
+        containerView.addSubview(searchBarView)
+        containerView.addSubview(messageLabel)
         containerView.addSubview(tableView)
+        
         tableView.rowHeight = UITableView.automaticDimension
         tableView.estimatedRowHeight = 300
         tableView.backgroundColor = .clear
@@ -70,30 +80,53 @@ class StationsViewController: UIViewController {
         ])
         
         NSLayoutConstraint.activate([
-            tableView.topAnchor.constraint(equalTo: containerView.topAnchor),
+            searchBarView.topAnchor.constraint(equalTo: containerView.topAnchor, constant: 10),
+            searchBarView.leadingAnchor.constraint(equalTo: containerView.leadingAnchor, constant: 10),
+            searchBarView.trailingAnchor.constraint(equalTo: containerView.trailingAnchor, constant: -10),
+            
+        ])
+        
+        NSLayoutConstraint.activate([
+            messageLabel.topAnchor.constraint(equalTo: searchBarView.bottomAnchor, constant: 0),
+            messageLabel.leadingAnchor.constraint(equalTo: containerView.leadingAnchor, constant: 10),
+            messageLabel.trailingAnchor.constraint(equalTo: containerView.trailingAnchor, constant: -10),
+        ])
+        
+        NSLayoutConstraint.activate([
+            tableView.topAnchor.constraint(equalTo: messageLabel.bottomAnchor, constant: 10),
             tableView.bottomAnchor.constraint(equalTo: containerView.bottomAnchor),
             tableView.leadingAnchor.constraint(equalTo: containerView.leadingAnchor),
             tableView.trailingAnchor.constraint(equalTo: containerView.trailingAnchor),
         ])
     }
     
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
+    private func updateMessageLabel(with name: String){
+        let body = NSMutableAttributedString(string: NSLocalizedString("resultsFor", comment: ""))
+        body.addAttribute(NSMutableAttributedString.Key.font, value: UIFont(name: ApplicationFonts.regular.rawValue, size: 16)!, range: NSRange(location: 0, length: body.length))
+        
+        let cityName = NSMutableAttributedString(string:"'" + name + "'")
+        cityName.addAttribute(NSMutableAttributedString.Key.font, value: UIFont(name: ApplicationFonts.bold.rawValue, size: 16)!, range: NSRange(location: 0, length: cityName.length))
+        
+        if Locale.current.languageCode == "tr"{
+            cityName.append(NSMutableAttributedString(string: " "))
+            cityName.append(body)
+            messageLabel.attributedText = cityName
+        } else if Locale.current.languageCode == "en"{
+            body.append(NSMutableAttributedString(string: " "))
+            body.append(cityName)
+            messageLabel.attributedText = body
+        }
     }
-    */
 
 }
 
 extension StationsViewController: StationsViewModelDelegate{
     func didDataFetched(_ data: StationResponse?){
-        
+        DispatchQueue.main.async { [unowned self] in
+            self.updateMessageLabel(with: viewModel.getCityName() ?? "")
+        }
         tableViewHelper?.setData(data)
+        
     }
     func didDataFetchFailed(_ error: Error?) {
         print("Data fetch failed on Station view")
