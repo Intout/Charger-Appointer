@@ -130,16 +130,13 @@ private extension StationsViewModel{
 
 extension StationsViewModel{
     func filterButtonEvent(){
-        print("Filter Button")
-        print(dataModel.getFilterData())
+        dataModel.setFilterData(updataFilterData())
         coordinator?.goToFilterView(with: dataModel.getFilterData(), isLocationExists: dataModel.getLocation() != nil, vm: self)
     }
 }
 
 extension StationsViewModel: StationViewNavigationDelegate{
     func didNavigate(data: FilterData?) {
-        print("Data,data")
-        print(data)
         dataModel.setFilterData(data)
         generateFilterCollection(filterData: data)
         fetchData()
@@ -152,9 +149,44 @@ extension StationsViewModel{
             var collection: [any RawRepresentable] = filterData.socketType
             collection += filterData.service
             collection += filterData.chargerType
+            dataModel.setFilterCollection(collection)
             delegate?.didFilterDataUpdated(collection)
         } else {
             delegate?.didFilterDataUpdated([])
+            dataModel.setFilterCollection([])
         }
+    }
+    
+    func removeFilterData(for data: any RawRepresentable){
+        if !dataModel.getFilterCollection().isEmpty{
+            var filterCollection = dataModel.getFilterCollection()
+            filterCollection = filterCollection.filter{
+                $0.rawValue as? String != data.rawValue as? String
+            }
+            dataModel.setFilterCollection(filterCollection)
+            dataModel.setFilterData(updataFilterData())
+            delegate?.didFilterDataUpdated(dataModel.getFilterCollection())
+           // self.fetchData()
+            
+        }
+    }
+    
+    func updataFilterData() -> FilterData?{
+        if dataModel.getFilterCollection().isEmpty{
+            return nil
+        }
+        
+        let filters = dataModel.getFilterCollection()
+        var filterData = FilterData()
+        for filter in filters{
+            if filter is ChargeType{
+                filterData.chargerType.append(filter as! ChargeType)
+            } else if filter is SocketType{
+                filterData.socketType.append(filter as! SocketType)
+            } else if filter is Service {
+                filterData.service.append(filter as! Service)
+            }
+        }
+        return filterData
     }
 }

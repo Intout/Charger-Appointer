@@ -27,7 +27,6 @@ class CitiesViewDataModel{
     }
     
     func getLocation() -> Coordinate?{
-        print(location as Any)
         return location
     }
     

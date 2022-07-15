@@ -13,7 +13,8 @@ class StationsViewCollectionViewCell: UICollectionViewCell {
         let stackView = UIStackView()
         stackView.translatesAutoresizingMaskIntoConstraints = false
         stackView.axis = .horizontal
-        stackView.distribution = .equalSpacing
+        
+        stackView.alignment = .center
         stackView.spacing = 10
         return stackView
     }()
@@ -30,6 +31,7 @@ class StationsViewCollectionViewCell: UICollectionViewCell {
         let imageView = UIImageView()
         imageView.translatesAutoresizingMaskIntoConstraints = false
         imageView.image = UIImage(systemName: "multiply")
+        imageView.tintColor = .white
         return imageView
     }()
     

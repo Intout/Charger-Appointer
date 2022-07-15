@@ -30,7 +30,6 @@ class StationViewTableViewHelper: NSObject{
     }
     
     func setData(_ data: StationResponse?){
-        print(data)
         self.data = data ?? []
         DispatchQueue.main.async { [unowned self] in
             self.tableView?.reloadData()
@@ -66,7 +65,7 @@ extension StationViewTableViewHelper: UITableViewDataSource{
         text.addAttribute(NSMutableAttributedString.Key.foregroundColor, value: UIColor.white, range: NSRange(location: 0, length: text.length))
         titleText.append(text)
         cell.availableSocketLabel.attributedText = titleText
-            
+        cell.selectionStyle = .none
      return cell
     }
 }

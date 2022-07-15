@@ -8,9 +8,14 @@
 import Foundation
 import UIKit
 
+protocol StationsViewFilterCollectionHelperDelegate: AnyObject{
+    func didCellSelected(with cellData: any RawRepresentable)
+}
+
 class StationsViewFilterCollectionHelper: NSObject{
     
     weak var collectionView: UICollectionView?
+    weak var delegate: StationsViewFilterCollectionHelperDelegate?
     private var data: [any RawRepresentable] = []
     
     init(collectionView: UICollectionView? = nil) {
@@ -38,17 +43,22 @@ class StationsViewFilterCollectionHelper: NSObject{
 }
 
 extension StationsViewFilterCollectionHelper: UICollectionViewDelegate{
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        self.delegate?.didCellSelected(with: self.data[indexPath.item])
+    }
     
 }
 
 extension StationsViewFilterCollectionHelper: UICollectionViewDataSource{
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        data.count
+        print("Data count: \(data.count)")
+        return data.count
     }
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "stationsViewCollectionViewCell", for: indexPath) as! StationsViewCollectionViewCell
         cell.label.text = data[indexPath.item].rawValue as? String
-        cell.layer.cornerRadius = collectionView.bounds.height / 2
+        cell.layer.cornerRadius = (collectionView.bounds.height / 2) - 2
+        
         return cell
     }
 }

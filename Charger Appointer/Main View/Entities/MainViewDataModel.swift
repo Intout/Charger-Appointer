@@ -27,16 +27,13 @@ class MainViewDataModel{
     }
     
     func getLocation() -> Coordinate?{
-        print(location as Any)
         return location
     }
     
     func fetchAppointmentData(completionHandler: @escaping (Error?, [AppointmentResponseElement]?)->(Void)){
         
         var urlString: String
-        print("userL atitude=\(location?.latitude)&userLongitude=\(location?.longitude)")
         if let currentLocation = location{
-            print("lom")
             urlString = "http://ec2-18-197-100-203.eu-central-1.compute.amazonaws.com:8080/appointments/\(credentials.userID)?userLatitude=\(currentLocation.latitude)&userLongitude=\(currentLocation.longitude)"
         } else {
             urlString = "http://ec2-18-197-100-203.eu-central-1.compute.amazonaws.com:8080/appointments/\(credentials.userID)"
@@ -62,12 +59,9 @@ class MainViewDataModel{
             let responseJSON = try? JSONDecoder().decode(AppointmentResponse.self, from: data)
             if let responseJSON = responseJSON{
                 completionHandler(nil, responseJSON)
-                print("Fetch Response:")
-                print(responseJSON)
                 return
             } else {
                 completionHandler(MainDataModelError.badResponse, nil)
-                print("Le Response")
                 print(response)
                 return
             }

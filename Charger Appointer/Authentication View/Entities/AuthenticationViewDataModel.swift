@@ -21,7 +21,6 @@ class AuthenticationViewDataModel{
     }
     
     func authanticate(with email: String, completionHandler: @escaping (Error?, AuthenticationResponse?)->(Void)){
-        print(deviceID)
         let json: [String: String] = ["email": email, "deviceUDID": deviceID]
         let jsonBody = try? JSONSerialization.data(withJSONObject: json)
         

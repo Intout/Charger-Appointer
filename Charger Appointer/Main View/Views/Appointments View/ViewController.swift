@@ -61,7 +61,7 @@ class ViewController: UIViewController {
         
         viewModel.viewDidLoad()
         setupUI()
-        print("loaded")
+        
     }
     
     override func viewDidLayoutSubviews() {
@@ -143,14 +143,13 @@ extension ViewController: MainViewModelDelegate{
     func dataFetchFailed(with error: Error) {
         print("Data Not Fetched!")
         print(error)
-        print(error)
     }
     
     func dataIsNill() {
         DispatchQueue.main.async { [unowned self] in
             self.setupMessageView()
         }
-        print("Nill")
+        print("No data exists!")
     }
 }
 

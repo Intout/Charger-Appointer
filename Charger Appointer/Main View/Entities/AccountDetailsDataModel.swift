@@ -39,7 +39,6 @@ class AccountDetailsDataModel{
         
         URLSession.shared.dataTask(with: request){ [unowned self]  _, response, error in
             guard let error = error, (response as? HTTPURLResponse)?.statusCode == 200 else {
-                print(response)
                 self.semaphore.signal()
                 feedback = error
                 return

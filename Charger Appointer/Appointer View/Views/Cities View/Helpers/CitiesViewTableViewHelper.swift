@@ -67,6 +67,7 @@ extension CitiesViewTableViewHelper: UITableViewDataSource{
         content.textProperties.color = .lightGrey
         cell.contentConfiguration = content
         cell.backgroundColor = .clear
+        cell.selectionStyle = .none
         return cell
     }
     
