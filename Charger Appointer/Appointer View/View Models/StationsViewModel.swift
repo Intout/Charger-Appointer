@@ -24,6 +24,7 @@ protocol StationsViewModelDelegate: AnyObject{
     func didDataFetched(_ data: StationResponse?)
     func didDataFetchFailed(_ error: Error?)
     func didFilterDataUpdated(_ data: [any RawRepresentable])
+    func didFilterDataUpdateFinished(_ isDataExists: Bool)
 }
 
 class StationsViewModel{
@@ -41,11 +42,21 @@ class StationsViewModel{
         dataModel.fetchData(){ [unowned self] error, data in
             
             if let data = data {
-                self.delegate?.didDataFetched(
-                    filterData(from: data.filter{
+                if let searchText = self.dataModel.getSearchData(){
+                    if searchText.count > 0{
+                        let viewData = filterData(from: data.filter{
+                            $0.geoLocation.province.lowercased() == getCityName()?.lowercased() && $0.stationName.lowercased().contains(searchText.lowercased())
+                        })
+                        self.delegate?.didDataFetched(viewData)
+
+                    }
+                } else {
+                    let viewData = filterData(from: data.filter{
                         $0.geoLocation.province.lowercased() == getCityName()?.lowercased()
                     })
-                )
+                    self.delegate?.didDataFetched(viewData)
+
+                }
             } else {
                 self.delegate?.didDataFetchFailed(error)
             }
@@ -139,6 +150,8 @@ extension StationsViewModel: StationViewNavigationDelegate{
     func didNavigate(data: FilterData?) {
         dataModel.setFilterData(data)
         generateFilterCollection(filterData: data)
+        print(dataModel.getFilterCollection().count)
+        delegate?.didFilterDataUpdateFinished(!dataModel.getFilterCollection().isEmpty)
         fetchData()
     }
 }
@@ -166,8 +179,8 @@ extension StationsViewModel{
             dataModel.setFilterCollection(filterCollection)
             dataModel.setFilterData(updataFilterData())
             delegate?.didFilterDataUpdated(dataModel.getFilterCollection())
-           // self.fetchData()
-            
+            self.fetchData()
+            delegate?.didFilterDataUpdateFinished(!dataModel.getFilterCollection().isEmpty)
         }
     }
     
@@ -189,4 +202,14 @@ extension StationsViewModel{
         }
         return filterData
     }
+    
+    func filterSearchData(by name: String){
+        
+        dataModel.setSearchData(name.count > 0 ? name : nil)
+        fetchData()
+    }
+    func getDataCount() -> Int{
+        return dataModel.getData()?.count ?? 0
+    }
+    
 }

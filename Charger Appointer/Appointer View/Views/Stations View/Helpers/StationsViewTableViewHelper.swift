@@ -29,6 +29,10 @@ class StationViewTableViewHelper: NSObject{
         tableView?.register(StationsViewTableViewCell.self, forCellReuseIdentifier: "stationsViewTableViewCell")
     }
     
+    func getDataCount() -> Int{
+        self.data.count
+    }
+    
     func setData(_ data: StationResponse?){
         self.data = data ?? []
         DispatchQueue.main.async { [unowned self] in

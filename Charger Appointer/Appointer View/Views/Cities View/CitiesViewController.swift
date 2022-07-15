@@ -107,6 +107,7 @@ extension CitiesViewController: UISearchBarDelegate{
     func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
         searchBarView.searchBar.resignFirstResponder()
     }
+    
 }
 
 extension CitiesViewController{

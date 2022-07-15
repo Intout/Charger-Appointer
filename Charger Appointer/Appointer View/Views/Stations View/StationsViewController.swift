@@ -31,7 +31,7 @@ class StationsViewController: UIViewController {
         
         let collectionView = UICollectionView(frame: CGRect.zero, collectionViewLayout: viewLayoutFlow)
         collectionView.translatesAutoresizingMaskIntoConstraints = false
-        collectionView.backgroundColor = .black
+        collectionView.backgroundColor = .clear
         collectionView.showsVerticalScrollIndicator = false
         collectionView.showsHorizontalScrollIndicator = false
         
@@ -67,7 +67,7 @@ class StationsViewController: UIViewController {
         tableViewHelper = StationViewTableViewHelper(tableView: tableView, viewModel: viewModel)
         collectionViewHelper = StationsViewFilterCollectionHelper(collectionView: filterCollectionView)
         collectionViewHelper?.delegate = self
-        
+        searchBarView.searchBar.delegate = self
         viewModel.viewDidLoad()
         setupUI()
         // Do any additional setup after loading the view.
@@ -117,7 +117,7 @@ class StationsViewController: UIViewController {
             filterCollectionView.topAnchor.constraint(equalTo: searchBarView.bottomAnchor, constant: 10),
             filterCollectionView.leadingAnchor.constraint(equalTo: containerView.leadingAnchor, constant: 10),
             filterCollectionView.trailingAnchor.constraint(equalTo: containerView.trailingAnchor, constant: 0),
-            filterCollectionView.heightAnchor.constraint(equalToConstant: 50)
+            filterCollectionView.heightAnchor.constraint(equalToConstant: 0)
             
         ])
         
@@ -171,6 +171,14 @@ extension StationsViewController: StationsViewModelDelegate{
         filterButton.tintColor = data.isEmpty ? .white : .primary
         collectionViewHelper?.setData(data)
     }
+    
+    func didFilterDataUpdateFinished(_ isDataExists: Bool) {
+        if isDataExists{
+            addFilterCollection()
+        } else {
+            removeFilterCollection()
+        }
+    }
 }
 
 private extension StationsViewController{
@@ -181,10 +189,24 @@ private extension StationsViewController{
 
 private extension StationsViewController{
     func removeFilterCollection(){
-        
+        self.filterCollectionView.heightAnchor.constraint(equalToConstant: 0).isActive = true
     }
     
-    func addFilterCollection(with data: any RawRepresentable){
+    func addFilterCollection(){
+        print("Here")
+        DispatchQueue.main.async {
+            self.filterCollectionView.heightAnchor.constraint(equalToConstant: 50).isActive = true
+            self.filterCollectionView.updateConstraints()
+        }
+        
+        self.filterCollectionView.constraints.forEach {
+            if $0.firstAttribute == .height {
+                self.filterCollectionView.removeConstraint($0)
+            }
+        }
+        
+        self.filterCollectionView.heightAnchor.constraint(equalToConstant: 50).isActive = true
+        self.containerView.layoutIfNeeded()
         
     }
 }
@@ -194,5 +216,23 @@ extension StationsViewController: StationsViewFilterCollectionHelperDelegate{
     func didCellSelected(with cellData: any RawRepresentable) {
         viewModel.removeFilterData(for: cellData)
         
+        
+    }
+}
+
+
+extension StationsViewController: UISearchBarDelegate{
+    func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
+        viewModel.filterSearchData(by: searchText)
+        if searchText.count == 0 {
+            self.searchBarView.updateState(to: .idle)
+        } else if (tableViewHelper?.getDataCount()) ?? 0 > 0{
+            self.searchBarView.updateState(to: .found)
+        } else {
+            self.searchBarView.updateState(to: .notFound)
+        }
+    }
+    func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
+        searchBarView.searchBar.resignFirstResponder()
     }
 }
