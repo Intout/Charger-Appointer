@@ -35,12 +35,18 @@ class FilterViewModel{
     
     func setFilterData(_ data: FilterData?){
         if let data = data{
+            print("Setting Filter View Filter data.")
+            print(data)
             dataModel.setData(data)
             var collection: [any RawRepresentable] = data.chargerType
-            collection = data.service
-            collection = data.socketType
-            setDistance(data.distance)
+            
+            collection += data.service
+            collection += data.socketType
+            if let distance = data.distance{
+                setDistance(Int(distance) == 15 ? nil : distance)
+            }
             dataModel.setFilterCollection(collection)
+            print(dataModel.getFilterCollection())
         }
     }
     
@@ -63,38 +69,30 @@ class FilterViewModel{
         }
     }
     
-    func updateChargerType(with type: ChargeType){
-        var filterData = dataModel.getData()
-        var chargerType = filterData.chargerType
-        if chargerType.contains(type){
-            chargerType = chargerType.filter{
-                $0 != type
-            }
-        } else {
-            chargerType.append(type)
-        }
-        filterData.chargerType = chargerType
-        dataModel.setData(filterData)
-    }
-    
-    
 }
 
 extension FilterViewModel{
     func filterButtonEvent(){
         navigationDelegate?.didNavigate(data: distributeFilterCollection())
-        print("Result of filtering: \n \(distributeFilterCollection())")
+        
         coordinator?.didFilterRequested()
         
     }
     
     private func distributeFilterCollection() -> FilterData?{
         if dataModel.getFilterCollection().isEmpty{
+            print("Distance: \(dataModel.getDistance())")
+            if dataModel.getDistance() ?? 15.0 < 15.0{
+                var filterData = FilterData()
+                filterData.distance = getDistance()
+                return filterData
+            }
             return nil
         }
         
         let filters = dataModel.getFilterCollection()
         var filterData = FilterData()
+        print("current distance \(dataModel.getDistance())")
         filterData.distance = dataModel.getDistance()
         for filter in filters{
             if filter is ChargeType{
@@ -111,10 +109,10 @@ extension FilterViewModel{
 
 
 extension FilterViewModel{
-    func setDistance(_ distance: Double){
+    func setDistance(_ distance: Double?){
         dataModel.setDistance(distance)
     }
-    func getDistance() -> Double{
+    func getDistance() -> Double?{
         return dataModel.getDistance()
     }
 

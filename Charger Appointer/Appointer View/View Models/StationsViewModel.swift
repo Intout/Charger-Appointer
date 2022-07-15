@@ -95,7 +95,7 @@ private extension StationsViewModel{
         }
         
        return stations?.filter{
-           return doExist(for: $0.sockets, in: filterData.chargerType) && doExist(for: $0.sockets, in: filterData.socketType) && $0.distanceInKM ?? 0.0 < filterData.distance && doServicesExist(for: $0.services, in: filterData.service)
+           return doExist(for: $0.sockets, in: filterData.chargerType) && doExist(for: $0.sockets, in: filterData.socketType) && $0.distanceInKM ?? 0.0 < filterData.distance ?? .infinity && doServicesExist(for: $0.services, in: filterData.service)
         }
         
         
@@ -129,12 +129,16 @@ private extension StationsViewModel{
 
 extension StationsViewModel{
     func filterButtonEvent(){
+        print("Filter Button")
+        print(dataModel.getFilterData())
         coordinator?.goToFilterView(with: dataModel.getFilterData(), isLocationExists: dataModel.getLocation() != nil, vm: self)
     }
 }
 
 extension StationsViewModel: StationViewNavigationDelegate{
     func didNavigate(data: FilterData?) {
+        print("Data,data")
+        print(data)
         dataModel.setFilterData(data)
         fetchData()
     }

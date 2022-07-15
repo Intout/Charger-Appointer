@@ -10,7 +10,7 @@ import Foundation
 struct FilterData{
     var chargerType: [ChargeType] = []
     var socketType: [SocketType] = []
-    var distance: Double = 15.0
+    var distance: Double?
     var service: [Service] = []
 }
 
@@ -18,13 +18,13 @@ class FilterViewDataModel{
     private var data = FilterData()
     private var filterCollection: [any RawRepresentable] = []
     private var locationExistance: Bool?
-    private var distance = 15.0
+    private var distance: Double?
     
-    func getDistance() -> Double{
+    func getDistance() -> Double?{
         return self.distance
     }
     
-    func setDistance(_ distence: Double){
+    func setDistance(_ distence: Double?){
         self.distance = distence
     }
     

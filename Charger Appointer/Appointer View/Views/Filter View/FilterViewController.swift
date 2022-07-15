@@ -145,6 +145,11 @@ class FilterViewController: UIViewController {
 extension FilterViewController: SliderDelegate{
     func didSliderValueChanged(_ value: Float) {
         print("Slider value: \(value)")
+        if value == 15.0{
+            viewModel?.setDistance(nil)
+        } else {
+            viewModel?.setDistance(Double(value))
+        }
     }
 }
 
