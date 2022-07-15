@@ -85,7 +85,7 @@ extension FilterCategoryStackView: UICollectionViewDataSource{
 
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        data.count
+        return data.count
     }
     
     

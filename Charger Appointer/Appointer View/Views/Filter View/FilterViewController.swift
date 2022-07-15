@@ -164,7 +164,7 @@ extension FilterViewController{
 
 extension FilterViewController: FilterCategoryStackViewDelegate{
     func didCellSelected(as type: any RawRepresentable) {
-        print(type.rawValue)
+        print("Selected filter: \(type.rawValue)")
         viewModel?.updateFilterCollection(with: type)
         if viewModel != nil{
             chargerTypeCategory.updateCells(in: viewModel!.getFilterCollection())
@@ -184,7 +184,6 @@ extension FilterViewController{
 
 extension FilterViewController: FilterViewModelDelegate{
     func didDataFetched(isLocationExists: Bool) {
-        print(isLocationExists)
         if !isLocationExists{
             removeSliderView()
         }

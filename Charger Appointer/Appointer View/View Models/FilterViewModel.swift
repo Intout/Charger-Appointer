@@ -35,8 +35,6 @@ class FilterViewModel{
     
     func setFilterData(_ data: FilterData?){
         if let data = data{
-            print("Setting Filter View Filter data.")
-            print(data)
             dataModel.setData(data)
             var collection: [any RawRepresentable] = data.chargerType
             
@@ -46,7 +44,6 @@ class FilterViewModel{
                 setDistance(Int(distance) == 15 ? nil : distance)
             }
             dataModel.setFilterCollection(collection)
-            print(dataModel.getFilterCollection())
         }
     }
     

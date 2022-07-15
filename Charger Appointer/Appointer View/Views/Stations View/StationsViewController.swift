@@ -31,7 +31,9 @@ class StationsViewController: UIViewController {
         
         let collectionView = UICollectionView(frame: CGRect.zero, collectionViewLayout: viewLayoutFlow)
         collectionView.translatesAutoresizingMaskIntoConstraints = false
-        collectionView.backgroundColor = .clear
+        collectionView.backgroundColor = .black
+        collectionView.showsVerticalScrollIndicator = false
+        collectionView.showsHorizontalScrollIndicator = false
         
         return collectionView
     }()
@@ -64,6 +66,7 @@ class StationsViewController: UIViewController {
         viewModel.delegate = self
         tableViewHelper = StationViewTableViewHelper(tableView: tableView, viewModel: viewModel)
         collectionViewHelper = StationsViewFilterCollectionHelper(collectionView: filterCollectionView)
+        collectionViewHelper?.delegate = self
         
         viewModel.viewDidLoad()
         setupUI()
@@ -113,12 +116,13 @@ class StationsViewController: UIViewController {
         NSLayoutConstraint.activate([
             filterCollectionView.topAnchor.constraint(equalTo: searchBarView.bottomAnchor, constant: 10),
             filterCollectionView.leadingAnchor.constraint(equalTo: containerView.leadingAnchor, constant: 10),
-            filterCollectionView.trailingAnchor.constraint(equalTo: containerView.trailingAnchor, constant: -10),
-            filterCollectionView.heightAnchor.constraint(equalToConstant: 40)
+            filterCollectionView.trailingAnchor.constraint(equalTo: containerView.trailingAnchor, constant: 0),
+            filterCollectionView.heightAnchor.constraint(equalToConstant: 50)
+            
         ])
         
         NSLayoutConstraint.activate([
-            messageLabel.topAnchor.constraint(equalTo: filterCollectionView.bottomAnchor, constant: 0),
+            messageLabel.topAnchor.constraint(equalTo: filterCollectionView.bottomAnchor, constant: 10),
             messageLabel.leadingAnchor.constraint(equalTo: containerView.leadingAnchor, constant: 10),
             messageLabel.trailingAnchor.constraint(equalTo: containerView.trailingAnchor, constant: -10),
         ])
@@ -153,7 +157,6 @@ class StationsViewController: UIViewController {
 
 extension StationsViewController: StationsViewModelDelegate{
     func didDataFetched(_ data: StationResponse?){
-        print("Number of cities: \(data?.count)")
         DispatchQueue.main.async { [unowned self] in
             self.updateMessageLabel(with: viewModel.getCityName() ?? "")
         }
@@ -165,6 +168,7 @@ extension StationsViewController: StationsViewModelDelegate{
     }
     
     func didFilterDataUpdated(_ data: [any RawRepresentable]) {
+        filterButton.tintColor = data.isEmpty ? .white : .primary
         collectionViewHelper?.setData(data)
     }
 }
@@ -181,6 +185,14 @@ private extension StationsViewController{
     }
     
     func addFilterCollection(with data: any RawRepresentable){
+        
+    }
+}
+
+
+extension StationsViewController: StationsViewFilterCollectionHelperDelegate{
+    func didCellSelected(with cellData: any RawRepresentable) {
+        viewModel.removeFilterData(for: cellData)
         
     }
 }

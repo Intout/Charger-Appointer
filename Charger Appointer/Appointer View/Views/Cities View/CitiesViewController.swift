@@ -111,7 +111,6 @@ extension CitiesViewController: UISearchBarDelegate{
 
 extension CitiesViewController{
     func didSelectRow(_ cityName: String){
-        print(cityName)
         viewModel.didSelectRow(with: cityName)
     }
 }

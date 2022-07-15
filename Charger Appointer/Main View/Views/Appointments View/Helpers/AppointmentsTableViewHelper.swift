@@ -56,6 +56,10 @@ extension AppointmentTableViewHelper: UITableViewDelegate{
         }
     }
     */
+    func tableView(_ tableView: UITableView, canFocusRowAt indexPath: IndexPath) -> Bool {
+        false
+    }
+    
     func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
         let view = UIView(frame: CGRect(x: 0, y: 0, width: 20, height: 20))
         let label = UILabel(frame: CGRect(x: 10, y: -10, width: tableView.frame.width, height: 20))
@@ -71,10 +75,6 @@ extension AppointmentTableViewHelper: UITableViewDelegate{
 extension AppointmentTableViewHelper: UITableViewDataSource{
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         let tag = categoryTags[section]
-        print(tag)
-        print(data.map{
-            return $0.state == tag
-        })
         return data.filter{
             return $0.state == tag
         }.count
@@ -105,7 +105,7 @@ extension AppointmentTableViewHelper: UITableViewDataSource{
         cell.socketNumberLabel.attributedText = title
         
         cell.chargerTypeLabel.text = cellData.chargerType.rawValue
-        
+        cell.selectionStyle = .none
         return cell
     }
     
