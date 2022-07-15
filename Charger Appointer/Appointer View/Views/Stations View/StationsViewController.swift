@@ -22,6 +22,20 @@ class StationsViewController: UIViewController {
         return view
     }()
     
+    fileprivate let filterCollectionView: UICollectionView = {
+        let viewLayoutFlow = UICollectionViewFlowLayout()
+        viewLayoutFlow.scrollDirection = .horizontal
+        viewLayoutFlow.estimatedItemSize = CGSize(width: 50, height: 50)
+        viewLayoutFlow.minimumLineSpacing = 10
+        viewLayoutFlow.minimumInteritemSpacing = 20
+        
+        let collectionView = UICollectionView(frame: CGRect.zero, collectionViewLayout: viewLayoutFlow)
+        collectionView.translatesAutoresizingMaskIntoConstraints = false
+        collectionView.backgroundColor = .clear
+        
+        return collectionView
+    }()
+    
     fileprivate lazy var messageLabel: UILabel = {
         let label = UILabel()
         label.translatesAutoresizingMaskIntoConstraints = false
@@ -43,11 +57,14 @@ class StationsViewController: UIViewController {
     
     var viewModel: StationsViewModel!
     private var tableViewHelper: StationViewTableViewHelper?
+    private var collectionViewHelper: StationsViewFilterCollectionHelper?
     
     override func viewDidLoad() {
         super.viewDidLoad()
         viewModel.delegate = self
         tableViewHelper = StationViewTableViewHelper(tableView: tableView, viewModel: viewModel)
+        collectionViewHelper = StationsViewFilterCollectionHelper(collectionView: filterCollectionView)
+        
         viewModel.viewDidLoad()
         setupUI()
         // Do any additional setup after loading the view.
@@ -68,6 +85,7 @@ class StationsViewController: UIViewController {
         containerView.addSubview(searchBarView)
         containerView.addSubview(messageLabel)
         containerView.addSubview(tableView)
+        containerView.addSubview(filterCollectionView)
         
         tableView.rowHeight = UITableView.automaticDimension
         tableView.estimatedRowHeight = 300
@@ -93,7 +111,14 @@ class StationsViewController: UIViewController {
         ])
         
         NSLayoutConstraint.activate([
-            messageLabel.topAnchor.constraint(equalTo: searchBarView.bottomAnchor, constant: 0),
+            filterCollectionView.topAnchor.constraint(equalTo: searchBarView.bottomAnchor, constant: 10),
+            filterCollectionView.leadingAnchor.constraint(equalTo: containerView.leadingAnchor, constant: 10),
+            filterCollectionView.trailingAnchor.constraint(equalTo: containerView.trailingAnchor, constant: -10),
+            filterCollectionView.heightAnchor.constraint(equalToConstant: 40)
+        ])
+        
+        NSLayoutConstraint.activate([
+            messageLabel.topAnchor.constraint(equalTo: filterCollectionView.bottomAnchor, constant: 0),
             messageLabel.leadingAnchor.constraint(equalTo: containerView.leadingAnchor, constant: 10),
             messageLabel.trailingAnchor.constraint(equalTo: containerView.trailingAnchor, constant: -10),
         ])
@@ -138,10 +163,24 @@ extension StationsViewController: StationsViewModelDelegate{
     func didDataFetchFailed(_ error: Error?) {
         print("Data fetch failed on Station view")
     }
+    
+    func didFilterDataUpdated(_ data: [any RawRepresentable]) {
+        collectionViewHelper?.setData(data)
+    }
 }
 
 private extension StationsViewController{
     @objc func filterButtonPressed(){
         viewModel.filterButtonEvent()
+    }
+}
+
+private extension StationsViewController{
+    func removeFilterCollection(){
+        
+    }
+    
+    func addFilterCollection(with data: any RawRepresentable){
+        
     }
 }

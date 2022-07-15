@@ -25,6 +25,8 @@
 		005F94AB287861E500565957 /* LocationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 005F94AA287861E500565957 /* LocationController.swift */; };
 		0062C57C2874095D00FB16B9 /* MainViewCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0062C57B2874095D00FB16B9 /* MainViewCoordinator.swift */; };
 		0062C57E28742B0300FB16B9 /* MainViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0062C57D28742B0300FB16B9 /* MainViewModel.swift */; };
+		0075EC8028814FB300DEE60F /* StationsViewFilterCollectionHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0075EC7F28814FB300DEE60F /* StationsViewFilterCollectionHelper.swift */; };
+		0075EC82288157DC00DEE60F /* StationsViewCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0075EC81288157DC00DEE60F /* StationsViewCollectionViewCell.swift */; };
 		00A3DEAA287C1E0100E35F27 /* AppointmentData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 00A3DEA9287C1E0100E35F27 /* AppointmentData.swift */; };
 		00A3DEAD287C344100E35F27 /* StationTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 00A3DEAC287C344100E35F27 /* StationTableViewCell.swift */; };
 		00A3DEAF287C384500E35F27 /* AppointmentsStationTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 00A3DEAE287C384500E35F27 /* AppointmentsStationTableViewCell.swift */; };
@@ -103,6 +105,8 @@
 		005F94AA287861E500565957 /* LocationController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationController.swift; sourceTree = "<group>"; };
 		0062C57B2874095D00FB16B9 /* MainViewCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainViewCoordinator.swift; sourceTree = "<group>"; };
 		0062C57D28742B0300FB16B9 /* MainViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainViewModel.swift; sourceTree = "<group>"; };
+		0075EC7F28814FB300DEE60F /* StationsViewFilterCollectionHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StationsViewFilterCollectionHelper.swift; sourceTree = "<group>"; };
+		0075EC81288157DC00DEE60F /* StationsViewCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StationsViewCollectionViewCell.swift; sourceTree = "<group>"; };
 		00A3DEA9287C1E0100E35F27 /* AppointmentData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppointmentData.swift; sourceTree = "<group>"; };
 		00A3DEAC287C344100E35F27 /* StationTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StationTableViewCell.swift; sourceTree = "<group>"; };
 		00A3DEAE287C384500E35F27 /* AppointmentsStationTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppointmentsStationTableViewCell.swift; sourceTree = "<group>"; };
@@ -228,6 +232,7 @@
 			isa = PBXGroup;
 			children = (
 				002954C1287F2668004C7AA6 /* StationsViewTableViewHelper.swift */,
+				0075EC7F28814FB300DEE60F /* StationsViewFilterCollectionHelper.swift */,
 			);
 			path = Helpers;
 			sourceTree = "<group>";
@@ -236,6 +241,7 @@
 			isa = PBXGroup;
 			children = (
 				002954C4287F289B004C7AA6 /* StationsViewTableViewCell.swift */,
+				0075EC81288157DC00DEE60F /* StationsViewCollectionViewCell.swift */,
 			);
 			path = "UI Components";
 			sourceTree = "<group>";
@@ -311,8 +317,6 @@
 			isa = PBXGroup;
 			children = (
 				00A4617528800AE80028507B /* FilterViewController.swift */,
-				00A4617728800AF50028507B /* FilterViewDataModel.swift */,
-				00A4617928800B040028507B /* FilterViewModel.swift */,
 				00A4617C288044340028507B /* Helpers */,
 				00A4617B288043E50028507B /* UIComponents */,
 			);
@@ -455,6 +459,7 @@
 			children = (
 				00EC82A1287DA10B00462575 /* CitiesViewDataModel.swift */,
 				002954BA287EF26A004C7AA6 /* StationsViewDataModel.swift */,
+				00A4617728800AF50028507B /* FilterViewDataModel.swift */,
 			);
 			path = Entities;
 			sourceTree = "<group>";
@@ -472,6 +477,7 @@
 			children = (
 				00EC829F287D96E500462575 /* CitiesViewModel.swift */,
 				002954B8287EF21F004C7AA6 /* StationsViewModel.swift */,
+				00A4617928800B040028507B /* FilterViewModel.swift */,
 			);
 			path = "View Models";
 			sourceTree = "<group>";
@@ -640,6 +646,7 @@
 				001671872875AD590003606F /* AccountDetailsDataModel.swift in Sources */,
 				002954BB287EF26A004C7AA6 /* StationsViewDataModel.swift in Sources */,
 				00EC82A9287DA93F00462575 /* CitiesViewTableViewHelper.swift in Sources */,
+				0075EC82288157DC00DEE60F /* StationsViewCollectionViewCell.swift in Sources */,
 				002954BD287EF559004C7AA6 /* StationsCoordinator.swift in Sources */,
 				0062C57E28742B0300FB16B9 /* MainViewModel.swift in Sources */,
 				00A4617E2880446F0028507B /* FilterCategoryStackView.swift in Sources */,
@@ -654,6 +661,7 @@
 				002954B9287EF21F004C7AA6 /* StationsViewModel.swift in Sources */,
 				00A3DEAF287C384500E35F27 /* AppointmentsStationTableViewCell.swift in Sources */,
 				00A4617828800AF50028507B /* FilterViewDataModel.swift in Sources */,
+				0075EC8028814FB300DEE60F /* StationsViewFilterCollectionHelper.swift in Sources */,
 				002954BF287EF5D5004C7AA6 /* StationsViewController.swift in Sources */,
 				00D7EDEB286C3FDF00E602D2 /* ViewController.swift in Sources */,
 				00167183287591240003606F /* AccountDetailsViewController.swift in Sources */,

@@ -23,6 +23,7 @@ typealias StationResponse = [StationResponseElement]
 protocol StationsViewModelDelegate: AnyObject{
     func didDataFetched(_ data: StationResponse?)
     func didDataFetchFailed(_ error: Error?)
+    func didFilterDataUpdated(_ data: [any RawRepresentable])
 }
 
 class StationsViewModel{
@@ -140,6 +141,20 @@ extension StationsViewModel: StationViewNavigationDelegate{
         print("Data,data")
         print(data)
         dataModel.setFilterData(data)
+        generateFilterCollection(filterData: data)
         fetchData()
+    }
+}
+
+extension StationsViewModel{
+    private func generateFilterCollection(filterData: FilterData?){
+        if let filterData = filterData{
+            var collection: [any RawRepresentable] = filterData.socketType
+            collection += filterData.service
+            collection += filterData.chargerType
+            delegate?.didFilterDataUpdated(collection)
+        } else {
+            delegate?.didFilterDataUpdated([])
+        }
     }
 }

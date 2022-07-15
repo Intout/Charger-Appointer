@@ -14,6 +14,15 @@ class StationsViewDataModel{
     private var data: StationResponse?
     private var cityName: String?
     private var filterData: FilterData?
+    private var filterCollection: [any RawRepresentable] = []
+    
+    func getFilterCollection() -> [any RawRepresentable]{
+        return filterCollection
+    }
+    
+    func setFilterCollection(_ filters: [any RawRepresentable]){
+        self.filterCollection = filters
+    }
     
     func getFilterData() -> FilterData?{
         return filterData
