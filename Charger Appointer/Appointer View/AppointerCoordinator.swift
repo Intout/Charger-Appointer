@@ -42,6 +42,14 @@ class AppointerCoordinator: Coordinator{
         
     }
     
+    func goToDateSelectionView(with data: StationResponseElement, credentails: AuthenticationResponse){
+        let viewController = AppointmentDataSelectionViewController()
+        viewController.viewModel = AppointmentDateSelectionViewModel()
+        viewController.viewModel?.setStationData(data)
+        viewController.viewModel?.setCredentials(credentails)
+        navigationController?.pushViewController(viewController, animated: true)
+    }
+    
 }
 
 extension Coordinator where Self: AppointerCoordinator{

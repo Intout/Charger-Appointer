@@ -59,3 +59,8 @@
 "distance" = "Uzaklık (km)";
 "services" = "Hizmetler";
 "filterButtonTitle" = "Filtrele";
+
+// Appointment Date Selection View
+"appointmentDateSelectionViewTitle" = "Tarih ve Saat Seçin";
+"appointmentDate" = "Appointment Date";
+"socket" = "Socket";

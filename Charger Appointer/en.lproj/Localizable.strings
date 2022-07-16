@@ -61,3 +61,8 @@
 "distance" = "Distance (km)";
 "services" = "Services";
 "filterButtonTitle" = "Apply Filter";
+
+// Appointment Date Selection View
+"appointmentDateSelectionViewTitle" = "Choose Date and Hour";
+"appointmentDate" = "Randevu Tarihi";
+"socket" = "Soket";

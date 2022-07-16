@@ -47,6 +47,10 @@ class StationCoordinator: Coordinator{
         navigationController?.pushViewController(filterViewController, animated: true)
     }
     
+    func goToDateSelectionView(with data: StationResponseElement, credentials: AuthenticationResponse){
+        (parentCoordinator as! AppointerCoordinator).goToDateSelectionView(with: data, credentails: credentials)
+    }
+    
 }
 
 extension Coordinator where Self: StationCoordinator{

@@ -213,3 +213,9 @@ extension StationsViewModel{
     }
     
 }
+
+extension StationsViewModel{
+    func didNavigationRequested(with data: StationResponseElement){
+        coordinator?.goToDateSelectionView(with: data, credentials: getCredentials())
+    }
+}

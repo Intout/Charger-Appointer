@@ -61,10 +61,12 @@ class StationsViewController: UIViewController {
     private var tableViewHelper: StationViewTableViewHelper?
     private var collectionViewHelper: StationsViewFilterCollectionHelper?
     
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         viewModel.delegate = self
         tableViewHelper = StationViewTableViewHelper(tableView: tableView, viewModel: viewModel)
+        tableViewHelper?.cellSelected = self.cellSelected(with:)
         collectionViewHelper = StationsViewFilterCollectionHelper(collectionView: filterCollectionView)
         collectionViewHelper?.delegate = self
         searchBarView.searchBar.delegate = self
@@ -234,5 +236,11 @@ extension StationsViewController: UISearchBarDelegate{
     }
     func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
         searchBarView.searchBar.resignFirstResponder()
+    }
+}
+
+extension StationsViewController{
+    func cellSelected(with data: StationResponseElement){
+        viewModel.didNavigationRequested(with: data)
     }
 }

@@ -13,6 +13,7 @@ class StationViewTableViewHelper: NSObject{
     weak var tableView: UITableView?
     weak var viewModel: StationsViewModel?
     private var data: StationResponse = []
+    var cellSelected: ((StationResponseElement)->())?
     
     init(tableView: UITableView? = nil, viewModel: StationsViewModel? = nil) {
         super.init()
@@ -44,7 +45,9 @@ class StationViewTableViewHelper: NSObject{
 
 
 extension StationViewTableViewHelper: UITableViewDelegate{
-    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        cellSelected?(data[indexPath.item])
+    }
 }
 
 extension StationViewTableViewHelper: UITableViewDataSource{
