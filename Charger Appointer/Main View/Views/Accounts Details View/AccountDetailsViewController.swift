@@ -65,6 +65,7 @@ class AccountDetailsViewController: UIViewController {
     }
 
     private func setupUI(){
+        self.navigationController?.navigationBar.tintColor = .white
         self.navigationItem.title = NSLocalizedString("accountViewTitle", comment: "Title of view!")
         self.navigationController?.navigationBar.titleTextAttributes = [.foregroundColor: UIColor.white]
         view.backgroundColor = .charcoalGrey
