@@ -85,6 +85,7 @@ class MainViewModel{
                 }
                 viewData.append(futureArray)
                 viewData.append(pastArray)
+                self.dataModel.setFutureViewData(futureArray)
                 print(viewData)
                 delegate?.dataDidFetched(viewData)
                 return
@@ -143,7 +144,12 @@ extension MainViewModel{
     }
     
     func appointmentButtonEvent(){
-        coordinator?.goToCitiesView(with: getCredentials(), location: getLocation())
+        
+        if dataModel.getFutureViewData().count == 3{
+            print("Appointment limit exceeded!")
+        } else {
+            coordinator?.goToCitiesView(with: getCredentials(), location: getLocation())
+        }
     }
     
 }
