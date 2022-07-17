@@ -106,7 +106,7 @@ class ViewController: UIViewController {
         tableView.estimatedRowHeight = 300
         tableView.backgroundColor = .clear
         
-        let dummyViewHeight = CGFloat(40)
+        let dummyViewHeight = CGFloat(50)
         self.tableView.tableHeaderView = UIView(frame: CGRect(x: 0, y: 0, width: self.tableView.bounds.size.width, height: dummyViewHeight))
         self.tableView.contentInset = UIEdgeInsets(top: -dummyViewHeight, left: 0, bottom: 0, right: 0)
         
@@ -136,7 +136,15 @@ class ViewController: UIViewController {
 extension ViewController: MainViewModelDelegate{
     func dataDidFetched(_ data: [[AppointmentViewData]]?) {
         DispatchQueue.main.async { [unowned self] in
-            self.setupTableView()
+            if !tableView.isDescendant(of: containerView){
+                if appointmentMessageView.isDescendant(of: containerView){
+                    appointmentMessageView.removeFromSuperview()
+                }
+                self.setupTableView()
+            } else {
+                self.tableView.removeFromSuperview()
+                self.setupTableView()
+            }
         }
         tableViewHelper?.setData(data)
     }
@@ -147,6 +155,9 @@ extension ViewController: MainViewModelDelegate{
     
     func dataIsNill() {
         DispatchQueue.main.async { [unowned self] in
+            if tableView.isDescendant(of: containerView){
+                tableView.removeFromSuperview()
+            }
             self.setupMessageView()
         }
         print("No data exists!")

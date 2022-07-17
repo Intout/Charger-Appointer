@@ -44,6 +44,7 @@ class WarningViewController: UIViewController {
         label.font = UIFont(name: ApplicationFonts.regular.rawValue, size: 16)
         label.text = "Descrpition"
         label.textColor = .lightGrey
+        label.numberOfLines = 0
         label.textAlignment = .center
         return label
     }()

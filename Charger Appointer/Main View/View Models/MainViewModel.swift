@@ -159,13 +159,30 @@ extension MainViewModel{
 }
 
 extension MainViewModel{
-    func deleteRequested(for id: Int){
-        dataModel.requestDelete(for: id){ [unowned self] error in
-            if let error = error{
-                print(error)
-            } else {
-                self.viewDidLoad()
+    func deleteRequested(for id: Int, details: String){
+        dataModel.setIDToDelete(id)
+        
+        (coordinator as! MainViewCoordinator).deleteWarningView(vm: self, details: details)
+    }
+}
+
+extension MainViewModel: WarningViewControllerDelegate{
+    func didPrimaryButtonSelected() {
+        if let id = dataModel.getIDToDelete(){
+            dataModel.requestDelete(for: id){ [unowned self] error in
+                if let error = error{
+                    print("Delete failed")
+                    print(error)
+                } else {
+                    self.viewDidLoad()
+                }
             }
         }
     }
+    
+    func didSecondaryButtonSelected() {
+        dataModel.setIDToDelete(nil)
+    }
+    
+    
 }

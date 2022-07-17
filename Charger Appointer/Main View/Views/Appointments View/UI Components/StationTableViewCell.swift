@@ -49,7 +49,7 @@ class StationTableViewCell: UITableViewCell {
         button.translatesAutoresizingMaskIntoConstraints = false
         button.setImage(UIImage(systemName: "trash"), for: .normal)
         button.tintColor = .lightGrey
-        button.addTarget(self, action: #selector(didButtonPressed), for: .touchUpInside)
+        
         return button
     }()
     
@@ -82,7 +82,7 @@ class StationTableViewCell: UITableViewCell {
         titleContainerView.addSubview(chargerImage)
         titleContainerView.addSubview(titleLabel)
         titleContainerView.addSubview(deleteButton)
-        
+        deleteButton.addTarget(self, action: #selector(didButtonPressed), for: .touchUpInside)
         verticalStack.addArrangedSubview(titleContainerView)
         
         setupConstraints()
@@ -102,14 +102,16 @@ class StationTableViewCell: UITableViewCell {
             
             deleteButton.trailingAnchor.constraint(equalTo: titleContainerView.trailingAnchor),
             deleteButton.topAnchor.constraint(equalTo: titleContainerView.topAnchor),
-            deleteButton.bottomAnchor.constraint(equalTo: titleContainerView.bottomAnchor),
+            deleteButton.heightAnchor.constraint(equalToConstant: 20),
+            deleteButton.widthAnchor.constraint(equalToConstant: 20),
+            deleteButton.centerYAnchor.constraint(equalTo: titleContainerView.centerYAnchor)
         ])
         
         NSLayoutConstraint.activate([
-            containerView.topAnchor.constraint(equalTo: self.topAnchor, constant: 0),
-            containerView.bottomAnchor.constraint(equalTo: self.bottomAnchor, constant: -10),
-            containerView.leadingAnchor.constraint(equalTo: self.leadingAnchor, constant: 10),
-            containerView.trailingAnchor.constraint(equalTo: self.trailingAnchor, constant: -10),
+            containerView.topAnchor.constraint(equalTo:  self.topAnchor, constant: 0),
+            containerView.bottomAnchor.constraint(equalTo:  self.bottomAnchor, constant: -10),
+            containerView.leadingAnchor.constraint(equalTo:  self.leadingAnchor, constant: 10),
+            containerView.trailingAnchor.constraint(equalTo:  self.trailingAnchor, constant: -10),
         
             
         ])

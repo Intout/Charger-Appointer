@@ -41,6 +41,11 @@
 "noAppointmentTitle" = "Henüz bir randevu oluşturmadınız";
 "noAppointmentMessage" = "Oluşturulan randevular burada listelenir";
 
+"cancelAppointmentTitle" = "Randevu İptali";
+"cancelAppointmentDesc" = "rendevunuz iptal edilecektir";
+"cancelAppointment" = "Randevuyu İptal Et";
+"cancel" = "Vazgeç";
+
 // Cities View
 "citiesViewTitle" = "Şehir Seçin";
 "citiesSearchBarPlaceHolder" = "Şehir Ara";

@@ -17,6 +17,16 @@ enum MainDataModelError: Error{
 class MainViewDataModel{
     private var credentials: AuthenticationResponse!
     private var location: Coordinate?
+    private var idToDelete: Int?
+    
+    func setIDToDelete(_ data: Int?){
+        self.idToDelete = data
+    }
+    
+    func getIDToDelete() -> (Int?){
+        return idToDelete
+    }
+    
     
     func setCredentials(_ credentials: AuthenticationResponse){
         self.credentials = credentials
@@ -31,17 +41,21 @@ class MainViewDataModel{
     }
     
     func requestDelete(for id: Int, completionHandler: @escaping (Error?) -> ()){
-        guard let url = URL(string: "http://ec2-18-197-100-203.eu-central-1.compute.amazonaws.com:8080/appointments/cancel/\(id)?\(credentials.userID)") else {
+        guard let url = URL(string: "http://ec2-18-197-100-203.eu-central-1.compute.amazonaws.com:8080/appointments/cancel/\(id)?userID=\(credentials.userID)") else {
             completionHandler(URLError(.badURL))
             return
         }
+        print(url)
         var request = URLRequest(url: url)
         request.httpMethod = "DELETE"
         request.addValue(credentials.token, forHTTPHeaderField: "token")
+        request.addValue("application/json", forHTTPHeaderField: "Content-Type")
         
         URLSession.shared.dataTask(with: request){ data, response, error in
             guard (response as? HTTPURLResponse)?.statusCode == 200 else {
                 completionHandler(error)
+                print(response)
+                print(error)
                 print("Couldn't delete appointment data!")
                 return
             }

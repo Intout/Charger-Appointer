@@ -51,6 +51,18 @@ class MainViewCoordinator: Coordinator{
         appointerCoordinator.start(credentials: credentials, location: location)
     }
     
+    func deleteWarningView(vm: MainViewModel, details: String){
+        let viewContoller = WarningViewController()
+        viewContoller.setTitleText(NSLocalizedString("cancelAppointmentTitle", comment: ""))
+        viewContoller.setDescriptionText(details + " " + NSLocalizedString("cancelAppointmentDesc", comment: ""))
+        viewContoller.setPrimaryButtonTitleText(NSLocalizedString("cancelAppointment", comment: ""))
+        viewContoller.setSecondaryButtonTitleText(NSLocalizedString("cancel", comment: ""))
+        viewContoller.modalPresentationStyle = .overCurrentContext
+        viewContoller.modalTransitionStyle = .crossDissolve
+        viewContoller.delegate = vm
+        navigationController!.present(viewContoller, animated: true, completion: nil)
+    }
+    
 }
 
 extension Coordinator where Self: MainViewCoordinator{

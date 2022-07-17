@@ -69,6 +69,13 @@ extension AppointmentTableViewHelper: UITableViewDelegate{
         return view
     }
     
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        if(indexPath.section == 0){
+            let dataToDelete = data[indexPath.section][indexPath.item]
+            viewModel?.deleteRequested(for: dataToDelete.appointmentID, details: dataToDelete.stationName + " " + dataToDelete.date + " " + dataToDelete.time)
+        }
+    }
+    
 }
 
 extension AppointmentTableViewHelper: UITableViewDataSource{
@@ -79,7 +86,6 @@ extension AppointmentTableViewHelper: UITableViewDataSource{
         }.count
     }
     
-
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         
@@ -87,13 +93,17 @@ extension AppointmentTableViewHelper: UITableViewDataSource{
         cell.backgroundColor = .clear
         let cellData = data[indexPath.section][indexPath.item]
         
-        if indexPath.section == 1{
-            cell.deleteButton.removeFromSuperview()
-            cell.id = cellData.appointmentID
-            cell.delegate = self
+        cell.id = cellData.appointmentID
+        cell.delegate = self
+        if cellData.state == .passed{
+            cell.deleteButton.isHidden = true
         }
         
         cell.titleLabel.text = cellData.stationName + ", " + cellData.province
+        
+        print("\(indexPath.section)")
+        print("\(cellData.stationName)")
+        print("\(cellData.state)")
         
         cell.dateLabel.text = cellData.date + ", " + cellData.time
         cell.estimateLabel.text = String(cellData.power) + " " + cellData.powerUnit
@@ -109,7 +119,7 @@ extension AppointmentTableViewHelper: UITableViewDataSource{
         title.append(socketNumber)
         
         cell.socketNumberLabel.attributedText = title
-        
+        cell.contentView.isUserInteractionEnabled = true
         cell.chargerTypeLabel.text = cellData.chargerType.rawValue
         cell.selectionStyle = .none
         return cell
@@ -120,6 +130,6 @@ extension AppointmentTableViewHelper: UITableViewDataSource{
 
 extension AppointmentTableViewHelper: StationTableViewCellDelegate{
     func didDeleteRequested(for id: Int) {
-        viewModel?.deleteRequested(for: id)
+       // viewModel?.deleteRequested(for: id, )
     }
 }
