@@ -27,7 +27,7 @@ class AppointmetnDetailsViewController: UIViewController {
         let stackView = UIStackView()
         stackView.translatesAutoresizingMaskIntoConstraints = false
         stackView.axis = .vertical
-        stackView.distribution = .fill
+        stackView.distribution = .fillEqually
         stackView.alignment = .fill
         stackView.backgroundColor = .clear
         return stackView
@@ -35,6 +35,12 @@ class AppointmetnDetailsViewController: UIViewController {
     
     fileprivate lazy var stationInfoStack: AppointmentDetailsStationInfoView = {
         let stack = AppointmentDetailsStationInfoView()
+        stack.translatesAutoresizingMaskIntoConstraints = false
+        return stack
+    }()
+    
+    fileprivate lazy var socketInfoStack: AppointmentDetailsSocketInfoView = {
+        let stack = AppointmentDetailsSocketInfoView()
         stack.translatesAutoresizingMaskIntoConstraints = false
         return stack
     }()
@@ -60,10 +66,12 @@ class AppointmetnDetailsViewController: UIViewController {
         view.backgroundColor = .charcoalGrey
         
         view.addSubview(containterView)
+        
         containterView.addSubview(containerScrollView)
         containerScrollView.addSubview(vStackView)
-        vStackView.addArrangedSubview(stationInfoStack)
         
+        vStackView.addArrangedSubview(stationInfoStack)
+        vStackView.addArrangedSubview(socketInfoStack)
         
         setupConstraints()
     }

@@ -1,5 +1,5 @@
 //
-//  AppointmentDetailsStationInfoStackVew.swift
+//  AppointmentDetailsSocketInfoView.swift
 //  Charger Appointer
 //
 //  Created by Mert Tecimen on 17.07.2022.
@@ -7,7 +7,7 @@
 
 import UIKit
 
-class AppointmentDetailsStationInfoView: UIView {
+class AppointmentDetailsSocketInfoView: UIView {
 
     fileprivate lazy var titleLabel: UILabel = {
         let label = UILabel()
@@ -15,7 +15,7 @@ class AppointmentDetailsStationInfoView: UIView {
         label.font = UIFont(name: ApplicationFonts.bold.rawValue, size: 18)
         label.text = "Title"
         label.textColor = .lightGrey
-        label.text = NSLocalizedString("stationInfo", comment: "")
+        label.text = NSLocalizedString("socketInfo", comment: "")
         return label
     }()
     
@@ -30,82 +30,52 @@ class AppointmentDetailsStationInfoView: UIView {
         let stackView = UIStackView()
         stackView.translatesAutoresizingMaskIntoConstraints = false
         stackView.axis = .vertical
-        stackView.distribution = .fillEqually
+        stackView.distribution = .equalSpacing
         stackView.alignment = .fill
         stackView.spacing = 30
         stackView.backgroundColor = .clear
         return stackView
     }()
     
-    fileprivate lazy var addressStackView: UIStackView = {
-        let stackView = UIStackView()
-        stackView.translatesAutoresizingMaskIntoConstraints = false
-        stackView.axis = .vertical
-        stackView.distribution = .fillEqually
-        stackView.alignment = .fill
-        return stackView
-    }()
-    
-    fileprivate lazy var addressTitleLabel: UILabel = {
-        let label = UILabel()
-        label.font = UIFont(name: ApplicationFonts.bold.rawValue, size: 16)
-        label.textColor = .white
-        label.translatesAutoresizingMaskIntoConstraints = false
-        label.text = NSLocalizedString("address", comment: "")
-        return label
-    }()
-    
-    private(set) lazy var addressLabel: UILabel = {
-        let label = UILabel()
-        label.translatesAutoresizingMaskIntoConstraints = false
-        label.font = UIFont(name: ApplicationFonts.regular.rawValue, size: 16)
-        label.textColor = .lightGrey
-        return label
-    }()
-    
-    fileprivate lazy var serviceHoursStack: AppointmentDetailsRowStackView = {
+    fileprivate lazy var socketNumberStack: AppointmentDetailsRowStackView = {
         let stackView = AppointmentDetailsRowStackView()
         stackView.translatesAutoresizingMaskIntoConstraints = false
-        stackView.titleLabel.text = NSLocalizedString("serviceHours", comment: "")
+        stackView.titleLabel.text = NSLocalizedString("socketNumber", comment: "")
         return stackView
     }()
     
-    fileprivate lazy var distanceStack: AppointmentDetailsRowStackView = {
+    fileprivate lazy var chargerTypeStack: AppointmentDetailsRowStackView = {
         let stackView = AppointmentDetailsRowStackView()
-        stackView.titleLabel.text = NSLocalizedString("distance", comment: "")
+        stackView.titleLabel.text = NSLocalizedString("chargerType", comment: "")
         return stackView
     }()
     
-    fileprivate lazy var stationCodeStack: AppointmentDetailsRowStackView = {
-        let stackView = AppointmentDetailsRowStackView()
-        stackView.translatesAutoresizingMaskIntoConstraints = false
-        stackView.titleLabel.text = NSLocalizedString("stationCode", comment: "")
-        return stackView
-    }()
-    
-    fileprivate lazy var servicesStack: AppointmentDetailsRowStackView = {
+    fileprivate lazy var socketTypeStack: AppointmentDetailsRowStackView = {
         let stackView = AppointmentDetailsRowStackView()
         stackView.translatesAutoresizingMaskIntoConstraints = false
-        stackView.titleLabel.text = NSLocalizedString("services", comment: "")
+        stackView.titleLabel.text = NSLocalizedString("socketType", comment: "")
         return stackView
     }()
     
+    fileprivate lazy var outputPowerStack: AppointmentDetailsRowStackView = {
+        let stackView = AppointmentDetailsRowStackView()
+        stackView.translatesAutoresizingMaskIntoConstraints = false
+        stackView.titleLabel.text = NSLocalizedString("outputPower", comment: "")
+        return stackView
+    }()
+
     override init(frame: CGRect) {
         super.init(frame: frame)
         self.addSubview(titleLabel)
         self.addSubview(containerView)
         self.backgroundColor = .clear
-    
+        
         containerView.addSubview(vStackView)
         
-        addressStackView.addArrangedSubview(addressTitleLabel)
-        addressStackView.addArrangedSubview(addressLabel)
-        
-        vStackView.addArrangedSubview(addressStackView)
-        vStackView.addArrangedSubview(serviceHoursStack)
-        vStackView.addArrangedSubview(distanceStack)
-        vStackView.addArrangedSubview(stationCodeStack)
-        vStackView.addArrangedSubview(servicesStack)
+        vStackView.addArrangedSubview(socketNumberStack)
+        vStackView.addArrangedSubview(chargerTypeStack)
+        vStackView.addArrangedSubview(socketTypeStack)
+        vStackView.addArrangedSubview(outputPowerStack)
         
         setupConstraints()
     }
@@ -137,26 +107,19 @@ class AppointmentDetailsStationInfoView: UIView {
         ])
         
     }
-   
 }
 
-
-extension AppointmentDetailsStationInfoView{
-    
-    func setAddress(_ text: String){
-        addressLabel.text = text
+extension AppointmentDetailsSocketInfoView{
+    func setSocketNumber(_ text: String){
+        socketNumberStack.descriptionLabel.text = text
     }
-    
-    func setServiceHours(_ text: String){
-        serviceHoursStack.descriptionLabel.text = text
+    func setChargerType(_ text: String){
+        chargerTypeStack.descriptionLabel.text = text
     }
-    func setDistance(_ text: String){
-        distanceStack.descriptionLabel.text = text
+    func setSocketType(_ text: String){
+        socketTypeStack.descriptionLabel.text = text
     }
-    func setStationCode(_ text: String){
-        stationCodeStack.descriptionLabel.text = text
-    }
-    func setServices(_ text: String){
-        servicesStack.descriptionLabel.text = text
+    func setOutputPower(_ text: String){
+        outputPowerStack.descriptionLabel.text = text
     }
 }

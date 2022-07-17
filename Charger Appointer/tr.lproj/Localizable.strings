@@ -73,6 +73,7 @@
 // Appointment Details View
 "appointmentDetailsViewTitle" = "Randevu Detayları";
 "stationInfo" = "İstasyon Bilgileri";
+"socketInfo" = "Soket Bilgileri";
 "address" = "Adres";
 "stationCode" = "İstasyon Kodu";
-
+"outputPower" = "Çıkış Gücü";

@@ -36,7 +36,7 @@
 
 // Appointment View
 
-"socketNumber" = "Socket number";
+"socketNumber" = "Socket Number";
 "future" = "Future Appointments";
 "passed" = "Passed Appointments";
 "makeAppointment" = "Make an Appointment";
@@ -72,8 +72,12 @@
 "invalidDateDesc" = "You can't create appointment for past date";
 "edit" = "Edit";
 "selectToday" = "Select Today";
+
 // Appointment Details View
 "appointmentDetailsViewTitle" = "Appointment Details";
 "stationInfo" = "Station Info";
+"socketInfo" = "Socket Info";
 "address" = "Address";
 "stationCode" = "Station Code";
+"outputPower" = "Output Power";
+
