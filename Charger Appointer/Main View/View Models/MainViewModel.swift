@@ -35,6 +35,7 @@ class MainViewModel{
     var dataModel = MainViewDataModel()
     
     func viewDidLoad(){
+        print("Main View Loaded")
         fetchData()
     }
     
@@ -67,7 +68,7 @@ class MainViewModel{
                                               socketCount: datum.station.socketCount,
                                               distanceInKM: datum.station.distanceInKM,
                                               province: datum.station.geoLocation.province,
-                                              state: self.calcAppointmentState(with: datum.date)))
+                                              state: datum.hasPassed ? .passed : .future))
                     }
                 }
                 delegate?.dataDidFetched(viewData)

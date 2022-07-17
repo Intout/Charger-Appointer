@@ -33,6 +33,26 @@ class AppointmetnDetailsViewController: UIViewController {
         return stackView
     }()
     
+    fileprivate lazy var buttonView: UIView = {
+        let view = UIView()
+        view.translatesAutoresizingMaskIntoConstraints = false
+        view.backgroundColor = .dark
+        return view
+    }()
+    
+    fileprivate lazy var confirmButton: UIButton = {
+        let button = UIButton()
+        button.translatesAutoresizingMaskIntoConstraints = false
+        button.setTitle(NSLocalizedString("continue", comment: "Title of the Button.").uppercased(), for: .normal)
+        button.setTitleColor(.black, for: .normal)
+        button.titleLabel?.font = UIFont.init(name: ApplicationFonts.bold.rawValue, size: 14)
+        button.isUserInteractionEnabled = true
+        button.backgroundColor = .white
+        button.addTarget(self, action: #selector(buttonPressed), for: .touchUpInside)
+        button.layer.cornerRadius = 45/2
+        return button
+    }()
+    
     fileprivate lazy var stationInfoStack: AppointmentDetailsStationInfoView = {
         let stack = AppointmentDetailsStationInfoView()
         stack.translatesAutoresizingMaskIntoConstraints = false
@@ -76,7 +96,11 @@ class AppointmetnDetailsViewController: UIViewController {
         view.addSubview(containterView)
         
         containterView.addSubview(containerScrollView)
+        containterView.addSubview(buttonView)
+        
         containerScrollView.addSubview(vStackView)
+    
+        buttonView.addSubview(confirmButton)
         
         vStackView.addArrangedSubview(stationInfoStack)
         vStackView.addArrangedSubview(socketInfoStack)
@@ -98,7 +122,6 @@ class AppointmetnDetailsViewController: UIViewController {
             containerScrollView.topAnchor.constraint(equalTo: containterView.topAnchor),
             containerScrollView.leadingAnchor.constraint(equalTo: containterView.leadingAnchor),
             containerScrollView.trailingAnchor.constraint(equalTo: containterView.trailingAnchor),
-            containerScrollView.bottomAnchor.constraint(equalTo: containterView.bottomAnchor),
         ])
         
         NSLayoutConstraint.activate([
@@ -106,6 +129,22 @@ class AppointmetnDetailsViewController: UIViewController {
             vStackView.centerXAnchor.constraint(equalTo: containerScrollView.centerXAnchor),
             vStackView.widthAnchor.constraint(equalTo: containerScrollView.widthAnchor),
             vStackView.bottomAnchor.constraint(equalTo: containerScrollView.bottomAnchor),
+        ])
+        
+        NSLayoutConstraint.activate([
+            buttonView.topAnchor.constraint(equalTo: containerScrollView.bottomAnchor, constant: 0),
+            buttonView.leadingAnchor.constraint(equalTo: containterView.leadingAnchor, constant: 0),
+            buttonView.trailingAnchor.constraint(equalTo: containterView.trailingAnchor, constant: 0),
+            buttonView.bottomAnchor.constraint(equalTo: containterView.bottomAnchor),
+            buttonView.widthAnchor.constraint(equalTo: containterView.widthAnchor)
+        ])
+        
+        NSLayoutConstraint.activate([
+            confirmButton.topAnchor.constraint(equalTo: buttonView.topAnchor, constant: 10),
+            confirmButton.leadingAnchor.constraint(equalTo: buttonView.leadingAnchor, constant: 70),
+            confirmButton.trailingAnchor.constraint(equalTo: buttonView.trailingAnchor, constant: -70),
+            confirmButton.bottomAnchor.constraint(equalTo: buttonView.bottomAnchor, constant: -40),
+            confirmButton.heightAnchor.constraint(equalToConstant: 45)
         ])
         
     }
@@ -137,5 +176,11 @@ extension AppointmetnDetailsViewController: AppointmentDetailsViewModelDelegate{
             self.appointmentInfoStack.setHour(hour)
             self.appointmentInfoStack.setAppointmentLength(appointmentLength)
         }
+    }
+}
+
+private extension AppointmetnDetailsViewController{
+    @objc func buttonPressed(){
+        viewModel.didConfirmButtonPressed()
     }
 }

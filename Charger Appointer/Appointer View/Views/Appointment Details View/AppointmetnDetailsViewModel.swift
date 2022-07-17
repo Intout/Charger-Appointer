@@ -59,8 +59,6 @@ class AppointmentDetailsViewModel{
 
 extension AppointmentDetailsViewModel{
     func setStationData(_ data: StationResponseElement){
-        print("Station Setted")
-        print(data)
         dataModel.setStationData(data)
     }
     
@@ -90,5 +88,19 @@ extension AppointmentDetailsViewModel{
     
     func getSelectedDate() -> String?{
         dataModel.getSelectedDate()
+    }
+}
+
+extension AppointmentDetailsViewModel{
+    func didConfirmButtonPressed(){
+        dataModel.requestAppointment{[unowned self] error in
+            if error == nil{
+                DispatchQueue.main.async {
+                    (self.coordinator as!
+                     AppointerCoordinator).appointmentConfirmed()
+                }
+            }
+        }
+        
     }
 }

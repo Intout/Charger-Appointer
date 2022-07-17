@@ -82,3 +82,4 @@
 "hour" = "Saat";
 "appointmentLength" = "Randevu Süresi";
 "getNotification" = "Bildirim Al";
+"confirmButtonLabel" = "Randevuyu Onayla";

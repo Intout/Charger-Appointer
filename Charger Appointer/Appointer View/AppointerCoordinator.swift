@@ -74,6 +74,13 @@ class AppointerCoordinator: Coordinator{
         viewContoller.delegate = vm
         navigationController!.present(viewContoller, animated: true, completion: nil)
     }
+    
+    func appointmentConfirmed(){
+        parentCoordinator?.didChildFinished(from: self)
+        (navigationController?.viewControllers.first as! ViewController).viewModel.viewDidLoad()
+        navigationController?.popToRootViewController(animated: true)
+    }
+    
 }
 
 extension Coordinator where Self: AppointerCoordinator{
@@ -81,3 +88,5 @@ extension Coordinator where Self: AppointerCoordinator{
         goToCitiesView(with: credentials, location: location)
     }
 }
+
+

@@ -85,4 +85,4 @@
 "hour" = "Hour";
 "appointmentLength" = "Appointment Length";
 "getNotification" = "Get Notification";
-
+"confirmButtonLabel" = "Confirm Appointment";
