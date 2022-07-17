@@ -63,6 +63,26 @@ extension StationViewTableViewHelper: UITableViewDataSource{
         cell.deleteButton.removeFromSuperview()
         let titleText = NSMutableAttributedString(string: NSLocalizedString("availableSocketCount", comment: "") + ": ")
         
+        var acCharger:Bool = false
+        var dcCharger:Bool = false
+        
+        for socket in stationData.sockets{
+            if socket.chargeType == .ac{
+                acCharger = true
+            } else if socket.chargeType == .dc {
+                dcCharger = true
+            }
+        }
+        
+        if acCharger && dcCharger{
+            cell.chargerImage.image = UIImage(named: "avatar1")
+        } else if acCharger{
+            cell.chargerImage.image = UIImage(named: "avatar2")
+        } else {
+            cell.chargerImage.image = UIImage(named: "avatar")
+        }
+        
+        
         titleText.addAttribute(NSMutableAttributedString.Key.font, value: UIFont(name: ApplicationFonts.regular.rawValue, size: 16)!, range: NSRange(location: 0, length: titleText.length))
         titleText.addAttribute(NSMutableAttributedString.Key.foregroundColor, value: UIColor.lightGrey, range: NSRange(location: 0, length: titleText.length))
         

@@ -99,6 +99,8 @@ extension AppointmentTableViewHelper: UITableViewDataSource{
             cell.deleteButton.isHidden = true
         }
         
+        cell.chargerImage.image = UIImage(named: cellData.chargerType == .ac ? "avatar2" : "avatar")
+        
         cell.titleLabel.text = cellData.stationName + ", " + cellData.province
         
         print("\(indexPath.section)")
