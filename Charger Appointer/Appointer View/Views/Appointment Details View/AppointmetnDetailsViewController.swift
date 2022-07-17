@@ -90,11 +90,11 @@ class AppointmetnDetailsViewController: UIViewController {
     
     private func setupUI(){
         self.navigationItem.title = NSLocalizedString("appointmentDetailsViewTitle", comment: "Title of view!")
+        self.navigationController?.navigationBar.tintColor = .white
         self.navigationController?.navigationBar.titleTextAttributes = [.foregroundColor: UIColor.white, .font: UIFont(name: ApplicationFonts.regular.rawValue, size: 16)!]
         view.backgroundColor = .charcoalGrey
         
         view.addSubview(containterView)
-        
         containterView.addSubview(containerScrollView)
         containterView.addSubview(buttonView)
         

@@ -83,6 +83,7 @@ class StationsViewController: UIViewController {
     private func setupUI(){
         self.navigationItem.rightBarButtonItem = filterButton
         self.navigationItem.title = NSLocalizedString("stationsViewTitle", comment: "Title of view!")
+        self.navigationController?.navigationBar.tintColor = .white
         self.navigationController?.navigationBar.titleTextAttributes = [.foregroundColor: UIColor.white, .font: UIFont(name: ApplicationFonts.regular.rawValue, size: 16)!]
         view.backgroundColor = .charcoalGrey
         view.addSubview(containerView)

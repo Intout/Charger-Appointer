@@ -47,6 +47,7 @@ class CitiesViewController: UIViewController {
     
     private func setupUI(){
         self.navigationItem.title = NSLocalizedString("citiesViewTitle", comment: "Title of view!")
+        self.navigationController?.navigationBar.tintColor = .white
         self.navigationController?.navigationBar.titleTextAttributes = [.foregroundColor: UIColor.white, .font: UIFont(name: ApplicationFonts.regular.rawValue, size: 16)!]
         view.backgroundColor = .charcoalGrey
         

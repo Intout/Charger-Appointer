@@ -93,6 +93,7 @@ class FilterViewController: UIViewController {
     
     private func setupUI(){
         self.navigationItem.title = NSLocalizedString("stationsViewTitle", comment: "Title of view!")
+        self.navigationController?.navigationBar.tintColor = .white
         self.navigationItem.rightBarButtonItem = cleanButton
         self.navigationController?.navigationBar.titleTextAttributes = [.foregroundColor: UIColor.white, .font: UIFont(name: ApplicationFonts.bold.rawValue, size: 16)!]
         view.backgroundColor = .charcoalGrey

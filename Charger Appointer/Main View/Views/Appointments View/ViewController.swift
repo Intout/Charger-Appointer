@@ -72,8 +72,10 @@ class ViewController: UIViewController {
     private func setupUI(){
         self.navigationItem.leftBarButtonItem = accountButton
         self.navigationItem.title = NSLocalizedString("mainViewTitle", comment: "Title of view!")
+        self.navigationController?.navigationBar.tintColor = .white
         self.navigationController?.navigationBar.titleTextAttributes = [.foregroundColor: UIColor.white, .font: UIFont(name: ApplicationFonts.regular.rawValue, size: 16)!]
         view.backgroundColor = .charcoalGrey
+        self.navigationItem.scrollEdgeAppearance = .none
         view.addSubview(containerView)
         setupConstraints()
     }
