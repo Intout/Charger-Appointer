@@ -76,6 +76,10 @@ extension FilterViewModel{
         
     }
     
+    func cleanButtonEvent(){
+        dataModel.setFilterCollection([])
+    }
+    
     private func distributeFilterCollection() -> FilterData?{
         if dataModel.getFilterCollection().isEmpty{
             print("Distance: \(dataModel.getDistance())")

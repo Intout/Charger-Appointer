@@ -66,6 +66,7 @@
 "distance" = "Distance (km)";
 "services" = "Services";
 "filterButtonTitle" = "Apply Filter";
+"clean" = "Clean";
 
 // Appointment Date Selection View
 "appointmentDateSelectionViewTitle" = "Choose Date and Hour";

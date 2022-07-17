@@ -51,6 +51,17 @@ class FilterViewController: UIViewController {
         return filterCategoryStackView
     }()
     
+    fileprivate lazy var cleanButton: UIBarButtonItem = {
+        let button = UIBarButtonItem(title: NSLocalizedString("clean", comment: "").uppercased(), style: .plain, target: self, action: #selector(cleanButtonPressed))
+        
+        button.setTitleTextAttributes([NSAttributedString.Key.font: UIFont(name: ApplicationFonts.regular.rawValue, size: 14)!], for: .normal)
+        button.setTitleTextAttributes([NSAttributedString.Key.font: UIFont(name: ApplicationFonts.regular.rawValue, size: 14)!], for: .selected)
+        
+        button.tintColor = UIColor.white
+        
+        return button
+    }()
+    
     fileprivate lazy var filterButton: UIButton = {
         let button = UIButton()
         button.translatesAutoresizingMaskIntoConstraints = false
@@ -82,6 +93,7 @@ class FilterViewController: UIViewController {
     
     private func setupUI(){
         self.navigationItem.title = NSLocalizedString("stationsViewTitle", comment: "Title of view!")
+        self.navigationItem.rightBarButtonItem = cleanButton
         self.navigationController?.navigationBar.titleTextAttributes = [.foregroundColor: UIColor.white, .font: UIFont(name: ApplicationFonts.bold.rawValue, size: 16)!]
         view.backgroundColor = .charcoalGrey
         view.addSubview(containerView)
@@ -180,6 +192,16 @@ extension FilterViewController{
        viewModel?.filterButtonEvent()
       // self.dismiss(animated: true)
     }
+    
+    @objc func cleanButtonPressed(){
+        viewModel?.cleanButtonEvent()
+        if viewModel != nil{
+            chargerTypeCategory.updateCells(in: viewModel!.getFilterCollection())
+            socketTypeCategory.updateCells(in: viewModel!.getFilterCollection())
+            serviceCategory.updateCells(in: viewModel!.getFilterCollection())
+        }
+    }
+    
 }
 
 extension FilterViewController: FilterViewModelDelegate{
