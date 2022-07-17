@@ -60,7 +60,7 @@ extension StationViewTableViewHelper: UITableViewDataSource{
         cell.backgroundColor = .clear
         let stationData = data[indexPath.item]
         cell.titleLabel.text = stationData.stationName
-        
+        cell.deleteButton.removeFromSuperview()
         let titleText = NSMutableAttributedString(string: NSLocalizedString("availableSocketCount", comment: "") + ": ")
         
         titleText.addAttribute(NSMutableAttributedString.Key.font, value: UIFont(name: ApplicationFonts.regular.rawValue, size: 16)!, range: NSRange(location: 0, length: titleText.length))

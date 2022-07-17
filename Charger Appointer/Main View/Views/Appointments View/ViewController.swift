@@ -134,7 +134,7 @@ class ViewController: UIViewController {
 }
 
 extension ViewController: MainViewModelDelegate{
-    func dataDidFetched(_ data: [AppointmentViewData]?) {
+    func dataDidFetched(_ data: [[AppointmentViewData]]?) {
         DispatchQueue.main.async { [unowned self] in
             self.setupTableView()
         }

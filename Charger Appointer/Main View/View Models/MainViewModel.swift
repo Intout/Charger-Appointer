@@ -24,7 +24,7 @@ struct AppointmentViewData{
 }
 
 protocol MainViewModelDelegate: AnyObject{
-    func dataDidFetched(_ data: [AppointmentViewData]?)
+    func dataDidFetched(_ data: [[AppointmentViewData]]?)
     func dataIsNill()
     func dataFetchFailed(with error: Error)
 }
@@ -48,29 +48,44 @@ class MainViewModel{
                     return
                 }
                 
-                var viewData: [AppointmentViewData] = []
+                var viewData: [[AppointmentViewData]] = []
+                var futureArray: [AppointmentViewData] = []
+                var pastArray: [AppointmentViewData] = []
+                print("Appointment Count: \(data.count)")
                 for datum in data {
+                    print("Appointment Name: \(datum.stationName) and \(datum.time)")
                     let socketID = datum.socketID
                     let sockets = datum.station.sockets
                     let appointedSocket = sockets.first(where: {
                         $0.socketID == socketID
                     })
                     if let appointedSocket = appointedSocket {
-                        viewData.append(.init(appointmentID: datum.appointmentID,
-                                              socketID: datum.socketID,
-                                              stationName: datum.stationName,
-                                              socketType: appointedSocket.socketType,
-                                              chargerType: appointedSocket.chargeType,
-                                              powerUnit: appointedSocket.powerUnit,
-                                              power: appointedSocket.power,
-                                              time: datum.time,
-                                              date: formatDateAndReturnString(datum.date),
-                                              socketCount: datum.station.socketCount,
-                                              distanceInKM: datum.station.distanceInKM,
-                                              province: datum.station.geoLocation.province,
-                                              state: datum.hasPassed ? .passed : .future))
+                        
+                        let appointmentData: AppointmentViewData =  .init(appointmentID: datum.appointmentID,
+                                                                          socketID: datum.socketID,
+                                                                          stationName: datum.stationName,
+                                                                          socketType: appointedSocket.socketType,
+                                                                          chargerType: appointedSocket.chargeType,
+                                                                          powerUnit: appointedSocket.powerUnit,
+                                                                          power: appointedSocket.power,
+                                                                          time: datum.time,
+                                                                          date: formatDateAndReturnString(datum.date),
+                                                                          socketCount: datum.station.socketCount,
+                                                                          distanceInKM: datum.station.distanceInKM,
+                                                                          province: datum.station.geoLocation.province,
+                                                                          state: datum.hasPassed ? .passed : .future)
+                        
+                        if appointmentData.state == .future{
+                            futureArray.append(appointmentData)
+                        } else {
+                            pastArray.append(appointmentData)
+                        }
+                        
                     }
                 }
+                viewData.append(futureArray)
+                viewData.append(pastArray)
+                print(viewData)
                 delegate?.dataDidFetched(viewData)
                 return
             } else {
@@ -140,5 +155,17 @@ extension MainViewModel{
     
     func getLocation() -> Coordinate?{
         return dataModel.getLocation()
+    }
+}
+
+extension MainViewModel{
+    func deleteRequested(for id: Int){
+        dataModel.requestDelete(for: id){ [unowned self] error in
+            if let error = error{
+                print(error)
+            } else {
+                self.viewDidLoad()
+            }
+        }
     }
 }

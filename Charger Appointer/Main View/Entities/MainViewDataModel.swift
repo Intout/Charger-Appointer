@@ -30,6 +30,27 @@ class MainViewDataModel{
         return location
     }
     
+    func requestDelete(for id: Int, completionHandler: @escaping (Error?) -> ()){
+        guard let url = URL(string: "http://ec2-18-197-100-203.eu-central-1.compute.amazonaws.com:8080/appointments/cancel/\(id)?\(credentials.userID)") else {
+            completionHandler(URLError(.badURL))
+            return
+        }
+        var request = URLRequest(url: url)
+        request.httpMethod = "DELETE"
+        request.addValue(credentials.token, forHTTPHeaderField: "token")
+        
+        URLSession.shared.dataTask(with: request){ data, response, error in
+            guard (response as? HTTPURLResponse)?.statusCode == 200 else {
+                completionHandler(error)
+                print("Couldn't delete appointment data!")
+                return
+            }
+            completionHandler(nil)
+          return
+        }.resume()
+        
+    }
+    
     func fetchAppointmentData(completionHandler: @escaping (Error?, [AppointmentResponseElement]?)->(Void)){
         
         var urlString: String

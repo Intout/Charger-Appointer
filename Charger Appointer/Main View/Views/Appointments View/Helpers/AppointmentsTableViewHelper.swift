@@ -8,11 +8,13 @@
 import Foundation
 import UIKit
 
+
+
 class AppointmentTableViewHelper: NSObject{
     
     weak var tableView: UITableView?
     weak var viewModel: MainViewModel?
-    private var data: [AppointmentViewData] = []
+    private var data: [[AppointmentViewData]] = []
     private var categoryTags: [AppointmentCategory] = [.future, .passed]
     
     
@@ -27,7 +29,7 @@ class AppointmentTableViewHelper: NSObject{
         register()
     }
     
-    func setData(_ viewData: [AppointmentViewData]?){
+    func setData(_ viewData: [[AppointmentViewData]]?){
         if let viewData = viewData {
             self.data = viewData
             DispatchQueue.main.async { [unowned self] in
@@ -56,9 +58,6 @@ extension AppointmentTableViewHelper: UITableViewDelegate{
         }
     }
     */
-    func tableView(_ tableView: UITableView, canFocusRowAt indexPath: IndexPath) -> Bool {
-        false
-    }
     
     func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
         let view = UIView(frame: CGRect(x: 0, y: 0, width: 20, height: 20))
@@ -75,20 +74,23 @@ extension AppointmentTableViewHelper: UITableViewDelegate{
 extension AppointmentTableViewHelper: UITableViewDataSource{
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         let tag = categoryTags[section]
-        return data.filter{
+        return data[section].filter{
             return $0.state == tag
         }.count
     }
+    
+
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         
         let cell = tableView.dequeueReusableCell(withIdentifier: "appointmentsTableViewCell", for: indexPath) as! AppointmentsTableViewCell
         cell.backgroundColor = .clear
+        let cellData = data[indexPath.section][indexPath.item]
         
-        let cellData = data[indexPath.item]
-        
-        if cellData.state == .passed{
+        if indexPath.section == 1{
             cell.deleteButton.removeFromSuperview()
+            cell.id = cellData.appointmentID
+            cell.delegate = self
         }
         
         cell.titleLabel.text = cellData.stationName + ", " + cellData.province
@@ -114,4 +116,10 @@ extension AppointmentTableViewHelper: UITableViewDataSource{
     }
     
 
+}
+
+extension AppointmentTableViewHelper: StationTableViewCellDelegate{
+    func didDeleteRequested(for id: Int) {
+        viewModel?.deleteRequested(for: id)
+    }
 }

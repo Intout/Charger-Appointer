@@ -7,6 +7,10 @@
 
 import UIKit
 
+protocol StationTableViewCellDelegate: AnyObject{
+    func didDeleteRequested(for id: Int)
+}
+
 class StationTableViewCell: UITableViewCell {
 
     fileprivate lazy var containerView: UIView = {
@@ -45,6 +49,7 @@ class StationTableViewCell: UITableViewCell {
         button.translatesAutoresizingMaskIntoConstraints = false
         button.setImage(UIImage(systemName: "trash"), for: .normal)
         button.tintColor = .lightGrey
+        button.addTarget(self, action: #selector(didButtonPressed), for: .touchUpInside)
         return button
     }()
     
@@ -65,6 +70,9 @@ class StationTableViewCell: UITableViewCell {
         view.backgroundColor = .clear
         return view
     }()
+    
+    var id: Int!
+    weak var delegate: StationTableViewCellDelegate?
     
     override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
         super.init(style: style, reuseIdentifier: reuseIdentifier)
@@ -130,4 +138,12 @@ class StationTableViewCell: UITableViewCell {
         // Configure the view for the selected state
     }
 
+}
+
+private extension StationTableViewCell{
+    @objc func didButtonPressed(){
+        print(id)
+        print("Button Pressed")
+        delegate?.didDeleteRequested(for: id)
+    }
 }
