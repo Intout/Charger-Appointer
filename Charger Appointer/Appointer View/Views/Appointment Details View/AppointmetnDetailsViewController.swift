@@ -9,19 +9,36 @@ import UIKit
 
 class AppointmetnDetailsViewController: UIViewController {
 
-    fileprivate let containterView: UIView = {
+    fileprivate lazy var containterView: UIView = {
         let view = UIView()
         view.translatesAutoresizingMaskIntoConstraints = false
         view.backgroundColor = UIColor(white: 1, alpha: 0)
         return view
     }()
     
-    fileprivate let containerScrollView: UIScrollView = {
+    fileprivate lazy var containerScrollView: UIScrollView = {
         let scrollView = UIScrollView()
         scrollView.translatesAutoresizingMaskIntoConstraints = false
         scrollView.backgroundColor = UIColor(white: 1, alpha: 0)
         return scrollView
     }()
+    
+    fileprivate lazy var vStackView: UIStackView = {
+        let stackView = UIStackView()
+        stackView.translatesAutoresizingMaskIntoConstraints = false
+        stackView.axis = .vertical
+        stackView.distribution = .fill
+        stackView.alignment = .fill
+        stackView.backgroundColor = .clear
+        return stackView
+    }()
+    
+    fileprivate lazy var stationInfoStack: AppointmentDetailsStationInfoView = {
+        let stack = AppointmentDetailsStationInfoView()
+        stack.translatesAutoresizingMaskIntoConstraints = false
+        return stack
+    }()
+    
     
     var viewModel: AppointmentDetailsViewModel!
     
@@ -44,6 +61,9 @@ class AppointmetnDetailsViewController: UIViewController {
         
         view.addSubview(containterView)
         containterView.addSubview(containerScrollView)
+        containerScrollView.addSubview(vStackView)
+        vStackView.addArrangedSubview(stationInfoStack)
+        
         
         setupConstraints()
     }
@@ -62,6 +82,13 @@ class AppointmetnDetailsViewController: UIViewController {
             containerScrollView.leadingAnchor.constraint(equalTo: containterView.leadingAnchor),
             containerScrollView.trailingAnchor.constraint(equalTo: containterView.trailingAnchor),
             containerScrollView.bottomAnchor.constraint(equalTo: containterView.bottomAnchor),
+        ])
+        
+        NSLayoutConstraint.activate([
+            vStackView.topAnchor.constraint(equalTo: containerScrollView.topAnchor),
+            vStackView.centerXAnchor.constraint(equalTo: containerScrollView.centerXAnchor),
+            vStackView.widthAnchor.constraint(equalTo: containerScrollView.widthAnchor),
+            vStackView.bottomAnchor.constraint(equalTo: containerScrollView.bottomAnchor),
         ])
         
     }

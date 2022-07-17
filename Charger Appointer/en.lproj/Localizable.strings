@@ -49,7 +49,7 @@
 
 // Stations View
 "stationsViewTitle" = "Select a Station";
-"serviceHours" = "Service hours";
+"serviceHours" = "Service Hours";
 "hour" = "Hour";
 "availableSocketCount" = "Number of available sockets";
 "resultsFor" = "Results for";
@@ -74,3 +74,6 @@
 "selectToday" = "Select Today";
 // Appointment Details View
 "appointmentDetailsViewTitle" = "Appointment Details";
+"stationInfo" = "Station Info";
+"address" = "Address";
+"stationCode" = "Station Code";

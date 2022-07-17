@@ -72,3 +72,7 @@
 "selectToday" = "Bugünü Seç";
 // Appointment Details View
 "appointmentDetailsViewTitle" = "Randevu Detayları";
+"stationInfo" = "İstasyon Bilgileri";
+"address" = "Adres";
+"stationCode" = "İstasyon Kodu";
+
