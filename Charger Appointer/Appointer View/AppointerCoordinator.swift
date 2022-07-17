@@ -50,7 +50,7 @@ class AppointerCoordinator: Coordinator{
         navigationController?.pushViewController(viewController, animated: true)
     }
     
-    func goToAppointmentDetalsView(with selectedSocket: SelectedSocket, on stationData: StationResponseElement, at selectedDate: String, for credentials: AuthenticationResponse){
+    func goToAppointmentDetailsView(with selectedSocket: SelectedSocket, on stationData: StationResponseElement, at selectedDate: String, for credentials: AuthenticationResponse){
         let viewController = AppointmetnDetailsViewController()
         viewController.viewModel = AppointmentDetailsViewModel()
         viewController.viewModel?.coordinator = self

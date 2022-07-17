@@ -30,9 +30,9 @@ class AppointmentDetailsSocketInfoView: UIView {
         let stackView = UIStackView()
         stackView.translatesAutoresizingMaskIntoConstraints = false
         stackView.axis = .vertical
-        stackView.distribution = .equalSpacing
+        stackView.spacing = 40
+        //stackView.distribution = .equalCentering
         stackView.alignment = .fill
-        stackView.spacing = 30
         stackView.backgroundColor = .clear
         return stackView
     }()

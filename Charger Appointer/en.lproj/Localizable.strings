@@ -77,7 +77,12 @@
 "appointmentDetailsViewTitle" = "Appointment Details";
 "stationInfo" = "Station Info";
 "socketInfo" = "Socket Info";
+"appointmentDetails" = "Appointment Info";
 "address" = "Address";
 "stationCode" = "Station Code";
 "outputPower" = "Output Power";
+"date" = "Date";
+"hour" = "Hour";
+"appointmentLength" = "Appointment Length";
+"getNotification" = "Get Notification";
 

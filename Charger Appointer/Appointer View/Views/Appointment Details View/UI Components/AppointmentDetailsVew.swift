@@ -1,5 +1,5 @@
 //
-//  AppointmentDetailsStationInfoStackVew.swift
+//  AppointmentDetailsVew.swift
 //  Charger Appointer
 //
 //  Created by Mert Tecimen on 17.07.2022.
@@ -7,7 +7,7 @@
 
 import UIKit
 
-class AppointmentDetailsStationInfoView: UIView {
+class AppointmentDetailsVew: UIView {
 
     fileprivate lazy var titleLabel: UILabel = {
         let label = UILabel()
@@ -15,7 +15,7 @@ class AppointmentDetailsStationInfoView: UIView {
         label.font = UIFont(name: ApplicationFonts.bold.rawValue, size: 18)
         label.text = "Title"
         label.textColor = .lightGrey
-        label.text = NSLocalizedString("stationInfo", comment: "")
+        label.text = NSLocalizedString("appointmentDetails", comment: "")
         return label
     }()
     
@@ -37,76 +37,39 @@ class AppointmentDetailsStationInfoView: UIView {
         return stackView
     }()
     
-    fileprivate lazy var addressStackView: UIStackView = {
-        let stackView = UIStackView()
-        stackView.translatesAutoresizingMaskIntoConstraints = false
-        stackView.axis = .vertical
-        //stackView.distribution = .fillEqually
-        stackView.alignment = .fill
-        return stackView
-    }()
-    
-    fileprivate lazy var addressTitleLabel: UILabel = {
-        let label = UILabel()
-        label.font = UIFont(name: ApplicationFonts.bold.rawValue, size: 16)
-        label.textColor = .white
-        label.translatesAutoresizingMaskIntoConstraints = false
-        label.text = NSLocalizedString("address", comment: "")
-        return label
-    }()
-    
-    private(set) lazy var addressLabel: UILabel = {
-        let label = UILabel()
-        label.translatesAutoresizingMaskIntoConstraints = false
-        label.font = UIFont(name: ApplicationFonts.regular.rawValue, size: 16)
-        label.textColor = .lightGrey
-        label.numberOfLines = 0
-        return label
-    }()
-    
-    fileprivate lazy var serviceHoursStack: AppointmentDetailsRowStackView = {
+    fileprivate lazy var dateStack: AppointmentDetailsRowStackView = {
         let stackView = AppointmentDetailsRowStackView()
         stackView.translatesAutoresizingMaskIntoConstraints = false
-        stackView.titleLabel.text = NSLocalizedString("serviceHours", comment: "")
+        stackView.titleLabel.text = NSLocalizedString("date", comment: "")
         return stackView
     }()
     
-    fileprivate lazy var distanceStack: AppointmentDetailsRowStackView = {
+    fileprivate lazy var hourStack: AppointmentDetailsRowStackView = {
         let stackView = AppointmentDetailsRowStackView()
-        stackView.titleLabel.text = NSLocalizedString("distance", comment: "")
+        stackView.titleLabel.text = NSLocalizedString("hour", comment: "")
         return stackView
     }()
     
-    fileprivate lazy var stationCodeStack: AppointmentDetailsRowStackView = {
-        let stackView = AppointmentDetailsRowStackView()
-        stackView.translatesAutoresizingMaskIntoConstraints = false
-        stackView.titleLabel.text = NSLocalizedString("stationCode", comment: "")
-        return stackView
-    }()
-    
-    fileprivate lazy var servicesStack: AppointmentDetailsRowStackView = {
+    fileprivate lazy var appointmentLengthStack: AppointmentDetailsRowStackView = {
         let stackView = AppointmentDetailsRowStackView()
         stackView.translatesAutoresizingMaskIntoConstraints = false
-        stackView.titleLabel.text = NSLocalizedString("services", comment: "")
+        stackView.titleLabel.text = NSLocalizedString("appointmentLength", comment: "")
         return stackView
     }()
+    
+
     
     override init(frame: CGRect) {
         super.init(frame: frame)
         self.addSubview(titleLabel)
         self.addSubview(containerView)
         self.backgroundColor = .clear
-    
+        
         containerView.addSubview(vStackView)
         
-        addressStackView.addArrangedSubview(addressTitleLabel)
-        addressStackView.addArrangedSubview(addressLabel)
-        
-        vStackView.addArrangedSubview(addressStackView)
-        vStackView.addArrangedSubview(serviceHoursStack)
-        vStackView.addArrangedSubview(distanceStack)
-        vStackView.addArrangedSubview(stationCodeStack)
-        vStackView.addArrangedSubview(servicesStack)
+        vStackView.addArrangedSubview(dateStack)
+        vStackView.addArrangedSubview(hourStack)
+        vStackView.addArrangedSubview(appointmentLengthStack)
         
         setupConstraints()
     }
@@ -138,26 +101,16 @@ class AppointmentDetailsStationInfoView: UIView {
         ])
         
     }
-   
 }
 
-
-extension AppointmentDetailsStationInfoView{
-    
-    func setAddress(_ text: String){
-        addressLabel.text = text
+extension AppointmentDetailsVew{
+    func setDate(_ text: String){
+        dateStack.descriptionLabel.text = text
     }
-    
-    func setServiceHours(_ text: String){
-        serviceHoursStack.descriptionLabel.text = text
+    func setHour(_ text: String){
+        hourStack.descriptionLabel.text = text
     }
-    func setDistance(_ text: String){
-        distanceStack.descriptionLabel.text = text
-    }
-    func setStationCode(_ text: String){
-        stationCodeStack.descriptionLabel.text = text
-    }
-    func setServices(_ text: String){
-        servicesStack.descriptionLabel.text = text
+    func setAppointmentLength(_ text: String){
+        appointmentLengthStack.descriptionLabel.text = text
     }
 }

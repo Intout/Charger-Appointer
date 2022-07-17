@@ -74,6 +74,11 @@
 "appointmentDetailsViewTitle" = "Randevu Detayları";
 "stationInfo" = "İstasyon Bilgileri";
 "socketInfo" = "Soket Bilgileri";
+"appointmentDetails" = "Randevu Bilgileri";
 "address" = "Adres";
 "stationCode" = "İstasyon Kodu";
 "outputPower" = "Çıkış Gücü";
+"date" = "Tarih";
+"hour" = "Saat";
+"appointmentLength" = "Randevu Süresi";
+"getNotification" = "Bildirim Al";

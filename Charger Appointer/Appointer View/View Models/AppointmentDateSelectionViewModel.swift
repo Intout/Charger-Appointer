@@ -92,7 +92,7 @@ extension AppointmentDateSelectionViewModel{
     func continueButtonEvent(){
          
          if getSelectedSocket() != nil && getStationData() != nil && getSelectedDate() != nil && getCredentials() != nil{
-             (coordinator as! AppointerCoordinator).goToAppointmentDetalsView(with: getSelectedSocket()!, on: getStationData()!, at: getSelectedDate()!, for: getCredentials()!)
+             (coordinator as! AppointerCoordinator).goToAppointmentDetailsView(with: getSelectedSocket()!, on: getStationData()!, at: getSelectedDate()!, for: getCredentials()!)
         }
         
         

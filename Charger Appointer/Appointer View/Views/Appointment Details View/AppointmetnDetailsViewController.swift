@@ -27,7 +27,7 @@ class AppointmetnDetailsViewController: UIViewController {
         let stackView = UIStackView()
         stackView.translatesAutoresizingMaskIntoConstraints = false
         stackView.axis = .vertical
-        stackView.distribution = .fillEqually
+      //  stackView.distribution = .fillEqually
         stackView.alignment = .fill
         stackView.backgroundColor = .clear
         return stackView
@@ -45,12 +45,20 @@ class AppointmetnDetailsViewController: UIViewController {
         return stack
     }()
     
+    fileprivate lazy var appointmentInfoStack: AppointmentDetailsVew = {
+        let stack = AppointmentDetailsVew()
+        stack.translatesAutoresizingMaskIntoConstraints = false
+        return stack
+    }()
+    
     
     var viewModel: AppointmentDetailsViewModel!
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        viewModel.delegate = self
+        viewModel.viewDidLoad()
+        print("Veiw Loaded")
         setupUI()
     }
     
@@ -72,6 +80,7 @@ class AppointmetnDetailsViewController: UIViewController {
         
         vStackView.addArrangedSubview(stationInfoStack)
         vStackView.addArrangedSubview(socketInfoStack)
+        vStackView.addArrangedSubview(appointmentInfoStack)
         
         setupConstraints()
     }
@@ -101,4 +110,32 @@ class AppointmetnDetailsViewController: UIViewController {
         
     }
     
+}
+
+extension AppointmetnDetailsViewController: AppointmentDetailsViewModelDelegate{
+    func didStationDataFetched(address: String, serviceHours: String, distance: String, stationCode: String, services: String) {
+        DispatchQueue.main.async { [unowned self] in
+
+            self.stationInfoStack.setAddress(address)
+            self.stationInfoStack.setServiceHours(serviceHours)
+            self.stationInfoStack.setDistance(distance)
+            self.stationInfoStack.setStationCode(stationCode)
+            self.stationInfoStack.setServices(services)
+        }
+    }
+    func didSocketDataFetched(socketNo: String, chargerType: String, socketType: String, outputPower: String) {
+        DispatchQueue.main.async { [unowned self] in
+            self.socketInfoStack.setSocketNumber(socketNo)
+            self.socketInfoStack.setChargerType(chargerType)
+            self.socketInfoStack.setSocketType(socketType)
+            self.socketInfoStack.setOutputPower(outputPower)
+        }
+    }
+    func didAppointmentDataFetched(date: String, hour: String, appointmentLength: String) {
+        DispatchQueue.main.async { [unowned self] in
+            self.appointmentInfoStack.setDate(date)
+            self.appointmentInfoStack.setHour(hour)
+            self.appointmentInfoStack.setAppointmentLength(appointmentLength)
+        }
+    }
 }
