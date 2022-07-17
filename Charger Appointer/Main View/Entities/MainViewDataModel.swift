@@ -18,6 +18,15 @@ class MainViewDataModel{
     private var credentials: AuthenticationResponse!
     private var location: Coordinate?
     private var idToDelete: Int?
+    private var futureViewData: [AppointmentViewData] = []
+    
+    func setFutureViewData(_ data: [AppointmentViewData]){
+        self.futureViewData = data
+    }
+    
+    func getFutureViewData() -> ([AppointmentViewData]){
+        return futureViewData
+    }
     
     func setIDToDelete(_ data: Int?){
         self.idToDelete = data

@@ -44,7 +44,7 @@
 "noAppointmentMessage" = "Your appointments will be listed here";
 
 "cancelAppointmentTitle" = "Cancel Appointment";
-"cancelAppointmentDesc" = "appointment will can be cancelled";
+"cancelAppointmentDesc" = "appointment will be cancelled";
 "cancelAppointment" = "Cancel Appointment";
 "cancel" = "Cancel";
 
