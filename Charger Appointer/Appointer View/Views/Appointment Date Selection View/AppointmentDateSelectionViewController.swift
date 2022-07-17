@@ -34,6 +34,26 @@ class AppointmentDataSelectionViewController: UIViewController {
         return stackView
     }()
     
+    fileprivate lazy var buttonView: UIView = {
+        let view = UIView()
+        view.translatesAutoresizingMaskIntoConstraints = false
+        view.backgroundColor = .dark
+        return view
+    }()
+    
+    fileprivate lazy var continueButton: UIButton = {
+        let button = UIButton()
+        button.translatesAutoresizingMaskIntoConstraints = false
+        button.setTitle(NSLocalizedString("continue", comment: "Title of the Button.").uppercased(), for: .normal)
+        button.setTitleColor(.black, for: .normal)
+        button.titleLabel?.font = UIFont.init(name: ApplicationFonts.bold.rawValue, size: 14)
+        button.isUserInteractionEnabled = true
+        button.backgroundColor = .white
+        button.addTarget(self, action: #selector(buttonPressed), for: .touchUpInside)
+        button.layer.cornerRadius = 45/2
+        return button
+    }()
+    
     fileprivate lazy var datePickerView: AppointmentDateSelectionDatePickerView = {
        let picker = AppointmentDateSelectionDatePickerView()
         picker.translatesAutoresizingMaskIntoConstraints = false
@@ -91,6 +111,8 @@ class AppointmentDataSelectionViewController: UIViewController {
         view.backgroundColor = .charcoalGrey
         view.addSubview(containterView)
         containterView.addSubview(containerScrollView)
+        containterView.addSubview(buttonView)
+        buttonView.addSubview(continueButton)
         containerScrollView.addSubview(datePickerView)
         containerScrollView.addSubview(hStack)
         
@@ -110,7 +132,23 @@ class AppointmentDataSelectionViewController: UIViewController {
             containerScrollView.topAnchor.constraint(equalTo: containterView.topAnchor),
             containerScrollView.leadingAnchor.constraint(equalTo: containterView.leadingAnchor),
             containerScrollView.trailingAnchor.constraint(equalTo: containterView.trailingAnchor),
-            containerScrollView.bottomAnchor.constraint(equalTo: containterView.bottomAnchor),
+            //containerScrollView.bottomAnchor.constraint(equalTo: containterView.bottomAnchor),
+        ])
+        
+        NSLayoutConstraint.activate([
+            buttonView.topAnchor.constraint(equalTo: containerScrollView.bottomAnchor, constant: 0),
+            buttonView.leadingAnchor.constraint(equalTo: containterView.leadingAnchor, constant: 0),
+            buttonView.trailingAnchor.constraint(equalTo: containterView.trailingAnchor, constant: 0),
+            buttonView.bottomAnchor.constraint(equalTo: containterView.bottomAnchor),
+            buttonView.widthAnchor.constraint(equalTo: containterView.widthAnchor)
+        ])
+        
+        NSLayoutConstraint.activate([
+            continueButton.topAnchor.constraint(equalTo: buttonView.topAnchor, constant: 10),
+            continueButton.leadingAnchor.constraint(equalTo: buttonView.leadingAnchor, constant: 70),
+            continueButton.trailingAnchor.constraint(equalTo: buttonView.trailingAnchor, constant: -70),
+            continueButton.bottomAnchor.constraint(equalTo: buttonView.bottomAnchor, constant: -40),
+            continueButton.heightAnchor.constraint(equalToConstant: 45)
         ])
         
         NSLayoutConstraint.activate([
@@ -127,6 +165,7 @@ class AppointmentDataSelectionViewController: UIViewController {
             hStack.bottomAnchor.constraint(equalTo: containerScrollView.bottomAnchor),
             hStack.widthAnchor.constraint(equalTo: containerScrollView.widthAnchor)
         ])
+        
         
     
     }
@@ -174,11 +213,24 @@ extension AppointmentDataSelectionViewController: AppointmentDateSelectionViewMo
     func didDataFetchFailed(_ error: Error?) {
         print("Data fetch failed with: \(error)")
     }
+    
+    func didDateEditSelected() {
+        self.datePickerView.textDatePicker.becomeFirstResponder()
+    }
+    func didTodayDateSelected() {
+        self.datePickerView.updateDateToToday()
+    }
 }
 
 extension AppointmentDataSelectionViewController: AppointerDateSelectionSocketHourStackViewDelegate{
     func didCellSelected(id: String, slot: String) {
         viewModel?.setSelectedSocket(SelectedSocket(id: id, slot: slot))
         updateSocketViewsSelectedCell()
+    }
+}
+
+private extension AppointmentDataSelectionViewController{
+    @objc func buttonPressed(){
+        viewModel?.continueButtonEvent()
     }
 }

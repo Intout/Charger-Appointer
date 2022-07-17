@@ -244,11 +244,3 @@ extension StationsViewController{
         viewModel.didNavigationRequested(with: data)
     }
 }
-
-
-extension StationsViewController: StationsViewFilterCollectionHelperDelegate{
-    func didCellSelected(with cellData: any RawRepresentable) {
-        viewModel.removeFilterData(for: cellData)
-        
-    }
-}

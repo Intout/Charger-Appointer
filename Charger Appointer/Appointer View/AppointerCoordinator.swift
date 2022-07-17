@@ -37,7 +37,6 @@ class AppointerCoordinator: Coordinator{
         let  stationsCoordinator = StationCoordinator(navigationController: self.navigationController)
         stationsCoordinator.parentCoordinator = self
         self.childCoordinators.append(stationsCoordinator)
-        self.childCoordinators.count
         stationsCoordinator.start(credentials: credentials, location: location, for: cityName)
         
     }
@@ -45,11 +44,36 @@ class AppointerCoordinator: Coordinator{
     func goToDateSelectionView(with data: StationResponseElement, credentails: AuthenticationResponse){
         let viewController = AppointmentDataSelectionViewController()
         viewController.viewModel = AppointmentDateSelectionViewModel()
+        viewController.viewModel?.coordinator = self
         viewController.viewModel?.setStationData(data)
         viewController.viewModel?.setCredentials(credentails)
         navigationController?.pushViewController(viewController, animated: true)
     }
     
+    func goToAppointmentDetalsView(with selectedSocket: SelectedSocket, on stationData: StationResponseElement, at selectedDate: String, for credentials: AuthenticationResponse){
+        let viewController = AppointmetnDetailsViewController()
+        viewController.viewModel = AppointmentDetailsViewModel()
+        viewController.viewModel?.coordinator = self
+        viewController.viewModel.setSelectedSocket(selectedSocket)
+        viewController.viewModel.setSelectedDate(selectedDate)
+        viewController.viewModel.setCredentials(credentials)
+        viewController.viewModel.setStationData(stationData)
+        
+        navigationController?.pushViewController(viewController, animated: true)
+        
+    }
+    
+    func presentDateWarningScreen(vm: AppointmentDateSelectionViewModel){
+        let viewContoller = WarningViewController()
+        viewContoller.setTitleText(NSLocalizedString("invalidDate", comment: ""))
+        viewContoller.setDescriptionText(NSLocalizedString("invalidDateDesc", comment: ""))
+        viewContoller.setPrimaryButtonTitleText(NSLocalizedString("edit", comment: ""))
+        viewContoller.setSecondaryButtonTitleText(NSLocalizedString("selectToday", comment: ""))
+        viewContoller.modalPresentationStyle = .overCurrentContext
+        viewContoller.modalTransitionStyle = .crossDissolve
+        viewContoller.delegate = vm
+        navigationController!.present(viewContoller, animated: true, completion: nil)
+    }
 }
 
 extension Coordinator where Self: AppointerCoordinator{

@@ -10,6 +10,8 @@ import Foundation
 protocol AppointmentDateSelectionViewModelDelegate: AnyObject{
     func didDataFetch(_ data: [AppointmentSocket])
     func didDataFetchFailed(_ error: Error?)
+    func didDateEditSelected()
+    func didTodayDateSelected()
 }
 
 class AppointmentDateSelectionViewModel{
@@ -37,8 +39,14 @@ class AppointmentDateSelectionViewModel{
             dataModel.setSelectedDate(DateController().formatDateForCall(date))
             fetchData()
         } else {
+            (coordinator as! AppointerCoordinator).presentDateWarningScreen(vm: self)
             print("Date is not valid!")
         }
+    }
+    
+    private func setDateToToday(){
+        dataModel.setSelectedDate(DateController().getCurrentDateInCallFormat())
+        fetchData()
     }
     
 }
@@ -78,4 +86,25 @@ extension AppointmentDateSelectionViewModel{
     }
     
     
+}
+
+extension AppointmentDateSelectionViewModel{
+    func continueButtonEvent(){
+         
+         if getSelectedSocket() != nil && getStationData() != nil && getSelectedDate() != nil && getCredentials() != nil{
+             (coordinator as! AppointerCoordinator).goToAppointmentDetalsView(with: getSelectedSocket()!, on: getStationData()!, at: getSelectedDate()!, for: getCredentials()!)
+        }
+        
+        
+    }
+}
+
+extension AppointmentDateSelectionViewModel: WarningViewControllerDelegate{
+    func didPrimaryButtonSelected() {
+        delegate?.didDateEditSelected()
+    }
+    func didSecondaryButtonSelected() {
+        setDateToToday()
+        delegate?.didTodayDateSelected()
+    }
 }

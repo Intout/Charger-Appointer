@@ -64,5 +64,13 @@
 
 // Appointment Date Selection View
 "appointmentDateSelectionViewTitle" = "Choose Date and Hour";
-"appointmentDate" = "Randevu Tarihi";
-"socket" = "Soket";
+"appointmentDate" = "Appointment Date";
+"socket" = "Socket";
+"continue" = "Continue";
+
+"invalidDate" = "Invalid Date";
+"invalidDateDesc" = "You can't create appointment for past date";
+"edit" = "Edit";
+"selectToday" = "Select Today";
+// Appointment Details View
+"appointmentDetailsViewTitle" = "Appointment Details";

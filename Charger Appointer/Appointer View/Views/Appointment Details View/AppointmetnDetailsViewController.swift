@@ -1,0 +1,69 @@
+//
+//  AppointmetnDetailsViewController.swift
+//  Charger Appointer
+//
+//  Created by Mert Tecimen on 17.07.2022.
+//
+
+import UIKit
+
+class AppointmetnDetailsViewController: UIViewController {
+
+    fileprivate let containterView: UIView = {
+        let view = UIView()
+        view.translatesAutoresizingMaskIntoConstraints = false
+        view.backgroundColor = UIColor(white: 1, alpha: 0)
+        return view
+    }()
+    
+    fileprivate let containerScrollView: UIScrollView = {
+        let scrollView = UIScrollView()
+        scrollView.translatesAutoresizingMaskIntoConstraints = false
+        scrollView.backgroundColor = UIColor(white: 1, alpha: 0)
+        return scrollView
+    }()
+    
+    var viewModel: AppointmentDetailsViewModel!
+    
+    override func viewDidLoad() {
+        super.viewDidLoad()
+
+        setupUI()
+    }
+    
+    override func viewDidLayoutSubviews() {
+        super.viewDidLayoutSubviews()
+        containterView.applyGradient(with: [.gradientEnd, .dark], gradientOrientation: .vertical)
+        
+    }
+    
+    private func setupUI(){
+        self.navigationItem.title = NSLocalizedString("appointmentDetailsViewTitle", comment: "Title of view!")
+        self.navigationController?.navigationBar.titleTextAttributes = [.foregroundColor: UIColor.white, .font: UIFont(name: ApplicationFonts.regular.rawValue, size: 16)!]
+        view.backgroundColor = .charcoalGrey
+        
+        view.addSubview(containterView)
+        containterView.addSubview(containerScrollView)
+        
+        setupConstraints()
+    }
+    
+    private func setupConstraints(){
+        
+        NSLayoutConstraint.activate([
+            containterView.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor),
+            containterView.leadingAnchor.constraint(equalTo: view.leadingAnchor),
+            containterView.trailingAnchor.constraint(equalTo: view.trailingAnchor),
+            containterView.bottomAnchor.constraint(equalTo: view.bottomAnchor),
+        ])
+        
+        NSLayoutConstraint.activate([
+            containerScrollView.topAnchor.constraint(equalTo: containterView.topAnchor),
+            containerScrollView.leadingAnchor.constraint(equalTo: containterView.leadingAnchor),
+            containerScrollView.trailingAnchor.constraint(equalTo: containterView.trailingAnchor),
+            containerScrollView.bottomAnchor.constraint(equalTo: containterView.bottomAnchor),
+        ])
+        
+    }
+    
+}

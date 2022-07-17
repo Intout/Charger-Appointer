@@ -58,10 +58,11 @@ class AppointmentDateSelectionDatePickerView: UIStackView {
         fatalError("init(coder:) has not been implemented")
     }
     
-    override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
-        super.touchesBegan(touches, with: event)
-        print("Touched")
-        self.endEditing(true)
+    func updateDateToToday(){
+        let dateFormat = DateFormatter()
+        dateFormat.dateStyle = .long
+        dateFormat.timeStyle = .none
+        self.textDatePicker.text = dateFormat.string(from: Date.now)
     }
     
     @objc private func datePickerValueChanged(sender: UIDatePicker){
@@ -73,3 +74,5 @@ class AppointmentDateSelectionDatePickerView: UIStackView {
     
 
 }
+
+

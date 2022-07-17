@@ -62,5 +62,13 @@
 
 // Appointment Date Selection View
 "appointmentDateSelectionViewTitle" = "Tarih ve Saat Seçin";
-"appointmentDate" = "Appointment Date";
-"socket" = "Socket";
+"appointmentDate" = "Randevu Tarihi";
+"socket" = "Soket";
+"continue" = "Devam Et";
+
+"invalidDate" = "Geçersiz Tarih";
+"invalidDateDesc" = "Geçmiş bir tarihte randevu alamazsınız";
+"edit" = "Düzenle";
+"selectToday" = "Bugünü Seç";
+// Appointment Details View
+"appointmentDetailsViewTitle" = "Randevu Detayları";
