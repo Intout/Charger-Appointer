@@ -11,7 +11,7 @@ Applcations features are:
 ✅ RestAPI CRUD methods
 ✅ Regex
 
-Note: Commit after the deadline was for README file. Only missing feature in the app is reminder notification.
+Note: Commit after the deadline was for the README file. Only missing feature in the app is reminder notification.
 
 ## Method 
 
@@ -26,7 +26,7 @@ App Coordinator handles routing between Authenticaton and Main Coordinator. Main
 In this view user e-mail and device ID is posted to backend and fetches token for API calls. E-mail input from user is in regex control and if user enters email in wrong format there is a warning displayed.
 
 <p align="center">
-  <img src="./images/AuthScreen.png" alt="Authentication image from iOS app." width="300"/> 
+  <img src="./Images/AuthScreen.png" alt="Authentication image from iOS app." width="300"/> 
 </p>
 
 ### Appointed Stations View
