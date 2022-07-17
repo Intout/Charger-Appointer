@@ -40,9 +40,11 @@ class StationTableViewCell: UITableViewCell {
         return imageView
     }()
     
-    fileprivate lazy var deleteButton: UIButton = {
+    private(set) lazy var deleteButton: UIButton = {
         let button = UIButton()
         button.translatesAutoresizingMaskIntoConstraints = false
+        button.setImage(UIImage(systemName: "trash"), for: .normal)
+        button.tintColor = .lightGrey
         return button
     }()
     
@@ -71,6 +73,7 @@ class StationTableViewCell: UITableViewCell {
         containerView.addSubview(verticalStack)
         titleContainerView.addSubview(chargerImage)
         titleContainerView.addSubview(titleLabel)
+        titleContainerView.addSubview(deleteButton)
         
         verticalStack.addArrangedSubview(titleContainerView)
         
@@ -87,6 +90,11 @@ class StationTableViewCell: UITableViewCell {
             titleLabel.leadingAnchor.constraint(equalTo: chargerImage.trailingAnchor, constant: 10),
             titleLabel.topAnchor.constraint(equalTo: titleContainerView.topAnchor),
             titleLabel.bottomAnchor.constraint(equalTo: titleContainerView.bottomAnchor),
+            titleLabel.trailingAnchor.constraint(equalTo: deleteButton.leadingAnchor),
+            
+            deleteButton.trailingAnchor.constraint(equalTo: titleContainerView.trailingAnchor),
+            deleteButton.topAnchor.constraint(equalTo: titleContainerView.topAnchor),
+            deleteButton.bottomAnchor.constraint(equalTo: titleContainerView.bottomAnchor),
         ])
         
         NSLayoutConstraint.activate([

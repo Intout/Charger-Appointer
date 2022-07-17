@@ -87,6 +87,10 @@ extension AppointmentTableViewHelper: UITableViewDataSource{
         
         let cellData = data[indexPath.item]
         
+        if cellData.state == .passed{
+            cell.deleteButton.removeFromSuperview()
+        }
+        
         cell.titleLabel.text = cellData.stationName + ", " + cellData.province
         
         cell.dateLabel.text = cellData.date + ", " + cellData.time
